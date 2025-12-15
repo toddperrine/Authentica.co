@@ -3,296 +3,218 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Authentica</title>
-  <meta name="description" content="Authentica explores craft, place, meaning, and the quiet intelligence of lived experience." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Authentica" />
-  <meta property="og:description" content="Craft, place, meaning — and the quiet intelligence of lived experience." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://authentica.co/" />
-  <!-- If you add a share image later, set og:image to a full URL -->
-
-  <style>
-    :root{
-      --bg0:#07110d;
-      --bg1:#091812;
-      --bg2:#0b1f16;
-      --ink:#e7eadf;
-      --muted:rgba(231,234,223,.72);
-      --faint:rgba(231,234,223,.12);
-      --hair:rgba(231,234,223,.18);
-      --accent:rgba(231,234,223,.9);
-
-      --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Cormorant Garamond", Georgia, serif;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-    }
-
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      color:var(--ink);
-      background:
-        radial-gradient(1200px 600px at 50% 20%, rgba(20,70,45,.22), transparent 55%),
-        radial-gradient(900px 500px at 15% 70%, rgba(18,60,40,.18), transparent 55%),
-        linear-gradient(180deg, var(--bg0), var(--bg2));
-      font-family:var(--sans);
-      letter-spacing:.2px;
-    }
-
-    .wrap{
-      min-height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:64px 20px;
-    }
-
-    .card{
-      width:min(860px, 100%);
-      padding:56px 34px;
-      border:1px solid var(--hair);
-      border-radius:18px;
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      box-shadow:
-        0 40px 120px rgba(0,0,0,.35),
-        inset 0 1px 0 rgba(255,255,255,.05);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .card:before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(500px 220px at 50% 0%, rgba(231,234,223,.08), transparent 60%);
-      pointer-events:none;
-    }
-
-    header{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:18px;
-      text-align:center;
-    }
-
-    .logo{
-      width:min(340px, 68vw);
-      height:auto;
-      display:block;
-      filter: drop-shadow(0 10px 30px rgba(0,0,0,.35));
-      opacity:.98;
-      transform: translateY(0);
-      animation: rise 900ms ease-out both;
-    }
-
-    @keyframes rise{
-      from{ opacity:0; transform: translateY(10px); }
-      to{ opacity:.98; transform: translateY(0); }
-    }
-
-    .kicker{
-      font-family:var(--serif);
-      font-size:15px;
-      letter-spacing:.34em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-top:4px;
-    }
-
-    .headline{
-      font-family:var(--serif);
-      font-size: clamp(26px, 3.2vw, 38px);
-      line-height:1.15;
-      margin:10px 0 0;
-      font-weight:500;
-    }
-
-    .subhead{
-      max-width: 58ch;
-      margin:8px auto 0;
-      color:var(--muted);
-      font-size: 16px;
-      line-height:1.75;
-    }
-
-    .rule{
-      width:120px;
-      height:1px;
-      background: linear-gradient(90deg, transparent, var(--hair), transparent);
-      margin:28px auto;
-    }
-
-    main{
-      max-width: 66ch;
-      margin: 0 auto;
-      font-size: 16px;
-      line-height:1.9;
-      color: rgba(231,234,223,.86);
-      position:relative;
-    }
-
-    main p{
-      margin: 0 0 18px;
-    }
-
-    .lead{
-      font-family:var(--serif);
-      font-size: 18px;
-      line-height:1.85;
-      color: rgba(231,234,223,.92);
-    }
-
-    .callout{
-      margin: 22px 0 26px;
-      padding: 16px 18px;
-      border-left: 2px solid var(--hair);
-      background: rgba(255,255,255,.02);
-      border-radius: 10px;
-      color: rgba(231,234,223,.84);
-    }
-
-    .list{
-      margin: 18px 0 26px;
-      padding: 0;
-      list-style:none;
-      display:grid;
-      gap:10px;
-    }
-
-    .list li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      color: rgba(231,234,223,.84);
-    }
-
-    .dot{
-      width:6px;
-      height:6px;
-      border-radius:999px;
-      background: rgba(231,234,223,.55);
-      margin-top:11px;
-      flex:0 0 auto;
-      box-shadow: 0 0 0 3px rgba(231,234,223,.06);
-    }
-
-    .ctaRow{
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top: 26px;
-    }
-
-    a.button{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 11px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--hair);
-      text-decoration:none;
-      color: rgba(231,234,223,.90);
-      background: rgba(255,255,255,.02);
-      transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
-      font-size: 14px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-
-    a.button:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.04);
-      border-color: rgba(231,234,223,.28);
-    }
-
-    footer{
-      margin-top: 34px;
-      text-align:center;
-      color: rgba(231,234,223,.55);
-      font-size: 13px;
-      letter-spacing:.04em;
-    }
-
-    @media (max-width:520px){
-      .card{ padding:46px 22px; }
-      .kicker{ letter-spacing:.28em; }
-      .subhead{ font-size:15px; }
-      main{ font-size:15px; }
-      .lead{ font-size:16px; }
-    }
-  </style>
+  <title>AUTHENTICA™</title>
+  <meta name="description" content="A journal of place, craft, and enduring ideas." />
+  <link rel="stylesheet" href="/assets/style.css" />
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="card" role="document" aria-label="Authentica">
-      <header>
-        <img class="logo" src="authentica-logo.png" alt="Authentica logo" />
-        <div class="kicker">Craft • Place • Meaning</div>
-
-        <h1 class="headline">A studio for the quiet intelligence of lived experience.</h1>
-        <p class="subhead">
-          Authentica explores craft, place, meaning, and the small disciplines that make a life feel real.
-          We publish essays, reflections, and curated work shaped by travel, nature, food, and creative practice.
-        </p>
-      </header>
-
-      <div class="rule" aria-hidden="true"></div>
-
-      <main>
-        <p class="lead">
-          This project is an argument for slowness — not as a posture, but as a practice:
-          attention over noise, clarity over scale, and the patient accumulation of real things.
-        </p>
-
-        <p>
-          Modern life offers infinite options and very little orientation. Authentica is where we return
-          to what holds: the feel of a well-made object, the calibration of taste, the ethics of care,
-          and the way a place changes you when you let it.
-        </p>
-
-        <div class="callout">
-          We’re building a body of work that values craftsmanship, authenticity, and restraint —
-          with a bias toward what’s earned, not performed.
+  <div class="shell">
+    <div class="topbar">
+      <div class="nav">
+        <a class="brand" href="/">
+          <span class="brandMark" aria-hidden="true"></span>
+          <span class="brandText">Authentica<span class="tm">™</span></span>
+        </a>
+        <div class="navLinks" aria-label="Primary navigation">
+          <a href="/about.html">About</a>
+          <a href="/essays.html">Essays</a>
+          <a href="/contributors.html">Contributors</a>
+          <a href="/subscribe.html">Subscribe</a>
         </div>
+      </div>
+    </div>
 
-        <p><strong>What you’ll find here:</strong></p>
-        <ul class="list">
-          <li><span class="dot" aria-hidden="true"></span><span>Essays on craft, taste, and the architecture of attention.</span></li>
-          <li><span class="dot" aria-hidden="true"></span><span>Field notes from travel: restaurants, rituals, and the shape of a day.</span></li>
-          <li><span class="dot" aria-hidden="true"></span><span>Nature writing: weather, trees, animals, and how to look longer.</span></li>
-          <li><span class="dot" aria-hidden="true"></span><span>Curations: books, music, objects, and work that deserves time.</span></li>
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <img class="logo" src="/authentica-logo.png" alt="Authentica logo" />
+        <h1 class="masthead">AUTHENTICA<span style="opacity:.72;">™</span></h1>
+        <p class="deck">A journal of place, craft, and enduring ideas.</p>
+        <p class="deck" style="max-width:70ch;">
+          Essays and observations from writers, practitioners, and thinkers attentive to how life is actually lived.
+        </p>
+        <p class="kicker">Food • Travel • Work • Culture</p>
+      </section>
+
+      <div class="rule"></div>
+
+      <!-- Section 1 — What Authentica Is -->
+      <section class="narrow">
+        <h2 class="h2">About the Journal</h2>
+        <p class="p">
+          Authentica is an independent editorial publication devoted to attention, craft, and continuity.
+        </p>
+        <p class="p">
+          We publish essays and reflections from writers, chefs, designers, operators, and observers who share a commitment to thoughtful work and lived experience. Our focus is not novelty or trend, but substance—what holds up over time, and why.
+        </p>
+        <p class="p">
+          Authentica is not driven by speed or scale.<br/>
+          It exists to document and examine what endures.
+        </p>
+      </section>
+
+      <div class="rule"></div>
+
+      <!-- Section 2 — Editorial Point of View -->
+      <section class="narrow">
+        <h2 class="h2">Our Perspective</h2>
+        <p class="p">
+          The modern world rewards immediacy. Most media optimizes for reaction, visibility, and volume.
+        </p>
+        <p class="p"><strong>Authentica takes a different approach.</strong></p>
+
+        <p class="p" style="margin-bottom:8px;"><strong>We believe:</strong></p>
+        <ul class="beliefs">
+          <li><span class="dot" aria-hidden="true"></span><span>good food begins with restraint and ingredients</span></li>
+          <li><span class="dot" aria-hidden="true"></span><span>places reveal themselves slowly</span></li>
+          <li><span class="dot" aria-hidden="true"></span><span>work has dignity when done with care</span></li>
+          <li><span class="dot" aria-hidden="true"></span><span>attention is a form of respect</span></li>
         </ul>
 
-        <p>
-          For now, this is intentionally small. If you want to follow along, the simplest way is email.
+        <p class="p" style="margin-top:16px;">
+          Our work favors clarity over urgency, depth over reach, and experience over abstraction.
+        </p>
+      </section>
+
+      <div class="rule"></div>
+
+      <!-- Section 3 — What We Publish -->
+      <section class="narrow">
+        <h2 class="h2">What We Cover</h2>
+        <p class="p">
+          Authentica publishes original writing across a small number of enduring subjects:
         </p>
 
-        <div class="ctaRow">
-          <!-- Replace the email with whatever you want to use -->
-          <a class="button" href="mailto:hello@authentica.co">Email</a>
-          <!-- Create /notes and /writing later; these buttons can stay as placeholders -->
-          <a class="button" href="#" onclick="return false;">Notes (soon)</a>
-          <a class="button" href="#" onclick="return false;">Essays (soon)</a>
+        <div class="coverGrid" role="list">
+          <div class="coverItem" role="listitem">
+            <h3>Food and hospitality</h3>
+            <p>With an emphasis on craft.</p>
+          </div>
+          <div class="coverItem" role="listitem">
+            <h3>Travel and place</h3>
+            <p>Written from presence rather than itinerary.</p>
+          </div>
+          <div class="coverItem" role="listitem">
+            <h3>Work, vocation, making</h3>
+            <p>The culture of doing things well.</p>
+          </div>
+          <div class="coverItem" role="listitem">
+            <h3>Nature, movement</h3>
+            <p>Physical experience and the lived world.</p>
+          </div>
         </div>
-      </main>
 
-      <footer>
-        © <span id="year"></span> Authentica — crafted quietly.
-      </footer>
-    </div>
+        <p class="p" style="margin-top:16px;">
+          Essays and profiles are centered on practice, not personality.
+        </p>
+        <p class="p">
+          Pieces are edited with care and published when they are ready.
+        </p>
+      </section>
+
+      <div class="rule"></div>
+
+      <!-- Section 4 — Editorial Model -->
+      <section class="narrow">
+        <h2 class="h2">How We Work</h2>
+        <p class="p">
+          Authentica is not a blog, a guide, or a feed.
+        </p>
+        <p class="p">
+          We commission and curate work from contributors whose thinking is grounded in experience—people who have spent time doing the work they write about. Contributors include professionals and practitioners across disciplines, alongside writers whose work aligns with our editorial standards.
+        </p>
+        <p class="p">
+          Not every piece carries a byline that seeks attention.<br/>
+          The work itself is the focus.
+        </p>
+      </section>
+
+      <div class="rule"></div>
+
+      <!-- Section 5 — What We Don’t Do -->
+      <section class="narrow">
+        <h2 class="h2">What This Is Not</h2>
+        <p class="p">
+          Authentica does not chase trends or cycles.<br/>
+          We do not publish to satisfy algorithms.<br/>
+          We do not prioritize volume, virality, or constant output.
+        </p>
+        <p class="p">
+          We believe selectivity is a form of care.
+        </p>
+      </section>
+
+      <div class="rule"></div>
+
+      <!-- Section 6 — Readers & Community -->
+      <section class="narrow">
+        <h2 class="h2">For Readers</h2>
+        <p class="p" style="margin-bottom:8px;">
+          Authentica is for readers who value:
+        </p>
+        <ul class="beliefs">
+          <li><span class="dot" aria-hidden="true"></span><span>quality over quantity</span></li>
+          <li><span class="dot" aria-hidden="true"></span><span>lived experience over commentary</span></li>
+          <li><span class="dot" aria-hidden="true"></span><span>writing that respects their time</span></li>
+        </ul>
+        <p class="p" style="margin-top:16px;">
+          We assume curiosity, patience, and discernment.
+        </p>
+      </section>
+
+      <div class="rule"></div>
+
+      <!-- Section 7 — Subscribe -->
+      <section class="narrow panel">
+        <div class="sectionHead">
+          <h2 class="h2" style="margin:0;">Stay Connected</h2>
+          <a href="/subscribe.html">Subscribe</a>
+        </div>
+        <p class="p">
+          New work is published periodically and shared directly with subscribers.
+        </p>
+        <p class="p" style="margin-bottom:10px;">
+          No schedules. No incentives.<br/>
+          Only finished pieces worth reading.
+        </p>
+
+        <!-- Placeholder form (no backend) -->
+        <form data-subscribe-form class="subscribeRow" aria-label="Subscribe to Authentica">
+          <input class="input" type="email" placeholder="Email address" autocomplete="email" />
+          <button class="button" type="submit">Subscribe</button>
+          <span data-subscribe-msg style="color:rgba(231,234,223,.65); font-size:13px;"></span>
+        </form>
+      </section>
+
+      <div class="rule"></div>
+
+      <!-- Featured Essays (optional front-cover feel) -->
+      <section class="narrow">
+        <div class="sectionHead">
+          <h2 class="h2" style="margin:0;">Featured Essays</h2>
+          <a href="/essays.html">View all</a>
+        </div>
+        <div class="essayList">
+          <div class="essayItem">
+            <h3 class="essayTitle"><a href="/essays/the-journal-of-attention.html">The Journal of Attention</a></h3>
+            <div class="meta">
+              <span>Contributors</span><span>—</span><span>Perspective</span><span>—</span><span>2025</span>
+            </div>
+          </div>
+          <!-- Add 2–4 more items as you publish -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footerInner">
+        <div class="footerLeft">AUTHENTICA<span style="opacity:.7;">™</span><br/><span style="opacity:.75; letter-spacing:.06em; font-family:var(--sans);">An independent editorial publication.</span></div>
+        <div class="footerRight">© <span data-year></span> Authentica. All rights reserved.</div>
+      </div>
+    </footer>
   </div>
 
-  <script>
-    // small, harmless enhancement
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script src="/assets/site.js"></script>
 </body>
 </html>
