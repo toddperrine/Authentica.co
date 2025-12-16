@@ -5,18 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Authentica™ — A Journal of Place, Craft, and Enduring Ideas</title>
-  <meta name="description" content="Authentica is an independent editorial journal devoted to attention, craft, and continuity." />
 
-  <!-- Styles -->
+  <meta name="description"
+        content="Authentica is an independent journal devoted to attention, craft, and continuity—publishing essays on food, travel, work, and culture." />
+
+  <!-- CSS -->
   <link rel="stylesheet" href="/assets/style.css" />
+
+  <!-- Favicon (can refine later) -->
+  <link rel="icon" href="/authentica-logo.png" />
 </head>
 
 <body>
+
+  <!-- ===============================
+       Intro overlay (logo dissolve)
+       =============================== -->
+  <div class="intro" data-intro aria-hidden="false">
+    <div class="introInner">
+      <img
+        src="/authentica-logo.png"
+        alt="Authentica"
+        class="introLogo"
+      />
+    </div>
+  </div>
+
+  <!-- ===============================
+       Site shell
+       =============================== -->
   <div class="shell">
 
-    <!-- Top Navigation -->
-    <div class="topbar">
-      <div class="nav">
+    <!-- Top navigation -->
+    <header class="topbar">
+      <nav class="nav">
+
+        <!-- Brand -->
         <a class="brand" href="/" aria-label="Authentica home">
           <img
             src="/authentica-logo.png"
@@ -24,96 +48,90 @@
             class="brandLogo"
             aria-hidden="true"
           />
-          <span class="brandText">Authentica<span class="tm">™</span></span>
+          <span class="brandText">
+            Authentica<span class="tm">™</span>
+          </span>
         </a>
 
-        <div class="navLinks">
+        <!-- Nav links -->
+        <div class="navlinks">
           <a href="/about/">About</a>
           <a href="/essays/">Essays</a>
           <a href="/contributors/">Contributors</a>
           <a href="/subscribe/">Subscribe</a>
         </div>
-      </div>
-    </div>
 
+      </nav>
+    </header>
+
+    <!-- ===============================
+         Main content
+         =============================== -->
     <main>
 
       <!-- Hero -->
-      <section class="hero">
-        <p class="kicker">A journal of place, craft, and enduring ideas</p>
+      <section class="hero narrow">
+        <p class="eyebrow">
+          A journal of place, craft, and enduring ideas
+        </p>
 
-        <h1 class="masthead">
+        <h1 class="headline">
           Attention, craft, continuity.
         </h1>
 
-        <p class="deck">
+        <p class="dek">
           Essays and observations from writers, practitioners, and thinkers
           attentive to how life is actually lived.
         </p>
 
-        <div class="heroActions">
-          <a class="button" href="/essays/">Read essays</a>
-          <a class="button ghost" href="/subscribe/">Subscribe</a>
+        <div class="ctaRow">
+          <a href="/essays/" class="button primary">Read Essays</a>
+          <a href="/subscribe/" class="button ghost">Subscribe</a>
         </div>
 
-        <p class="meta">
+        <p class="topics">
           Food · Travel · Work · Culture
         </p>
       </section>
 
-      <div class="rule"></div>
+      <!-- Divider -->
+      <hr class="hairline" />
 
       <!-- Featured -->
-      <section class="narrow">
-        <div class="sectionHead">
-          <h2 class="h2">Featured</h2>
-          <a href="/essays/">View all</a>
-        </div>
+      <section class="section narrow">
+        <header class="sectionHeader">
+          <h2>Featured</h2>
+          <a href="/essays/" class="viewAll">View all</a>
+        </header>
 
-        <div class="essayList">
+        <div class="list">
 
-          <article class="essayItem">
-            <h3 class="essayTitle">
+          <article class="item">
+            <h3>
               <a href="/essays/the-journal-of-attention.html">
                 The Journal of Attention
               </a>
             </h3>
-            <p class="deck">
+            <p>
               A publication should feel like a place: deliberate, edited, and calm.
             </p>
-            <div class="meta">
-              Perspective · 2025
-            </div>
+            <span class="meta">Perspective · 2025</span>
           </article>
 
-          <article class="essayItem">
-            <h3 class="essayTitle">On restraint</h3>
-            <p class="deck">
+          <article class="item">
+            <h3>On restraint</h3>
+            <p>
               Good food begins with ingredients, then subtraction.
             </p>
-            <div class="meta">
-              Food · Forthcoming
-            </div>
+            <span class="meta">Food · Forthcoming</span>
           </article>
 
-          <article class="essayItem">
-            <h3 class="essayTitle">Work done with care</h3>
-            <p class="deck">
+          <article class="item">
+            <h3>Work done with care</h3>
+            <p>
               Dignity lives in the details most people skip.
             </p>
-            <div class="meta">
-              Work · Forthcoming
-            </div>
-          </article>
-
-          <article class="essayItem">
-            <h3 class="essayTitle">Place, slowly</h3>
-            <p class="deck">
-              Travel written from presence rather than itinerary.
-            </p>
-            <div class="meta">
-              Travel · Forthcoming
-            </div>
+            <span class="meta">Work · Forthcoming</span>
           </article>
 
         </div>
@@ -122,22 +140,21 @@
     </main>
 
     <!-- Footer -->
-    <footer>
-      <div class="footerInner">
-        <div class="footerLeft">
-          Authentica<span class="tm">™</span><br/>
-          <span class="muted">An independent editorial publication.</span>
-        </div>
-        <div class="footerRight">
-          © <span data-year></span> Authentica
-        </div>
-      </div>
+    <footer class="footer narrow">
+      <p>
+        © <span id="year"></span> Authentica™
+      </p>
     </footer>
 
   </div>
 
-  <!-- Scripts -->
+  <!-- JS -->
   <script src="/assets/site.js"></script>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
-
