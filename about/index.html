@@ -1,15 +1,15 @@
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Page-specific -->
   <title>About — Authentica™</title>
   <meta
     name="description"
     content="About Authentica — an independent editorial journal devoted to attention, craft, and continuity."
   />
 
-  <!-- Styles -->
   <link rel="stylesheet" href="/assets/style.css" />
 
   <!-- Favicons -->
@@ -20,18 +20,87 @@
 
   <!-- Open Graph / Social -->
   <meta property="og:title" content="Authentica™">
-  <meta
-    property="og:description"
-    content="A journal of place, craft, and enduring ideas."
-  />
+  <meta property="og:description" content="A journal of place, craft, and enduring ideas.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://authentica.co/">
-  <meta
-    property="og:image"
-    content="https://authentica.co/assets/og-authentica.jpg"
-  />
+  <meta property="og:image" content="https://authentica.co/assets/og-authentica.jpg">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
 </head>
+
+<body>
+  <div class="shell">
+
+    <header class="topbar">
+      <nav class="nav">
+        <a class="brand" href="/" aria-label="Authentica home">
+          <img src="/authentica-logo.png" alt="" class="brandLogo" aria-hidden="true" />
+          <span class="brandText">Authentica<span class="tm">™</span></span>
+        </a>
+
+        <div class="navlinks">
+          <a href="/about/" data-nav>About</a>
+          <a href="/essays/" data-nav>Essays</a>
+          <a href="/contributors/" data-nav>Contributors</a>
+          <a href="/subscribe/" data-nav>Subscribe</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="narrow prose">
+        <div class="kicker">About the Journal</div>
+        <h1 class="pageTitle">Authentica is an independent editorial publication devoted to attention, craft, and continuity.</h1>
+
+        <p class="lead">
+          We publish essays and reflections from writers, chefs, designers, operators, and observers
+          who share a commitment to thoughtful work and lived experience.
+        </p>
+
+        <p>
+          Our focus is not novelty or trend, but substance—what holds up over time, and why.
+          Authentica is not driven by speed or scale. It exists to document and examine what endures.
+        </p>
+
+        <hr>
+
+        <div class="kicker">Our Perspective</div>
+        <p>
+          The modern world rewards immediacy. Most media optimizes for reaction, visibility, and volume.
+          Authentica takes a different approach.
+        </p>
+
+        <ul class="bullets">
+          <li>Good food begins with restraint and ingredients.</li>
+          <li>Places reveal themselves slowly.</li>
+          <li>Work has dignity when done with care.</li>
+          <li>Attention is a form of respect.</li>
+        </ul>
+
+        <hr>
+
+        <div class="kicker">How We Work</div>
+        <p>
+          Authentica is not a blog, a guide, or a feed. We commission and curate work from contributors
+          whose thinking is grounded in experience—people who have spent time doing the work they write about.
+        </p>
+
+        <p>
+          Not every piece carries a byline that seeks attention. The work itself is the focus.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Authentica™ — An independent editorial publication.</p>
+    </footer>
+
+  </div>
+
+  <script src="/assets/site.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
