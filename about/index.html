@@ -1,91 +1,37 @@
-<!doctype html>
-<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Page-specific -->
   <title>About — Authentica™</title>
+  <meta
+    name="description"
+    content="About Authentica — an independent editorial journal devoted to attention, craft, and continuity."
+  />
 
-  <meta name="description"
-        content="About Authentica — an independent editorial journal devoted to attention, craft, and continuity." />
-
+  <!-- Styles -->
   <link rel="stylesheet" href="/assets/style.css" />
-  <link rel="icon" href="/authentica-logo.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Authentica™">
+  <meta
+    property="og:description"
+    content="A journal of place, craft, and enduring ideas."
+  />
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://authentica.co/">
+  <meta
+    property="og:image"
+    content="https://authentica.co/assets/og-authentica.jpg"
+  />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body>
-
-  <div class="shell">
-
-    <!-- Top navigation (same as homepage) -->
-    <header class="topbar">
-      <nav class="nav">
-
-        <a class="brand" href="/" aria-label="Authentica home">
-          <img
-            src="/authentica-logo.png"
-            alt=""
-            class="brandLogo"
-            aria-hidden="true"
-          />
-          <span class="brandText">
-            Authentica<span class="tm">™</span>
-          </span>
-        </a>
-
-        <div class="navlinks">
-          <a href="/about/" aria-current="page">About</a>
-          <a href="/essays/">Essays</a>
-          <a href="/contributors/">Contributors</a>
-          <a href="/subscribe/">Subscribe</a>
-        </div>
-
-      </nav>
-    </header>
-
-    <!-- Page content -->
-    <main>
-
-      <section class="narrow">
-        <h1 class="pageTitle">About Authentica</h1>
-
-        <p class="lead">
-          Authentica is an independent editorial journal devoted to attention,
-          craft, and continuity.
-        </p>
-
-        <p>
-          We publish essays and reflections from writers, chefs, designers,
-          operators, and observers who share a commitment to thoughtful work
-          and lived experience.
-        </p>
-
-        <p>
-          Our focus is not novelty or trend, but substance — what holds up over
-          time, and why.
-        </p>
-
-        <p>
-          Authentica is not driven by speed or scale. It exists to document and
-          examine what endures.
-        </p>
-      </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer narrow">
-      <p>
-        © <span id="year"></span> Authentica™
-      </p>
-    </footer>
-
-  </div>
-
-  <script>
-    document.getElementById('year').textContent =
-      new Date().getFullYear();
-  </script>
-
-</body>
-</html>
