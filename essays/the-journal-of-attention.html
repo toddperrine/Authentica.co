@@ -3,79 +3,117 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Journal of Attention — AUTHENTICA™</title>
-  <meta name="description" content="An essay on why attention is a form of respect, and why clarity outlasts urgency." />
+
+  <!-- Page-specific -->
+  <title>The Journal of Attention — Authentica™</title>
+  <meta
+    name="description"
+    content="An essay on why attention is a form of respect, and why clarity outlasts urgency."
+  />
+
+  <!-- Styles -->
   <link rel="stylesheet" href="/assets/style.css" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Journal of Attention — Authentica™">
+  <meta property="og:description" content="An essay on why attention is a form of respect, and why clarity outlasts urgency.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://authentica.co/essays/the-journal-of-attention/">
+  <meta property="og:image" content="https://authentica.co/assets/og-authentica.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body>
   <div class="shell">
-    <div class="topbar">
-      <div class="nav">
-        <a class="brand" href="/"><span class="brandMark"></span><span class="brandText">Authentica<span class="tm">™</span></span></a>
-        <div class="navLinks">
-          <a href="/about.html">About</a>
-          <a href="/essays.html">Essays</a>
-          <a href="/contributors.html">Contributors</a>
-          <a href="/subscribe.html">Subscribe</a>
-        </div>
-      </div>
-    </div>
 
+    <!-- Top Navigation -->
+    <header class="topbar">
+      <nav class="nav">
+        <a class="brand" href="/" aria-label="Authentica home">
+          <img src="/authentica-logo.png" alt="" class="brandLogo" aria-hidden="true" />
+          <span class="brandText">Authentica<span class="tm">™</span></span>
+        </a>
+
+        <div class="navlinks">
+          <a href="/about/" data-nav>About</a>
+          <a href="/essays/" data-nav>Essays</a>
+          <a href="/contributors/" data-nav>Contributors</a>
+          <a href="/subscribe/" data-nav>Subscribe</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Article -->
     <main>
-      <section class="narrow">
-        <div class="meta" style="margin-bottom:10px;">
-          <span>Perspective</span><span>—</span><span>2025</span>
-        </div>
 
-        <h1 class="articleTitle">The Journal of Attention</h1>
-        <p class="articleDeck">
-          A short editorial note on why restraint matters, why places reveal themselves slowly,
-          and why work earns dignity through care.
+      <header class="articleHeader">
+        <div class="narrow">
+          <div class="articleMeta">Perspective — 2025</div>
+          <h1 class="articleTitle">The Journal of Attention</h1>
+          <p class="lead" style="margin-top: 14px;">
+            A short editorial note on why restraint matters, why places reveal themselves slowly,
+            and why work earns dignity through care.
+          </p>
+        </div>
+      </header>
+
+      <section class="narrow prose">
+        <p>
+          <strong>Authentica exists as a counterweight to speed.</strong> Not as nostalgia, and not as
+          resistance for its own sake, but because attention changes what is visible. Many things that
+          matter are not discoverable at a glance.
         </p>
 
-        <div class="rule"></div>
+        <div class="pullquote">
+          Attention is a form of respect. It is also a form of honesty: the willingness to stay with what is real long enough to learn it.
+        </div>
 
-        <article class="articleBody">
-          <p>
-            Authentica exists as a counterweight to speed. Not as nostalgia, and not as resistance for its own sake,
-            but because attention changes what is visible. Many things that matter are not discoverable at a glance.
-          </p>
+        <p>
+          Good food begins with restraint and ingredients. Places reveal themselves slowly. Work has dignity
+          when done with care. These are not slogans. They are observations that hold up across disciplines—
+          kitchens, studios, fields, shops, trails.
+        </p>
 
-          <div class="pull">
-            Attention is a form of respect. It is also a form of honesty: the willingness to stay with what is real long enough to learn it.
-          </div>
+        <p>
+          We publish when pieces are ready. Not when the schedule demands it. Not when an algorithm rewards it.
+          The work is the focus. The reader’s time is respected.
+        </p>
 
-          <p>
-            Good food begins with restraint and ingredients. Places reveal themselves slowly. Work has dignity when done with care.
-            These are not slogans. They are observations that hold up across disciplines—kitchens, studios, fields, shops, trails.
-          </p>
+        <hr>
 
-          <p>
-            We publish when pieces are ready. Not when the schedule demands it. Not when an algorithm rewards it.
-            The work is the focus. The readers’ time is respected.
-          </p>
-
-          <div class="rule"></div>
-
-          <div class="panel">
-            <p class="p" style="margin:0;">
+        <div class="panel">
+          <div class="panelInner">
+            <p style="margin:0; color: rgba(231,234,223,.78);">
               New work is shared directly with subscribers—quietly, periodically, and without incentives.
-              <a class="smallLink" href="/subscribe.html">Subscribe</a>.
+              <a href="/subscribe/">Subscribe</a>.
             </p>
           </div>
-        </article>
+        </div>
+
       </section>
+
     </main>
 
-    <footer>
-      <div class="footerInner">
-        <div class="footerLeft">AUTHENTICA<span style="opacity:.7;">™</span><br/><span style="opacity:.75; letter-spacing:.06em; font-family:var(--sans);">An independent editorial publication.</span></div>
-        <div class="footerRight">© <span data-year></span> Authentica. All rights reserved.</div>
-      </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        © <span id="year"></span> Authentica™ — An independent editorial publication.
+      </p>
     </footer>
+
   </div>
 
   <script src="/assets/site.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
