@@ -54,10 +54,18 @@ body{
   gap:18px;
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandLogo {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
   text-decoration:none;
   color:var(--ink);
 }
