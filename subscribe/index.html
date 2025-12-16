@@ -3,59 +3,107 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Subscribe — AUTHENTICA™</title>
-  <meta name="description" content="New work is published when it is ready and shared directly with subscribers." />
+
+  <!-- Page-specific -->
+  <title>Subscribe — Authentica™</title>
+  <meta
+    name="description"
+    content="New work is published when it is ready and shared directly with subscribers."
+  />
+
+  <!-- Styles -->
   <link rel="stylesheet" href="/assets/style.css" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Subscribe — Authentica™">
+  <meta property="og:description" content="New work is published when ready and shared directly with subscribers.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://authentica.co/subscribe/">
+  <meta property="og:image" content="https://authentica.co/assets/og-authentica.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body>
   <div class="shell">
-    <div class="topbar">
-      <div class="nav">
-        <a class="brand" href="/"><span class="brandMark"></span><span class="brandText">Authentica<span class="tm">™</span></span></a>
-        <div class="navLinks">
-          <a href="/about.html">About</a>
-          <a href="/essays.html">Essays</a>
-          <a href="/contributors.html">Contributors</a>
-          <a href="/subscribe.html">Subscribe</a>
+
+    <!-- Top Navigation -->
+    <header class="topbar">
+      <nav class="nav">
+        <a class="brand" href="/" aria-label="Authentica home">
+          <img src="/authentica-logo.png" alt="" class="brandLogo" aria-hidden="true" />
+          <span class="brandText">Authentica<span class="tm">™</span></span>
+        </a>
+
+        <div class="navlinks">
+          <a href="/about/" data-nav>About</a>
+          <a href="/essays/" data-nav>Essays</a>
+          <a href="/contributors/" data-nav>Contributors</a>
+          <a href="/subscribe/" data-nav>Subscribe</a>
         </div>
-      </div>
-    </div>
+      </nav>
+    </header>
 
+    <!-- Page Content -->
     <main>
-      <section class="narrow">
-        <h1 class="masthead" style="font-size:44px;">Subscribe</h1>
-        <p class="deck" style="max-width:72ch;">
-          New work is published when it is ready and shared directly with subscribers.
+      <section class="narrow prose">
+        <div class="kicker">Subscribe</div>
+        <h1 class="pageTitle">
+          New work, shared when it’s ready.
+        </h1>
+
+        <p class="lead">
+          Authentica publishes quietly and deliberately. There are no schedules,
+          incentives, or campaigns—only finished pieces worth reading.
         </p>
 
-        <div class="rule"></div>
+        <hr>
 
-        <p class="p">
-          No schedules. No incentives.<br/>
-          Only finished pieces worth reading.
-        </p>
-
-        <form data-subscribe-form class="subscribeRow" aria-label="Subscribe to Authentica">
-          <input class="input" type="email" placeholder="Email address" autocomplete="email" />
-          <button class="button" type="submit">Subscribe</button>
-          <span data-subscribe-msg style="color:rgba(231,234,223,.65); font-size:13px;"></span>
+        <form
+          class="form"
+          data-subscribe-form
+          aria-label="Subscribe to Authentica"
+        >
+          <input
+            class="input"
+            type="email"
+            name="email"
+            placeholder="Email address"
+            autocomplete="email"
+            required
+          />
+          <button class="button" type="submit">
+            Subscribe
+          </button>
         </form>
 
-        <p class="p" style="margin-top:16px; color:rgba(231,234,223,.72); font-size:14px;">
-          Privacy: your email is used only to send new work. (When you connect a provider, this will become functional.)
+        <p style="margin-top: 14px; font-size: 14px; color: rgba(231,234,223,.72);">
+          Privacy respected. Your email is used only to share new work.
+          (Subscriptions will open shortly.)
         </p>
       </section>
     </main>
 
-    <footer>
-      <div class="footerInner">
-        <div class="footerLeft">AUTHENTICA<span style="opacity:.7;">™</span><br/><span style="opacity:.75; letter-spacing:.06em; font-family:var(--sans);">An independent editorial publication.</span></div>
-        <div class="footerRight">© <span data-year></span> Authentica. All rights reserved.</div>
-      </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        © <span id="year"></span> Authentica™ — An independent editorial publication.
+      </p>
     </footer>
+
   </div>
 
   <script src="/assets/site.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
