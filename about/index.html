@@ -4,10 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>About — Authentica™</title>
+  <!-- Page-specific -->
+  <title>Authentica™ — A journal of place, craft, and enduring ideas.</title>
   <meta
     name="description"
-    content="About Authentica — an independent editorial journal devoted to attention, craft, and continuity."
+    content="Authentica is an independent editorial journal devoted to place, craft, and enduring ideas."
   />
 
   <link rel="stylesheet" href="/assets/style.css" />
@@ -18,7 +19,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
-  <!-- Open Graph / Social -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Authentica™">
   <meta property="og:description" content="A journal of place, craft, and enduring ideas.">
   <meta property="og:type" content="website">
@@ -31,11 +32,19 @@
 <body>
   <div class="shell">
 
+    <!-- Top Navigation -->
     <header class="topbar">
       <nav class="nav">
         <a class="brand" href="/" aria-label="Authentica home">
-          <img src="/authentica-logo.png" alt="" class="brandLogo" aria-hidden="true" />
-          <span class="brandText">Authentica<span class="tm">™</span></span>
+          <img
+            src="/authentica-logo.png"
+            alt=""
+            class="brandLogo"
+            aria-hidden="true"
+          />
+          <span class="brandText">
+            Authentica<span class="tm">™</span>
+          </span>
         </a>
 
         <div class="navlinks">
@@ -47,52 +56,46 @@
       </nav>
     </header>
 
+    <!-- HERO -->
     <main>
+      <section class="hero">
+        <img
+          src="/authentica-logo.png"
+          alt="Authentica"
+          class="heroLogo"
+        />
+
+        <p class="heroTagline">
+          A journal of place, craft, and enduring ideas.
+        </p>
+      </section>
+
+      <!-- Editorial introduction (below the fold) -->
       <section class="narrow prose">
-        <div class="kicker">About the Journal</div>
-        <h1 class="pageTitle">Authentica is an independent editorial publication devoted to attention, craft, and continuity.</h1>
-
         <p class="lead">
-          We publish essays and reflections from writers, chefs, designers, operators, and observers
-          who share a commitment to thoughtful work and lived experience.
+          Authentica is an independent editorial publication devoted to attention,
+          craft, and continuity.
         </p>
 
         <p>
-          Our focus is not novelty or trend, but substance—what holds up over time, and why.
-          Authentica is not driven by speed or scale. It exists to document and examine what endures.
-        </p>
-
-        <hr>
-
-        <div class="kicker">Our Perspective</div>
-        <p>
-          The modern world rewards immediacy. Most media optimizes for reaction, visibility, and volume.
-          Authentica takes a different approach.
-        </p>
-
-        <ul class="bullets">
-          <li>Good food begins with restraint and ingredients.</li>
-          <li>Places reveal themselves slowly.</li>
-          <li>Work has dignity when done with care.</li>
-          <li>Attention is a form of respect.</li>
-        </ul>
-
-        <hr>
-
-        <div class="kicker">How We Work</div>
-        <p>
-          Authentica is not a blog, a guide, or a feed. We commission and curate work from contributors
-          whose thinking is grounded in experience—people who have spent time doing the work they write about.
+          We publish essays and reflections from writers, chefs, designers,
+          operators, and observers who share a commitment to thoughtful work
+          and lived experience.
         </p>
 
         <p>
-          Not every piece carries a byline that seeks attention. The work itself is the focus.
+          Our focus is not novelty or trend, but substance—what holds up over
+          time, and why. Authentica is not driven by speed or scale.
+          It exists to document and examine what endures.
         </p>
       </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
-      <p>© <span id="year"></span> Authentica™ — An independent editorial publication.</p>
+      <p>
+        © <span id="year"></span> Authentica™ — An independent editorial publication.
+      </p>
     </footer>
 
   </div>
@@ -103,4 +106,3 @@
   </script>
 </body>
 </html>
-
