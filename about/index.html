@@ -3,72 +3,89 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — AUTHENTICA™</title>
-  <meta name="description" content="About Authentica — an independent editorial publication focused on place, craft, and enduring ideas." />
+
+  <title>About — Authentica™</title>
+
+  <meta name="description"
+        content="About Authentica — an independent editorial journal devoted to attention, craft, and continuity." />
+
   <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="icon" href="/authentica-logo.png" />
 </head>
 
 <body>
+
   <div class="shell">
-    <div class="topbar">
-      <div class="nav">
+
+    <!-- Top navigation (same as homepage) -->
+    <header class="topbar">
+      <nav class="nav">
+
         <a class="brand" href="/" aria-label="Authentica home">
-  <img
-    src="/authentica-logo.png"
-    alt=""
-    class="brandLogo"
-    aria-hidden="true"
-  />
-  <span class="brandText">Authentica<span class="tm">™</span></span>
-</a>
+          <img
+            src="/authentica-logo.png"
+            alt=""
+            class="brandLogo"
+            aria-hidden="true"
+          />
+          <span class="brandText">
+            Authentica<span class="tm">™</span>
+          </span>
+        </a>
 
-        <div class="navLinks">
-          <a href="/about.html">About</a>
-          <a href="/essays.html">Essays</a>
-          <a href="/contributors.html">Contributors</a>
-          <a href="/subscribe.html">Subscribe</a>
+        <div class="navlinks">
+          <a href="/about/" aria-current="page">About</a>
+          <a href="/essays/">Essays</a>
+          <a href="/contributors/">Contributors</a>
+          <a href="/subscribe/">Subscribe</a>
         </div>
-      </div>
-    </div>
 
+      </nav>
+    </header>
+
+    <!-- Page content -->
     <main>
+
       <section class="narrow">
-        <h1 class="masthead" style="font-size:44px;">About Authentica</h1>
-        <p class="deck" style="max-width:72ch;">
-          Authentica is an independent editorial publication focused on place, craft, and enduring ideas.
-          We publish original essays and reflections from multiple contributors whose work is grounded in lived experience.
+        <h1 class="pageTitle">About Authentica</h1>
+
+        <p class="lead">
+          Authentica is an independent editorial journal devoted to attention,
+          craft, and continuity.
         </p>
 
-        <div class="rule"></div>
-
-        <h2 class="h2">Editorial standards</h2>
-        <p class="p">
-          Authentica prioritizes editorial care, selectivity, and depth over speed or scale.
-          Pieces are edited with care and published when they are ready.
+        <p>
+          We publish essays and reflections from writers, chefs, designers,
+          operators, and observers who share a commitment to thoughtful work
+          and lived experience.
         </p>
 
-        <h2 class="h2">Point of view</h2>
-        <p class="p">
-          We favor clarity over urgency, depth over reach, and experience over abstraction.
-          The work is the focus.
+        <p>
+          Our focus is not novelty or trend, but substance — what holds up over
+          time, and why.
         </p>
 
-        <div class="panel" style="margin-top:18px;">
-          <p class="p" style="margin:0;">
-            Authentica is not a blog, a guide, or a feed. It exists to document and examine what endures.
-          </p>
-        </div>
+        <p>
+          Authentica is not driven by speed or scale. It exists to document and
+          examine what endures.
+        </p>
       </section>
+
     </main>
 
-    <footer>
-      <div class="footerInner">
-        <div class="footerLeft">AUTHENTICA<span style="opacity:.7;">™</span><br/><span style="opacity:.75; letter-spacing:.06em; font-family:var(--sans);">An independent editorial publication.</span></div>
-        <div class="footerRight">© <span data-year></span> Authentica. All rights reserved.</div>
-      </div>
+    <!-- Footer -->
+    <footer class="footer narrow">
+      <p>
+        © <span id="year"></span> Authentica™
+      </p>
     </footer>
+
   </div>
 
-  <script src="/assets/site.js"></script>
+  <script>
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+  </script>
+
 </body>
 </html>
