@@ -31,16 +31,16 @@ body{
     linear-gradient(180deg, var(--bg0), var(--bg2));
   font-family:var(--sans);
   letter-spacing:.02em;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 
 img{ max-width:100%; height:auto; display:block; }
 a{ color:inherit; }
 
 /* ===============================
-Layout Shell
+Layout
 =============================== */
 
 .shell{
@@ -66,8 +66,8 @@ Top Bar / Navigation
   position:sticky;
   top:0;
   z-index:10;
-  backdrop-filter: blur(8px);
-  background: linear-gradient(180deg, rgba(7,17,13,.88), rgba(7,17,13,.62));
+  backdrop-filter:blur(8px);
+  background:linear-gradient(180deg, rgba(7,17,13,.88), rgba(7,17,13,.62));
   border-bottom:1px solid var(--hair);
 }
 
@@ -82,7 +82,7 @@ Top Bar / Navigation
 }
 
 /* ===============================
-Brand (Logo + Wordmark)
+Brand
 =============================== */
 
 .brand{
@@ -90,10 +90,8 @@ Brand (Logo + Wordmark)
   align-items:center;
   gap:12px;
   text-decoration:none;
-  color:inherit;
 }
 
-/* header logo size */
 .brandLogo{
   height:42px;
   width:auto;
@@ -126,229 +124,146 @@ Nav Links
 
 .navlinks a{
   text-decoration:none;
-  color: var(--muted);
-  font-size: 13px;
-  letter-spacing: .10em;
-  text-transform: uppercase;
-  padding: 10px 10px;
-  border-radius: 10px;
-  transition: color .18s ease, background .18s ease;
+  color:var(--muted);
+  font-size:13px;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  padding:10px 10px;
+  border-radius:10px;
+  transition:color .18s ease, background .18s ease, opacity .18s ease;
 }
 
 .navlinks a:hover{
-  color: var(--ink);
-  background: rgba(255,255,255,.04);
+  color:var(--ink);
+  background:rgba(255,255,255,.04);
 }
 
 .navlinks a[aria-current="page"]{
-  color: var(--ink);
-  background: rgba(255,255,255,.06);
-  border: 1px solid var(--hair);
+  color:var(--ink);
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--hair);
 }
 
 /* ===============================
-Typography Helpers
+Typography
 =============================== */
 
 .kicker{
-  font-size: 12px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: rgba(231,234,223,.54);
-  margin: 0 0 10px;
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(231,234,223,.54);
+  margin:0 0 10px;
 }
 
 .pageTitle{
-  font-family: var(--serif);
-  font-weight: 600;
-  letter-spacing: .02em;
-  font-size: clamp(30px, 4vw, 44px);
-  line-height: 1.18;
-  margin: 0 0 18px;
+  font-family:var(--serif);
+  font-weight:600;
+  letter-spacing:.02em;
+  font-size:clamp(30px,4vw,44px);
+  line-height:1.18;
+  margin:0 0 18px;
 }
 
 .lead{
-  font-size: 18px;
-  line-height: 1.75;
-  color: var(--ink);
-  margin: 0 0 18px;
+  font-size:18px;
+  line-height:1.75;
+  margin:0 0 18px;
 }
 
 .prose p{
-  margin: 0 0 18px;
-  color: var(--muted);
-  font-size: 16.5px;
-  line-height: 1.85;
+  margin:0 0 18px;
+  color:var(--muted);
+  font-size:16.5px;
+  line-height:1.85;
 }
 
 hr{
   border:0;
   border-top:1px solid var(--hair);
-  margin: 38px 0;
+  margin:38px 0;
 }
 
 .bullets{
-  margin: 0;
-  padding-left: 18px;
-  color: var(--muted);
+  margin:0;
+  padding-left:18px;
+  color:var(--muted);
 }
 
-.bullets li{
-  margin: 8px 0;
-}
+.bullets li{ margin:8px 0; }
 
 /* ===============================
-Homepage Hero (BIGGEST IMPACT)
+Homepage Hero
 =============================== */
 
-/* This is the “lots of air / logo / pause / tagline” */
 .hero{
-  min-height: 85vh;
+  min-height:85vh;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-
-  padding: 120px 24px 160px;
+  padding:120px 24px 160px;
   text-align:center;
 }
 
-/* Homepage hero logo (bigger than header logo) */
 .heroLogo{
-  height: 160px;
-  width: auto;
-  margin-bottom: 64px; /* intentional pause */
+  height:160px;
+  margin-bottom:64px;
 }
 
-/* Homepage tagline */
 .heroTagline{
-  max-width: 42ch;
-  font-family: var(--serif);
-  font-size: 20px;
-  line-height: 1.6;
-  color: var(--muted);
-  margin: 0;
+  max-width:42ch;
+  font-family:var(--serif);
+  font-size:20px;
+  line-height:1.6;
+  color:var(--muted);
 }
 
 /* ===============================
-Article Styles (used on essays)
+Homepage Nav De-Emphasis
 =============================== */
 
-.articleHeader{
-  padding: 64px 24px 28px;
+.home .topbar{
+  border-bottom-color:rgba(231,234,223,.08);
 }
 
+.home .navlinks a{
+  font-size:12px;
+  opacity:.7;
+}
+
+.home .navlinks a:hover{
+  opacity:1;
+}
+
+/* ===============================
+Articles / Essays
+=============================== */
+
 .articleTitle{
-  font-family: var(--serif);
-  font-weight: 600;
-  font-size: clamp(34px, 4.6vw, 56px);
-  line-height: 1.06;
-  margin: 0 0 12px;
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(34px,4.6vw,56px);
+  line-height:1.06;
+  margin:0 0 12px;
 }
 
 .articleMeta{
-  color: rgba(231,234,223,.54);
-  font-size: 12px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(231,234,223,.54);
 }
 
 .pullquote{
-  margin: 36px 0;
-  padding: 22px;
-  border-left: 2px solid rgba(231,234,223,.28);
-  background: rgba(255,255,255,.03);
-  border-radius: 12px;
-  font-family: var(--serif);
-  font-size: 22px;
-  line-height: 1.45;
-  color: var(--ink);
-}
-
-/* Essays index list */
-.indexList{
-  display:flex;
-  flex-direction:column;
-  gap: 18px;
-  margin-top: 24px;
-}
-
-.entry{
-  padding: 18px 0;
-  border-bottom: 1px solid var(--hair);
-}
-
-.entry:last-child{ border-bottom: 0; }
-
-.entry a{ text-decoration:none; display:block; }
-
-.entryTitle{
-  font-family: var(--serif);
-  font-size: 22px;
-  line-height: 1.25;
-  color: var(--ink);
-  margin: 0 0 6px;
-}
-
-.entryMeta{
-  font-size: 12px;
-  letter-spacing: .10em;
-  text-transform: uppercase;
-  color: rgba(231,234,223,.54);
-}
-
-.entry:hover .entryTitle{
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-}
-
-/* ===============================
-Subscribe Form
-=============================== */
-
-.form{
-  margin-top: 18px;
-  display:flex;
-  gap: 12px;
-  flex-wrap:wrap;
-}
-
-.input{
-  flex: 1 1 260px;
-  min-width: 240px;
-  padding: 14px 14px;
-  border-radius: 12px;
-  border: 1px solid var(--hair2);
-  background: rgba(0,0,0,.18);
-  color: var(--ink);
-  outline: none;
-}
-
-.input::placeholder{ color: rgba(231,234,223,.45); }
-
-.button{
-  padding: 14px 16px;
-  border-radius: 12px;
-  border: 1px solid rgba(231,234,223,.22);
-  background: rgba(255,255,255,.06);
-  color: var(--ink);
-  cursor:pointer;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
-.button:hover{
-  background: rgba(255,255,255,.10);
-}
-
-/* site.js appends this message */
-.form-status{
-  width:100%;
-  margin: 10px 0 0;
-  color: rgba(231,234,223,.54);
-  font-size: 13px;
+  margin:36px 0;
+  padding:22px;
+  border-left:2px solid rgba(231,234,223,.28);
+  background:rgba(255,255,255,.03);
+  border-radius:12px;
+  font-family:var(--serif);
+  font-size:22px;
+  line-height:1.45;
 }
 
 /* ===============================
@@ -356,73 +271,53 @@ Footer
 =============================== */
 
 .footer{
-  padding: 40px 24px;
-  border-top: 1px solid var(--hair);
+  padding:40px 24px;
+  border-top:1px solid var(--hair);
   text-align:center;
 }
 
 .footer p{
-  margin: 0;
-  color: rgba(231,234,223,.54);
-  font-size: 12px;
-  letter-spacing: .10em;
-  text-transform: uppercase;
+  margin:0;
+  font-size:12px;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  color:rgba(231,234,223,.54);
 }
 
 /* ===============================
 Responsive
 =============================== */
 
-@media (max-width: 860px){
+@media (max-width:860px){
   .nav{
-    padding: 18px 18px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    padding:18px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
   }
 
   .navlinks{
     width:100%;
     flex-wrap:wrap;
-    gap: 8px;
+    gap:8px;
   }
 
-  section{ padding: 56px 18px; }
+  section{ padding:56px 18px; }
 
-  /* Keep the hero strong but not overwhelming on small screens */
   .hero{
-    min-height: 78vh;
-    padding: 96px 18px 120px;
+    min-height:78vh;
+    padding:96px 18px 120px;
   }
 
   .heroLogo{
-    height: 130px;
-    margin-bottom: 44px;
+    height:130px;
+    margin-bottom:44px;
   }
 
-  .heroTagline{
-    font-size: 18px;
-  }
+  .heroTagline{ font-size:18px; }
 }
 
-@media (max-width: 520px){
-  .brandLogo{ height: 40px; }
-  .brandText{ font-size: 18px; }
-  .entryTitle{ font-size: 20px; }
-}
-/* ===============================
-Homepage Nav De-emphasis
-=============================== */
-
-body:has(.hero) .topbar {
-  border-bottom-color: rgba(231,234,223,.08);
-}
-
-body:has(.hero) .navlinks a {
-  font-size: 12px;
-  opacity: 0.7;
-}
-
-body:has(.hero) .navlinks a:hover {
-  opacity: 1;
+@media (max-width:520px){
+  .brandLogo{ height:40px; }
+  .brandText{ font-size:18px; }
 }
