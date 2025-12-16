@@ -410,3 +410,19 @@ Responsive
   .brandText{ font-size: 18px; }
   .entryTitle{ font-size: 20px; }
 }
+/* ===============================
+Homepage Nav De-emphasis
+=============================== */
+
+body:has(.hero) .topbar {
+  border-bottom-color: rgba(231,234,223,.08);
+}
+
+body:has(.hero) .navlinks a {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+body:has(.hero) .navlinks a:hover {
+  opacity: 1;
+}
