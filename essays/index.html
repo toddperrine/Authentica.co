@@ -3,66 +3,114 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Essays — AUTHENTICA™</title>
-  <meta name="description" content="Essays on food, travel, work, and the lived world." />
+
+  <!-- Page-specific -->
+  <title>Essays — Authentica™</title>
+  <meta
+    name="description"
+    content="Essays on food, travel, work, and the lived world — considered carefully and published deliberately."
+  />
+
+  <!-- Styles -->
   <link rel="stylesheet" href="/assets/style.css" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Essays — Authentica™">
+  <meta property="og:description" content="Writing on food, travel, work, and the lived world.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://authentica.co/essays/">
+  <meta property="og:image" content="https://authentica.co/assets/og-authentica.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body>
   <div class="shell">
-    <div class="topbar">
-      <div class="nav">
-        <a class="brand" href="/"><span class="brandMark"></span><span class="brandText">Authentica<span class="tm">™</span></span></a>
-        <div class="navLinks">
-          <a href="/about.html">About</a>
-          <a href="/essays.html">Essays</a>
-          <a href="/contributors.html">Contributors</a>
-          <a href="/subscribe.html">Subscribe</a>
-        </div>
-      </div>
-    </div>
 
+    <!-- Top Navigation -->
+    <header class="topbar">
+      <nav class="nav">
+        <a class="brand" href="/" aria-label="Authentica home">
+          <img src="/authentica-logo.png" alt="" class="brandLogo" aria-hidden="true" />
+          <span class="brandText">Authentica<span class="tm">™</span></span>
+        </a>
+
+        <div class="navlinks">
+          <a href="/about/" data-nav>About</a>
+          <a href="/essays/" data-nav>Essays</a>
+          <a href="/contributors/" data-nav>Contributors</a>
+          <a href="/subscribe/" data-nav>Subscribe</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
     <main>
       <section class="narrow">
-        <h1 class="masthead" style="font-size:44px;">Essays</h1>
-        <p class="deck" style="max-width:72ch;">
-          Writing on food, travel, work, and the lived world—considered carefully, published deliberately.
+        <div class="kicker">Essays</div>
+        <h1 class="pageTitle">
+          Writing on food, travel, work, and the lived world.
+        </h1>
+
+        <p class="lead">
+          Authentica publishes original essays grounded in presence, practice,
+          and lived experience. Pieces are edited with care and released when ready.
         </p>
 
-        <div class="rule"></div>
+        <hr>
 
-        <!-- Filters (text-only placeholder) -->
-        <div class="meta" style="margin:0 0 16px;">
-          <span>All</span><span>•</span><span>Food</span><span>•</span><span>Place</span><span>•</span><span>Work</span><span>•</span><span>Nature</span>
-        </div>
+        <!-- Editorial categories (non-interactive by design) -->
+        <p class="meta">
+          Food & Hospitality • Travel & Place • Work & Craft • Nature & Attention
+        </p>
 
-        <div class="essayList">
-          <div class="essayItem">
-            <h3 class="essayTitle"><a href="/essays/the-journal-of-attention.html">The Journal of Attention</a></h3>
-            <div class="meta">
-              <span>Contributors</span><span>—</span><span>Perspective</span><span>—</span><span>2025</span>
-            </div>
-          </div>
+        <!-- Essay Index -->
+        <div class="indexList">
 
-          <!-- Add new entries here as you publish -->
+          <article class="entry">
+            <a href="/essays/the-journal-of-attention/">
+              <h2 class="entryTitle">The Journal of Attention</h2>
+              <div class="entryMeta">
+                Contributors — Perspective — 2025
+              </div>
+            </a>
+          </article>
+
+          <!-- Add future essays below this line -->
           <!--
-          <div class="essayItem">
-            <h3 class="essayTitle"><a href="/essays/your-essay.html">Title</a></h3>
-            <div class="meta"><span>Name</span><span>—</span><span>Category</span><span>—</span><span>Year</span></div>
-          </div>
+          <article class="entry">
+            <a href="/essays/essay-slug/">
+              <h2 class="entryTitle">Essay Title</h2>
+              <div class="entryMeta">
+                Author — Category — Year
+              </div>
+            </a>
+          </article>
           -->
+
         </div>
       </section>
     </main>
 
-    <footer>
-      <div class="footerInner">
-        <div class="footerLeft">AUTHENTICA<span style="opacity:.7;">™</span><br/><span style="opacity:.75; letter-spacing:.06em; font-family:var(--sans);">An independent editorial publication.</span></div>
-        <div class="footerRight">© <span data-year></span> Authentica. All rights reserved.</div>
-      </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        © <span id="year"></span> Authentica™ — An independent editorial publication.
+      </p>
     </footer>
+
   </div>
 
   <script src="/assets/site.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
