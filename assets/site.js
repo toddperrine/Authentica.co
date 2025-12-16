@@ -1,24 +1,59 @@
 (function () {
-  // Active nav: match by filename regardless of subfolder
-  const file = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  /* --------------------------------------------------
+     Active navigation
+     -------------------------------------------------- */
 
-  document.querySelectorAll("[data-nav]").forEach((a) => {
-    const href = (a.getAttribute("href") || "").toLowerCase();
-    const hrefFile = href.split("/").pop();
-    if (hrefFile === file) a.setAttribute("aria-current", "page");
+  // Normalize current path
+  let path = window.location.pathname.toLowerCase();
+
+  // Treat "/" and "/index.html" the same
+  if (path === "/" || path.endsWith("/index.html")) {
+    path = "/";
+  }
+
+  document.querySelectorAll("[data-nav]").forEach((link) => {
+    const href = link.getAttribute("href")?.toLowerCase() || "";
+
+    // Normalize href
+    let normalizedHref = href;
+    if (normalizedHref.endsWith("/index.html")) {
+      normalizedHref = normalizedHref.replace("/index.html", "/");
+    }
+
+    // Match root or section paths
+    if (
+      normalizedHref === path ||
+      (normalizedHref !== "/" && path.startsWith(normalizedHref))
+    ) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
   });
 
-  // Subscribe handler (placeholder). Replace with your provider embed later.
-  const form = document.querySelector("[data-subscribe-form]");
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const email = (form.querySelector('input[type="email"]')?.value || "").trim();
-      if (!email) return;
+  /* --------------------------------------------------
+     Subscribe placeholder (intentionally quiet)
+     -------------------------------------------------- */
 
-      // Replace this with your list provider endpoint or embedded form.
-      alert("Thanks — subscription is not yet wired to a provider. Add a Buttondown/Mailchimp embed next.");
-      form.reset();
-    });
-  }
+  const form = document.querySelector("[data-subscribe-form]");
+  if (!form) return;
+
+  const status = document.createElement("p");
+  status.className = "form-status";
+  status.setAttribute("aria-live", "polite");
+  form.appendChild(status);
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const emailInput = form.querySelector('input[type="email"]');
+    const email = emailInput?.value.trim();
+
+    if (!email) return;
+
+    // Placeholder behavior until provider is wired
+    status.textContent =
+      "Thank you. Subscriptions will open shortly.";
+    emailInput.value = "";
+  });
 })();
