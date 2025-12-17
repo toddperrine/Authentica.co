@@ -20,7 +20,6 @@
 
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
-
     body{
       margin:0;
       background:var(--bg);
@@ -45,18 +44,16 @@
       overflow:hidden;
     }
 
-    /* Logo-forward header */
     header{
       padding:52px 32px 34px 32px;
       text-align:center;
       border-bottom:1px solid var(--hair);
     }
 
-    header img{
+    .logo{
       display:block;
       margin:0 auto 18px auto;
-      width:100%;
-      max-width:640px; /* prominent */
+      width:min(700px, 92%);
       height:auto;
     }
 
@@ -72,9 +69,7 @@
       background:var(--panel);
     }
 
-    main{
-      padding:40px 40px 36px 40px;
-    }
+    main{ padding:40px 40px 36px 40px; }
 
     h1{
       margin:0 0 14px 0;
@@ -110,6 +105,7 @@
       font-size:12px;
       letter-spacing:.14em;
       text-transform:uppercase;
+      color:var(--ink);
     }
 
     .form{
@@ -125,6 +121,7 @@
       border:1px solid var(--hair);
       background:#fff;
       font-size:14px;
+      color:var(--ink);
     }
 
     button{
@@ -136,7 +133,6 @@
       font-weight:600;
       cursor:pointer;
     }
-
     button:hover{ opacity:.92; }
 
     .note{
@@ -161,11 +157,85 @@
       color:rgba(11,11,11,.65);
       text-decoration:none;
     }
-
     footer a:hover{ text-decoration:underline; }
 
     @media (max-width:860px){
       header{ padding:38px 20px 26px 20px; }
-      header img{ max-width:520px; }
       main{ padding:32px 20px; }
-      footer{ p
+      footer{ padding:16px 20px; }
+      .grid{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+
+      <header>
+        <!-- Inline SVG logo (no file path issues) -->
+        <svg class="logo" viewBox="0 0 1400 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Authentica™">
+          <rect width="1400" height="260" fill="#ffffff"/>
+          <g fill="#0b0b0b">
+            <text x="700" y="160"
+                  text-anchor="middle"
+                  font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+                  font-size="124"
+                  font-weight="700"
+                  letter-spacing="10">
+              AUTHENTICA
+            </text>
+            <text x="1125" y="88"
+                  text-anchor="start"
+                  font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+                  font-size="34"
+                  font-weight="700"
+                  letter-spacing="2">™</text>
+          </g>
+        </svg>
+
+        <div class="pill">Agentic AI Governance</div>
+      </header>
+
+      <main>
+        <h1>Coming soon.</h1>
+        <p>
+          Authentica is under active development. We’re building a control plane for autonomous
+          agents—governing behavior at runtime using policy, context, and intent.
+        </p>
+
+        <div class="grid">
+          <section>
+            <p style="margin-top:14px;">
+              If you’d like updates or early access, join the list below.
+            </p>
+          </section>
+
+          <aside class="panel">
+            <h2>Get updates</h2>
+            <form class="form" action="mailto:hello@yourdomain.com" method="post" enctype="text/plain">
+              <input type="email" name="email" placeholder="you@company.com" required />
+              <button type="submit">Notify me</button>
+            </form>
+            <p class="note">
+              Uses your email client (no backend). Replace <strong>hello@yourdomain.com</strong> with your inbox.
+            </p>
+          </aside>
+        </div>
+      </main>
+
+      <footer>
+        <div>© <span id="y"></span> Authentica™</div>
+        <div>
+          <a href="#">Security</a> · <a href="#">Privacy</a> · <a href="mailto:hello@yourdomain.com">Contact</a>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
