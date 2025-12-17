@@ -1,424 +1,296 @@
 <!doctype html>
-
-
 <html lang="en">
-
-
 <head>
-
-
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Authentica — Coming Soon</title>
+  <meta name="description" content="Authentica is launching soon." />
 
+  <!-- Optional: generate a real favicon later -->
+  <meta name="theme-color" content="#07110d" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --bg0:#07110d;
+      --bg1:#091812;
+      --ink:#e7eadf;
+      --muted:rgba(231,234,223,.72);
+      --hair:rgba(231,234,223,.16);
+      --panel:rgba(255,255,255,.03);
+      --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --content: 72ch;
+    }
 
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 900px at 20% 15%, rgba(255,255,255,.06), transparent 55%),
+        radial-gradient(900px 700px at 80% 40%, rgba(255,255,255,.045), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      font-family: var(--sans);
+    }
 
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:48px 20px;
+    }
 
+    .card{
+      width:min(980px, 100%);
+      border:1px solid var(--hair);
+      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border-radius:24px;
+      box-shadow: 0 20px 70px rgba(0,0,0,.35);
+      overflow:hidden;
+      position:relative;
+    }
 
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(700px 300px at 15% 0%, rgba(231,234,223,.10), transparent 60%),
+        radial-gradient(600px 260px at 90% 10%, rgba(231,234,223,.06), transparent 55%);
+      pointer-events:none;
+      opacity:.9;
+    }
 
-  <title>Authentica™ — A Journal of Place, Craft, and Enduring Ideas</title>
+    header{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      padding:28px 28px 10px 28px;
+      position:relative;
+      z-index:1;
+    }
 
+    .logo{
+      width:56px;
+      height:56px;
+      flex:0 0 auto;
+      border-radius:14px;
+      border:1px solid var(--hair);
+      background: rgba(0,0,0,.12);
+      display:grid;
+      place-items:center;
+    }
 
-  <meta name="description" content="Authentica is an independent editorial journal devoted to attention, craft, and continuity." />
+    .brand h1{
+      margin:0;
+      font-family: var(--serif);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-weight:600;
+      font-size:20px;
+      line-height:1.1;
+    }
+    .brand p{
+      margin:6px 0 0 0;
+      color:var(--muted);
+      font-size:13px;
+      letter-spacing:.02em;
+    }
 
+    main{
+      padding: 8px 28px 26px 28px;
+      position:relative;
+      z-index:1;
+    }
 
+    .hero{
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap:22px;
+      padding: 18px 0 6px 0;
+    }
 
+    .title{
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height:1.05;
+      margin: 0 0 12px 0;
+      letter-spacing:.01em;
+    }
 
+    .lead{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
+      max-width: var(--content);
+    }
 
-  <!-- Styles -->
+    .panel{
+      border:1px solid var(--hair);
+      background: var(--panel);
+      border-radius:18px;
+      padding:16px;
+    }
 
+    .panel h2{
+      margin:0 0 10px 0;
+      font-size:13px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(231,234,223,.86);
+      font-weight:600;
+    }
 
-  <link rel="stylesheet" href="/assets/style.css" />
+    .form{
+      display:flex;
+      gap:10px;
+      margin-top:10px;
+      flex-wrap:wrap;
+    }
+    input[type="email"]{
+      flex:1 1 220px;
+      min-width: 220px;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid var(--hair);
+      background: rgba(0,0,0,.18);
+      color: var(--ink);
+      outline:none;
+      font-size:14px;
+    }
+    input[type="email"]::placeholder{ color: rgba(231,234,223,.55); }
+    button{
+      flex:0 0 auto;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid rgba(231,234,223,.28);
+      background: rgba(231,234,223,.10);
+      color: var(--ink);
+      font-weight:600;
+      letter-spacing:.02em;
+      cursor:pointer;
+    }
+    button:hover{ background: rgba(231,234,223,.14); }
 
+    .note{
+      margin:10px 0 0 0;
+      color: rgba(231,234,223,.62);
+      font-size:12px;
+      line-height:1.5;
+    }
 
+    .hr{
+      height:1px;
+      background: var(--hair);
+      margin: 18px 0;
+    }
+
+    footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      padding: 0 28px 22px 28px;
+      color: rgba(231,234,223,.60);
+      font-size:12px;
+      position:relative;
+      z-index:1;
+      flex-wrap:wrap;
+    }
+
+    .links{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    a{
+      color: rgba(231,234,223,.78);
+      text-decoration:none;
+      border-bottom:1px solid transparent;
+    }
+    a:hover{ border-bottom-color: rgba(231,234,223,.28); }
+
+    @media (max-width: 860px){
+      .hero{ grid-template-columns: 1fr; }
+      header{ padding:24px 20px 8px 20px; }
+      main{ padding: 8px 20px 22px 20px; }
+      footer{ padding: 0 20px 18px 20px; }
+    }
+  </style>
 </head>
 
-
-
-
-
 <body>
+  <div class="wrap">
+    <div class="card">
 
-
-  <div class="shell">
-
-
-
-
-
-    <!-- Top Navigation -->
-
-
-    <div class="topbar">
-
-
-      <div class="nav">
-
-
-        <a class="brand" href="/" aria-label="Authentica home">
-
-
-          <img
-
-
-            src="/authentica-logo.png"
-
-
-            alt=""
-
-
-            class="brandLogo"
-
-
-            aria-hidden="true"
-
-
-          />
-
-
-          <span class="brandText">Authentica<span class="tm">™</span></span>
-
-
-        </a>
-
-
-
-
-
-        <div class="navLinks">
-
-
-          <a href="/about/">About</a>
-
-
-          <a href="/essays/">Essays</a>
-
-
-          <a href="/contributors/">Contributors</a>
-
-
-          <a href="/subscribe/">Subscribe</a>
-
-
+      <header>
+        <div class="logo" aria-hidden="true">
+          <!-- Inline SVG logo mark (editable) -->
+          <svg width="34" height="34" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Authentica logo">
+            <defs>
+              <linearGradient id="g" x1="12" y1="10" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#E7EADF" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#E7EADF" stop-opacity="0.55"/>
+              </linearGradient>
+            </defs>
+            <path d="M32 6 L54 18 V46 L32 58 L10 46 V18 Z" stroke="url(#g)" stroke-width="3" opacity="0.95"/>
+            <path d="M22 44 L32 18 L42 44" stroke="url(#g)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M26.5 36 H37.5" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
+          </svg>
         </div>
 
-
-      </div>
-
-
-    </div>
-
-
-
-
-
-    <main>
-
-
-
-
-
-      <!-- Hero -->
-
-
-      <section class="hero">
-
-
-        <p class="kicker">A journal of place, craft, and enduring ideas</p>
-
-
-
-
-
-        <h1 class="masthead">
-
-
-          Attention, craft, continuity.
-
-
-        </h1>
-
-
-
-
-
-        <p class="deck">
-
-
-          Essays and observations from writers, practitioners, and thinkers
-
-
-          attentive to how life is actually lived.
-
-
-        </p>
-
-
-
-
-
-        <div class="heroActions">
-
-
-          <a class="button" href="/essays/">Read essays</a>
-
-
-          <a class="button ghost" href="/subscribe/">Subscribe</a>
-
-
+        <div class="brand">
+          <h1>Authentica</h1>
+          <p>Autonomous policy, identity, and governance for agentic systems.</p>
         </div>
+      </header>
 
-
-
-
-
-        <p class="meta">
-
-
-          Food · Travel · Work · Culture
-
-
-        </p>
-
-
-      </section>
-
-
-
-
-
-      <div class="rule"></div>
-
-
-
-
-
-      <!-- Featured -->
-
-
-      <section class="narrow">
-
-
-        <div class="sectionHead">
-
-
-          <h2 class="h2">Featured</h2>
-
-
-          <a href="/essays/">View all</a>
-
-
-        </div>
-
-
-
-
-
-        <div class="essayList">
-
-
-
-
-
-          <article class="essayItem">
-
-
-            <h3 class="essayTitle">
-
-
-              <a href="/essays/the-journal-of-attention.html">
-
-
-                The Journal of Attention
-
-
-              </a>
-
-
-            </h3>
-
-
-            <p class="deck">
-
-
-              A publication should feel like a place: deliberate, edited, and calm.
-
-
+      <main>
+        <div class="hero">
+          <section>
+            <h2 class="title">Coming soon.</h2>
+            <p class="lead">
+              Authentica is under active development. We’re building a control plane for
+              autonomous agents—governing behavior at runtime with policy, context, and intent.
             </p>
 
+            <div class="hr"></div>
 
-            <div class="meta">
+            <p class="lead">
+              If you’d like updates or early access, join the list below.
+            </p>
+          </section>
 
+          <aside class="panel">
+            <h2>Get updates</h2>
 
-              Perspective · 2025
+            <!-- Mailto fallback (no backend needed). Replace email address. -->
+            <form class="form" action="mailto:hello@yourdomain.com" method="post" enctype="text/plain">
+              <input type="email" name="email" placeholder="you@company.com" required />
+              <button type="submit">Notify me</button>
+            </form>
 
-
-            </div>
-
-
-          </article>
-
-
-
-
-
-          <article class="essayItem">
-
-
-            <h3 class="essayTitle">On restraint</h3>
-
-
-            <p class="deck">
-
-
-              Good food begins with ingredients, then subtraction.
-
-
+            <p class="note">
+              This uses your email client (no tracking, no backend). Replace
+              <strong>hello@yourdomain.com</strong> with your inbox.
             </p>
 
+            <div class="hr"></div>
 
-            <div class="meta">
-
-
-              Food · Forthcoming
-
-
+            <div class="links" aria-label="Links">
+              <a href="#" onclick="return false;">Docs (soon)</a>
+              <a href="#" onclick="return false;">Updates (soon)</a>
+              <a href="#" onclick="return false;">Contact</a>
             </div>
-
-
-          </article>
-
-
-
-
-
-          <article class="essayItem">
-
-
-            <h3 class="essayTitle">Work done with care</h3>
-
-
-            <p class="deck">
-
-
-              Dignity lives in the details most people skip.
-
-
-            </p>
-
-
-            <div class="meta">
-
-
-              Work · Forthcoming
-
-
-            </div>
-
-
-          </article>
-
-
-
-
-
-          <article class="essayItem">
-
-
-            <h3 class="essayTitle">Place, slowly</h3>
-
-
-            <p class="deck">
-
-
-              Travel written from presence rather than itinerary.
-
-
-            </p>
-
-
-            <div class="meta">
-
-
-              Travel · Forthcoming
-
-
-            </div>
-
-
-          </article>
-
-
-
-
-
+          </aside>
         </div>
+      </main>
 
-
-      </section>
-
-
-
-
-
-    </main>
-
-
-
-
-
-    <!-- Footer -->
-
-
-    <footer>
-
-
-      <div class="footerInner">
-
-
-        <div class="footerLeft">
-
-
-          Authentica<span class="tm">™</span><br/>
-
-
-          <span class="muted">An independent editorial publication.</span>
-
-
-        </div>
-
-
-        <div class="footerRight">
-
-
-          © <span data-year></span> Authentica
-
-
-        </div>
-
-
-      </div>
-
-
-    </footer>
-
-
-
-
-
-  </div>
-
-
-
-
-
-  <!-- Scripts -->
-
-
-  <script src="/assets/site.js"></script>
-
-
-</body>
-
-
-</html>
+      <footer>
+        <div>© <span id="y"></span> Authentica</div>
+        <div cla
