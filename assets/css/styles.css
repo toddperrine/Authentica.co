@@ -1,4 +1,4 @@
-/* Authentica — Editorial Trust Theme (base) */
+/* Authentica — Editorial Trust Theme (Authentication / IAM) */
 
 :root{
   --bg:#fbfaf7;
@@ -9,6 +9,7 @@
   --faint:rgba(17,19,18,.55);
   --border:rgba(17,19,18,.12);
   --accent:#1f5b4a;
+
   --shadow:0 12px 30px rgba(0,0,0,.06);
   --radius:18px;
   --max:1040px;
@@ -20,11 +21,13 @@
 
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
+
 body{
   margin:0;
-  background: radial-gradient(900px 420px at 18% 0%, rgba(31,91,74,.06), transparent 55%),
-              radial-gradient(780px 360px at 92% 10%, rgba(155,139,90,.06), transparent 50%),
-              var(--bg);
+  background:
+    radial-gradient(900px 420px at 18% 0%, rgba(31,91,74,.06), transparent 55%),
+    radial-gradient(780px 360px at 92% 10%, rgba(155,139,90,.06), transparent 50%),
+    var(--bg);
   color:var(--text);
   font-family:var(--sans);
   line-height:1.65;
@@ -109,7 +112,7 @@ a:hover{ text-decoration:underline; }
   font-size:14px;
   text-decoration:none;
 }
-.nav a:hover{ opacity:1; }
+.nav a:hover{ opacity:1; text-decoration:none; }
 .nav a.active{
   opacity:1;
   color:var(--accent);
@@ -123,15 +126,8 @@ h1,h2,h3{
   margin:0;
 }
 h1{ font-size:44px; line-height:1.1; margin-bottom:12px; }
-h2{ font-size:22px; line-height:1.25; margin:24px 0 10px; }
+h2{ font-size:22px; line-height:1.25; margin:26px 0 10px; }
 h3{ font-size:18px; line-height:1.3; margin:18px 0 8px; }
-
-.lede{
-  font-size:18px;
-  color:var(--muted);
-  max-width:72ch;
-  margin:0 0 18px;
-}
 
 .kicker{
   font-size:12px;
@@ -139,6 +135,13 @@ h3{ font-size:18px; line-height:1.3; margin:18px 0 8px; }
   text-transform:uppercase;
   color:var(--muted);
   margin-bottom:10px;
+}
+
+.lede{
+  font-size:18px;
+  color:var(--muted);
+  max-width:76ch;
+  margin:0 0 18px;
 }
 
 .hr{ height:1px; background:var(--border); margin:22px 0; }
@@ -155,6 +158,7 @@ h3{ font-size:18px; line-height:1.3; margin:18px 0 8px; }
   box-shadow:var(--shadow);
 }
 .card p{ margin:8px 0 0; color:var(--muted); }
+.card ul{ margin:10px 0 0; padding-left:18px; color:var(--muted); }
 
 .button{
   display:inline-flex;
@@ -169,13 +173,25 @@ h3{ font-size:18px; line-height:1.3; margin:18px 0 8px; }
   box-shadow:0 6px 18px rgba(0,0,0,.05);
   text-decoration:none;
 }
-.button:hover{
-  text-decoration:none;
-  border-color:rgba(31,91,74,.25);
-}
+.button:hover{ text-decoration:none; border-color:rgba(31,91,74,.25); }
 .button.primary{
   background: linear-gradient(135deg, rgba(31,91,74,.12), rgba(155,139,90,.10));
   border-color:rgba(31,91,74,.25);
+}
+
+.meta-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+.badge{
+  font-size:12px;
+  color:rgba(17,19,18,.70);
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:5px 10px;
+  background:rgba(255,255,255,.65);
 }
 
 .small{ font-size:13px; color:var(--faint); }
@@ -184,6 +200,27 @@ h3{ font-size:18px; line-height:1.3; margin:18px 0 8px; }
   padding:28px 0 38px;
   border-top:1px solid var(--border);
   background: rgba(255,255,255,.55);
+}
+
+.article{
+  max-width: 78ch;
+}
+.article p{ margin: 12px 0; }
+.article li{ margin: 6px 0; color:var(--muted); }
+.article code{
+  font-family: var(--mono);
+  font-size: 0.95em;
+  background: rgba(17,19,18,.04);
+  border: 1px solid rgba(17,19,18,.08);
+  padding: 1px 6px;
+  border-radius: 8px;
+}
+.article pre{
+  background: rgba(17,19,18,.04);
+  border: 1px solid rgba(17,19,18,.08);
+  padding: 14px;
+  border-radius: 14px;
+  overflow:auto;
 }
 
 @media (max-width:900px){
