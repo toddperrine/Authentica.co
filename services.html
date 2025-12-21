@@ -4,10 +4,102 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Vendors & Tools — Authentica</title>
-  <meta name="description" content="A compact directory of authentication and identity vendor categories: MFA, SSO, IAM, CIAM, passkeys, device posture, and session security." />
+  <title>Vendors &amp; Tools — Authentica</title>
+  <meta name="description" content="Vendor categories and tools for authentication: MFA, SSO, IAM, CIAM, PAM, passkeys, and related security controls." />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Authoritative/tech palette + shared layout styling -->
+  <style>
+    :root{
+      --bg:#F8FAFC;
+      --card:#FFFFFF;
+      --text:#0F172A;
+      --text-muted:#475569;
+      --border:#E2E8F0;
+      --accent:#2563EB;
+      --accent-hover:#1D4ED8;
+      --shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.65;
+    }
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ color:var(--accent-hover); text-decoration:underline; text-underline-offset: 3px; }
+
+    .skip{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip:focus{
+      left:16px; top:16px; width:auto; height:auto; padding:10px 12px;
+      background:#fff; border:1px solid var(--border); border-radius:8px; z-index:9999;
+    }
+
+    .container{ max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    .header{ background:#fff; border-bottom:1px solid var(--border); box-shadow: var(--shadow); }
+    .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; }
+    .brand{ display:flex; align-items:center; gap:12px; min-width: 210px; }
+    .brand img{ height: 26px; width:auto; display:block; }
+
+    .nav{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav a{ color: var(--text-muted); font-weight: 500; font-size: 14px; padding: 6px 2px; }
+    .nav a:hover{ color: var(--text); text-decoration:none; }
+    .nav a.active{ color: var(--text); border-bottom: 2px solid var(--accent); padding-bottom: 4px; }
+
+    .kicker{ color: var(--text-muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin: 28px 0 10px; }
+    h1{ font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 10px; }
+    .lede{ color: var(--text-muted); font-size: 16px; max-width: 75ch; margin: 0 0 18px; }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      margin: 14px 0;
+    }
+    .card h2{ margin: 0 0 8px; font-size: 16px; letter-spacing:-0.01em; }
+    .card p{ margin: 0; color: var(--text-muted); font-size: 14px; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin: 16px 0 34px;
+    }
+    @media(min-width: 880px){
+      .grid{ grid-template-columns: 1fr 1fr; gap: 16px; }
+    }
+
+    .list{ margin: 10px 0 0; padding-left: 18px; color: var(--text-muted); }
+    .list li{ margin: 7px 0; }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0 8px 8px 0;
+      white-space: nowrap;
+    }
+
+    .footer{
+      border-top: 1px solid var(--border);
+      background: #fff;
+      padding: 16px 0;
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 32px;
+    }
+    .footer a{ color: var(--accent); }
+  </style>
 </head>
 
 <body>
@@ -16,7 +108,7 @@
   <header class="header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Authentica home">
-        <img src="Authentico-Logo.svg" alt="Authentica" class="brand-logo" width="200" height="34" loading="eager" />
+        <img src="Authentico-Logo.svg" alt="Authentica" />
       </a>
 
       <nav class="nav" aria-label="Primary">
@@ -31,42 +123,97 @@
 
   <main id="content" class="container">
     <div class="kicker">Directory</div>
-    <h1>Vendors &amp; tools</h1>
+    <h1>Vendors &amp; Tools</h1>
     <p class="lede">
-      Categories teams use to implement authentication and access control. This page is intentionally compact and provider-neutral.
+      Use this page to orient quickly: what each category is for, when it helps, where it fails, and what to ask vendors before you buy.
+      Authentica is vendor-neutral; categories are broader than any single product.
     </p>
 
-    <div class="hr"></div>
+    <div>
+      <span class="pill">MFA</span>
+      <span class="pill">SSO</span>
+      <span class="pill">IAM</span>
+      <span class="pill">CIAM</span>
+      <span class="pill">PAM</span>
+      <span class="pill">Passkeys</span>
+      <span class="pill">Conditional Access</span>
+      <span class="pill">Device / Posture</span>
+    </div>
 
-    <h2>MFA &amp; phishing-resistant auth</h2>
-    <p>Passkeys, FIDO2/WebAuthn, security keys, authenticator apps, recovery flows.</p>
+    <div class="grid">
+      <section class="card">
+        <h2>MFA platforms (workforce)</h2>
+        <p>Strong authentication for employees and admins. The goal is phishing resistance for privileged actions and high-risk apps.</p>
+        <ul class="list">
+          <li>Prefer FIDO2/passkeys or hardware-backed methods for admin access.</li>
+          <li>Evaluate recovery flows and helpdesk reset controls (often the real weakness).</li>
+          <li>Plan rollout: admins → high-risk apps → broader workforce.</li>
+        </ul>
+      </section>
 
-    <h2>SSO &amp; federation</h2>
-    <p>SAML/OIDC identity providers, workforce SSO, central policy and lifecycle controls.</p>
+      <section class="card">
+        <h2>SSO / Workforce identity providers</h2>
+        <p>Centralizes login, policies, and lifecycle for internal apps. Helps reduce password sprawl and enforce consistent controls.</p>
+        <ul class="list">
+          <li>Value is policy + lifecycle + visibility, not “single password.”</li>
+          <li>Confirm standards support (SAML/OIDC) and app coverage.</li>
+          <li>Think through break-glass access and outage modes.</li>
+        </ul>
+      </section>
 
-    <h2>IAM &amp; privileged access</h2>
-    <p>Role-based access, just-in-time elevation, session recording, secrets integration.</p>
+      <section class="card">
+        <h2>IAM (cloud permissions)</h2>
+        <p>Authorization and access control for cloud resources. Where misconfiguration creates catastrophic blast radius.</p>
+        <ul class="list">
+          <li>Use least privilege and short-lived credentials where possible.</li>
+          <li>Audit privilege escalation paths and admin-equivalent roles.</li>
+          <li>Separate human access, service access, and automation identities.</li>
+        </ul>
+      </section>
 
-    <h2>CIAM (customer identity)</h2>
-    <p>Sign-up/sign-in, social login, step-up auth, risk signals, consent, and profile management.</p>
+      <section class="card">
+        <h2>CIAM (customer identity)</h2>
+        <p>Login and identity for customers/end-users. Priorities differ: UX, conversion, fraud, privacy, and account recovery.</p>
+        <ul class="list">
+          <li>Decide: social login, passkeys, email magic links, MFA step-up.</li>
+          <li>Account recovery and fraud prevention are core requirements.</li>
+          <li>Know your threat model: takeover, bots, credential stuffing.</li>
+        </ul>
+      </section>
 
-    <h2>Device posture &amp; conditional access</h2>
-    <p>Endpoint signals, MDM/EDR integrations, policy enforcement based on device and network.</p>
+      <section class="card">
+        <h2>PAM (privileged access management)</h2>
+        <p>Controls powerful access (root/admin) through vaulting, approvals, session recording, and JIT access.</p>
+        <ul class="list">
+          <li>Most useful when admins are many, distributed, or shared access exists.</li>
+          <li>Integrate with MFA/SSO and enforce step-up for privileged sessions.</li>
+          <li>Validate session recording and audit evidence quality.</li>
+        </ul>
+      </section>
 
-    <h2>Session security</h2>
-    <p>Token binding patterns, refresh token hygiene, anomaly detection, session revocation.</p>
+      <section class="card">
+        <h2>Passkeys</h2>
+        <p>Phishing-resistant authentication using public-key cryptography, typically backed by hardware/OS security.</p>
+        <ul class="list">
+          <li>Workforce: prioritize admin and privileged workflows first.</li>
+          <li>Customer: consider passkeys as a “best” path with fallback.</li>
+          <li>Test recovery, device changes, and cross-platform behavior.</li>
+        </ul>
+      </section>
+    </div>
 
-    <div class="hr"></div>
-
-    <p class="small">
-      If you want this to become a true directory (with actual vendor entries + outbound tracking),
-      we’ll standardize each listing with: category, best-for, key questions, and links.
-    </p>
+    <section class="card">
+      <h2>How to use this directory</h2>
+      <p>
+        Start with your highest-risk flows (admin access, customer recovery, money movement, production changes).
+        Then match vendor categories to those flows. Avoid buying “a platform” before you know what failure mode you’re preventing.
+      </p>
+    </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <div class="small">
+      <div>
         © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="disclosure.html">Disclosure</a>.
       </div>
     </div>
