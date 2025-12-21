@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Passkeys: a pragmatic guide — Authentica</title>
+  <meta name="description" content="A pragmatic guide to passkeys, WebAuthn, passwordless, recovery, and realistic rollout patterns." />
+
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Authentica home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Authentica</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Vendors &amp; Tools</a>
+        <a class="active" href="../articles.html">Guides</a>
+        <a href="../about.html">About</a>
+        <a href="../disclosure.html">Disclosure</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <div class="kicker">Guide</div>
+    <h1>Passkeys: a pragmatic guide</h1>
+    <p class="lede">
+      Passkeys reduce phishing risk and password reuse. They also introduce operational questions: enrollment, device changes,
+      shared devices, and account recovery. This guide focuses on what works in real deployments.
+    </p>
+
+    <h2>What a passkey is (plain language)</h2>
+    <div class="card">
+      <p style="margin:0; color:rgba(17,19,18,.72);">
+        A passkey is a phishing-resistant credential based on public-key cryptography (WebAuthn/FIDO2).
+        The private key stays on the user’s device (or secure enclave); the server stores a public key.
+        Logging in proves possession without sending a reusable password.
+      </p>
+    </div>
+
+    <h2>What passkeys solve</h2>
+    <div class="card">
+      <ul class="clean">
+        <li>Phishing of passwords (the credential isn’t typed or reusable).</li>
+        <li>Credential stuffing (there’s no shared password to reuse).</li>
+        <li>Weak password policies (passkeys bypass the problem entirely).</li>
+      </ul>
+    </div>
+
+    <h2>What passkeys do not solve</h2>
+    <div class="card">
+      <ul class="clean">
+        <li>Session theft/token hijacking after login (you still need session controls).</li>
+        <li>Compromised endpoints (malware can abuse sessions and approved actions).</li>
+        <li>Bad authorization (passkeys authenticate identity, not least-privilege access).</li>
+      </ul>
+    </div>
+
+    <h2>Deployment patterns that work</h2>
+    <div class="grid two">
+      <section class="card">
+        <h3 style="margin:0;">Workforce high assurance</h3>
+        <p>Admins and finance roles: require passkeys/security keys for privileged actions; keep backup factors for recovery.</p>
+      </section>
+      <section class="card">
+        <h3 style="margin:0;">Customer “step-up”</h3>
+        <p>Allow password login, but require passkey for sensitive actions (payout changes, exports, account takeover signals).</p>
+      </section>
+      <section class="card">
+        <h3 style="margin:0;">Passwordless-first (careful)</h3>
+        <p>Works best when you have strong account recovery, multi-device enrollment, and clear “lost device” flows.</p>
+      </section>
+      <section class="card">
+        <h3 style="margin:0;">Hybrid onboarding</h3>
+        <p>Offer passkeys during first login, but don’t hard-enforce until you’ve achieved high enrollment coverage.</p>
+      </section>
+    </div>
+
+    <h2>Recovery is the real design problem</h2>
+    <div class="card">
+      <ul class="clean">
+        <li>Require multi-device enrollment (phone + laptop where possible).</li>
+        <li>Provide backup methods (codes, alternative verified device, helpdesk verification).</li>
+        <li>Define identity proof for resets. “Email the admin” is not a strategy.</li>
+      </ul>
+    </div>
+
+    <div class="hr"></div>
+    <section class="card">
+      <h2 style="margin:0 0 8px;">Related</h2>
+      <ul class="clean">
+        <li><a href="mfa-rollout-checklist.html">MFA rollout checklist</a></li>
+        <li><a href="mfa-fatigue-sim-swap-session-theft.html">Modern attack patterns</a></li>
+      </ul>
+      <div style="margin-top:12px;">
+        <a class="button" href="../articles.html">Back to Guides →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="small">
+        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="../disclosure.html">Disclosure</a>.
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
