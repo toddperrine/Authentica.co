@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Guides — Authentica</title>
-  <meta name="description" content="Practical guides for authentication and identity: MFA rollout, SIM swap, passkeys, IAM vs CIAM vs PAM, and vendor evaluation." />
+  <title>REPLACE TITLE — Authentica</title>
+  <meta name="description" content="REPLACE DESCRIPTION" />
 
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
 
   <style>
     :root{
@@ -35,7 +35,7 @@
       background:#fff; border:1px solid var(--border); border-radius:8px; z-index:9999;
     }
 
-    .container{ max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+    .container{ max-width: 860px; margin: 0 auto; padding: 0 20px; }
 
     .header{ background:#fff; border-bottom:1px solid var(--border); box-shadow: var(--shadow); }
     .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; }
@@ -45,41 +45,37 @@
     .nav{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; justify-content:flex-end; }
     .nav a{ color: var(--text-muted); font-weight: 500; font-size: 14px; padding: 6px 2px; }
     .nav a:hover{ color: var(--text); text-decoration:none; }
-    .nav a.active{ color: var(--text); border-bottom: 2px solid var(--accent); padding-bottom: 4px; }
 
-    .kicker{ color: var(--text-muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin: 28px 0 10px; }
-    h1{ font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 10px; }
-    .lede{ color: var(--text-muted); font-size: 16px; max-width: 75ch; margin: 0 0 18px; }
+    .crumbs{
+      margin: 26px 0 10px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
 
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin: 16px 0 34px;
+    h1{
+      font-size: clamp(28px, 3.2vw, 40px);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin: 0 0 10px;
     }
-    @media(min-width: 880px){
-      .grid{ grid-template-columns: 1fr 1fr; gap: 16px; }
+    .lede{
+      color: var(--text-muted);
+      font-size: 16px;
+      margin: 0 0 16px;
     }
+
     .card{
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 18px;
+      margin: 14px 0 34px;
     }
-    .card h2{
-      margin: 0 0 8px;
-      font-size: 16px;
-      letter-spacing:-0.01em;
-    }
-    .card p{
-      margin: 0 0 10px;
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-    .meta{
-      color: var(--text-muted);
-      font-size: 12px;
-    }
+
+    .card h2{ margin: 18px 0 8px; font-size: 16px; letter-spacing:-0.01em; }
+    .card p{ margin: 10px 0; color: var(--text-muted); }
+    .card ul{ margin: 10px 0; padding-left: 18px; color: var(--text-muted); }
+    .card li{ margin: 7px 0; }
 
     .footer{
       border-top: 1px solid var(--border);
@@ -98,75 +94,62 @@
 
   <header class="header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Authentica home">
-        <img src="Authentico-Logo.svg" alt="Authentica" />
+      <a class="brand" href="../index.html" aria-label="Authentica home">
+        <img src="../Authentico-Logo.svg" alt="Authentica" />
       </a>
 
       <nav class="nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="services.html">Vendors &amp; Tools</a>
-        <a class="active" href="articles.html">Guides</a>
-        <a href="about.html">About</a>
-        <a href="disclosure.html">Disclosure</a>
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Vendors &amp; Tools</a>
+        <a href="../articles.html">Guides</a>
+        <a href="../about.html">About</a>
+        <a href="../disclosure.html">Disclosure</a>
       </nav>
     </div>
   </header>
 
   <main id="content" class="container">
-    <div class="kicker">Guides</div>
-    <h1>Practical guides</h1>
-    <p class="lede">
-      Short, direct guides focused on real-world failure modes and implementation sequence—written for operators.
-    </p>
+    <div class="crumbs"><a href="../articles.html">Guides</a> / Article</div>
 
-    <div class="grid">
-      <!-- Update this list to match exactly the files in /articles/ -->
-      <article class="card">
-        <h2><a href="articles/iam-vs-ciam-vs-pam.html">IAM vs CIAM vs PAM: what’s the difference?</a></h2>
-        <p>Quick definitions, decision boundaries, and common mis-buys.</p>
-        <div class="meta">Identity fundamentals</div>
-      </article>
+    <h1>REPLACE H1 TITLE</h1>
+    <p class="lede">REPLACE one-sentence lede. Keep it practical.</p>
 
-      <article class="card">
-        <h2><a href="articles/mfa-rollout-checklist.html">MFA rollout checklist</a></h2>
-        <p>A deployment sequence that avoids helpdesk overload and reduces bypass risk.</p>
-        <div class="meta">MFA</div>
-      </article>
+    <article class="card">
+      <p><strong>Summary:</strong> Replace this summary with 3–5 bullets or a short paragraph.</p>
 
-      <article class="card">
-        <h2><a href="articles/mfa-fatigue-sim-swap-session-theft.html">MFA fatigue, SIM swap, and session theft</a></h2>
-        <p>How attackers really get in—and what controls stop each path.</p>
-        <div class="meta">Threats</div>
-      </article>
+      <h2>What it is</h2>
+      <p>Replace this section.</p>
 
-      <article class="card">
-        <h2><a href="articles/passkeys-pragmatic-guide.html">Passkeys: a pragmatic guide</a></h2>
-        <p>Where passkeys shine, where they don’t, and how to rollout without breaking recovery.</p>
-        <div class="meta">Passkeys</div>
-      </article>
+      <h2>When it helps</h2>
+      <ul>
+        <li>Replace</li>
+        <li>Replace</li>
+        <li>Replace</li>
+      </ul>
 
-      <article class="card">
-        <h2><a href="articles/sso-for-smb.html">SSO for SMB: when it pays off</a></h2>
-        <p>A simple framework to decide whether SSO is worth it (and what to do first if not).</p>
-        <div class="meta">SSO</div>
-      </article>
+      <h2>Failure modes to watch</h2>
+      <ul>
+        <li>Replace</li>
+        <li>Replace</li>
+      </ul>
 
-      <article class="card">
-        <h2><a href="articles/vendor-comparison-rubric.html">Vendor comparison rubric</a></h2>
-        <p>A vendor-neutral scorecard to evaluate MFA/SSO/CIAM/PAM tools against real requirements.</p>
-        <div class="meta">Buying</div>
-      </article>
-    </div>
+      <h2>Implementation sequence (recommended)</h2>
+      <ol>
+        <li style="color: var(--text-muted); margin: 7px 0;">Replace</li>
+        <li style="color: var(--text-muted); margin: 7px 0;">Replace</li>
+        <li style="color: var(--text-muted); margin: 7px 0;">Replace</li>
+      </ol>
+    </article>
   </main>
 
   <footer class="footer">
     <div class="container">
       <div>
-        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="disclosure.html">Disclosure</a>.
+        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="../disclosure.html">Disclosure</a>.
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/main.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
 </body>
 </html>
