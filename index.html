@@ -4,16 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Authentica — A compact guide to trust, authenticity, and verification</title>
-  <meta name="description" content="Authentica is a compact, practical guide to trust, authenticity, verification, and modern systems for proving claims." />
+  <title>Authentica — Authentication (MFA, SSO, IAM)</title>
+  <meta name="description" content="Practical, vendor-aware guidance on MFA, SSO, IAM, passkeys, and passwordless authentication." />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Authentica" />
-  <meta property="og:description" content="A compact guide to trust, authenticity, and verification." />
+  <meta property="og:title" content="Authentica — Authentication (MFA, SSO, IAM)" />
+  <meta property="og:description" content="A compact guide to modern authentication: MFA, SSO, IAM, passkeys, and rollout checklists." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://authentica.co/" />
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
@@ -31,8 +28,8 @@
 
       <nav class="nav" aria-label="Primary">
         <a class="active" href="index.html">Home</a>
-        <a href="services.html">Trusted Services</a>
-        <a href="articles.html">Articles</a>
+        <a href="services.html">Vendors &amp; Tools</a>
+        <a href="articles.html">Guides</a>
         <a href="about.html">About</a>
         <a href="disclosure.html">Disclosure</a>
       </nav>
@@ -40,114 +37,94 @@
   </header>
 
   <main id="content" class="container">
-    <div class="kicker">Trust • Authenticity • Verification</div>
-    <h1>Clarity for high-stakes authenticity.</h1>
+    <div class="kicker">Identity • Authentication • Access</div>
+    <h1>Modern authentication. Fewer breaches. Less friction.</h1>
     <p class="lede">
-      Authentica is a compact guide to the tools, services, and ideas people use when authenticity has
-      financial or reputational stakes. It’s designed for discovery and kept intentionally small.
+      Authentica is a compact, practical guide to <strong>MFA</strong>, <strong>SSO</strong>, <strong>IAM</strong>,
+      <strong>passkeys</strong>, and <strong>passwordless</strong>. It focuses on what breaks in real deployments and
+      how to roll changes out without disrupting teams or customers.
     </p>
 
-    <div class="cta-row" style="display:flex; gap:12px; flex-wrap:wrap; margin:18px 0 8px;">
-      <a class="button primary" href="services.html">Browse the directory</a>
-      <a class="button" href="articles.html">Read the articles</a>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; margin:18px 0 10px;">
+      <a class="button primary" href="services.html">Browse vendors &amp; tools</a>
+      <a class="button" href="articles.html">Read implementation guides</a>
     </div>
 
-    <div class="small" style="margin-top:10px;">
-      Note: Authentica is an informational site. We do not authenticate items or provide inspection services.
-      Some outbound links may be referral links. See <a href="disclosure.html">Disclosure</a>.
+    <div class="small">
+      Neutral, reference-grade guidance. Some outbound links may be referral links. See <a href="disclosure.html">Disclosure</a>.
     </div>
 
     <div class="hr"></div>
 
-    <h2 class="section-title">Start here</h2>
-
+    <h2>Start here</h2>
     <div class="grid two">
       <section class="card">
-        <h3 style="margin:0;">Directory</h3>
-        <p>
-          A curated list of services and tools used for authentication, provenance, and verification,
-          organized by category and use case.
-        </p>
+        <h3 style="margin:0;">MFA rollout checklist</h3>
+        <p>A practical sequence that avoids lockouts, minimizes support load, and reduces resistance.</p>
         <div style="margin-top:12px;">
-          <a class="button" href="services.html">Trusted Services →</a>
+          <a class="button" href="articles/mfa-rollout-checklist.html">Read →</a>
         </div>
       </section>
 
       <section class="card">
-        <h3 style="margin:0;">Articles</h3>
-        <p>
-          Short, practical explainers that clarify terms, tradeoffs, and what “proof” looks like in
-          real-world settings.
-        </p>
+        <h3 style="margin:0;">Passkeys: what they solve</h3>
+        <p>When passkeys reduce risk dramatically—and when they don’t (sessions, device risk, recovery).</p>
         <div style="margin-top:12px;">
-          <a class="button" href="articles.html">Articles →</a>
+          <a class="button" href="articles/passkeys-pragmatic-guide.html">Read →</a>
         </div>
       </section>
     </div>
 
-    <h2 class="section-title">A minimal framework</h2>
-
+    <h2>A simple model</h2>
     <div class="grid three">
       <section class="card">
-        <h3 style="margin:0;">Claim</h3>
-        <p>
-          What is being asserted? (e.g., origin, ownership, condition, identity, integrity.)
-        </p>
+        <h3 style="margin:0;">Identity</h3>
+        <p>Who is attempting access, and how sure are you?</p>
       </section>
-
       <section class="card">
-        <h3 style="margin:0;">Evidence</h3>
-        <p>
-          What supports the claim? (documents, inspection, telemetry, custody chain, or cryptographic proof.)
-        </p>
+        <h3 style="margin:0;">Access</h3>
+        <p>What can they do, from where, under what conditions?</p>
       </section>
-
       <section class="card">
-        <h3 style="margin:0;">Decision</h3>
-        <p>
-          Who accepts the risk, and under what standard? (personal tolerance, marketplace policy, legal standard.)
-        </p>
+        <h3 style="margin:0;">Assurance</h3>
+        <p>What additional proof is required for higher-risk actions?</p>
       </section>
     </div>
 
-    <h2 class="section-title">Featured reading</h2>
-
+    <h2>What you’ll find here</h2>
     <div class="grid two">
-      <article class="card">
-        <h3 style="margin:0;">
-          <a href="articles/provenance-vs-authentication.html">Provenance vs. authentication</a>
-        </h3>
-        <p>
-          Two words people use interchangeably—often incorrectly. Here’s a clean way to separate them.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3 style="margin:0;">
-          <a href="articles/what-proves-authenticity.html">What “proves” authenticity?</a>
-        </h3>
-        <p>
-          A practical lens on evidence quality, incentives, and why certainty is usually unattainable.
-        </p>
-      </article>
+      <section class="card">
+        <h3 style="margin:0;">Vendors &amp; tools (directory)</h3>
+        <p>Workforce IAM, MFA providers, CIAM, device trust, PAM, and risk signals—organized by use case.</p>
+        <div style="margin-top:12px;">
+          <a class="button" href="services.html">Go to directory →</a>
+        </div>
+      </section>
+      <section class="card">
+        <h3 style="margin:0;">Guides (evergreen)</h3>
+        <p>Short, direct guides that prioritize real-world failure modes and implementation sequences.</p>
+        <div style="margin-top:12px;">
+          <a class="button" href="articles.html">Go to guides →</a>
+        </div>
+      </section>
     </div>
 
     <div class="hr"></div>
 
     <section class="card" style="background:rgba(255,255,255,.65);">
-      <h2 style="margin:0 0 8px;">Next step</h2>
-      <p style="margin:0; color:rgba(17,19,18,.72);">
-        Once the site shell is consistent across pages, we’ll pivot the content to
-        <strong>authentication (MFA/SSO/IAM)</strong> and rebuild the directory + articles accordingly.
-      </p>
+      <h2 style="margin:0 0 8px;">If you only do three things</h2>
+      <ul>
+        <li>Enforce MFA with phishing-resistant methods for privileged actions.</li>
+        <li>Adopt SSO where it reduces password sprawl and centralizes policy.</li>
+        <li>Use conditional access/device posture to reduce session hijacking risk.</li>
+      </ul>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container">
       <div class="small">
-        © <span data-year></span> Authentica. Some outbound links may be referral links. See
-        <a href="disclosure.html">Disclosure</a>.
+        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="disclosure.html">Disclosure</a>.
       </div>
     </div>
   </footer>
