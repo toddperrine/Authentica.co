@@ -1,0 +1,40 @@
+(function () {
+  // Set footer year
+  document.querySelectorAll("[data-year]").forEach((el) => {
+    el.textContent = new Date().getFullYear();
+  });
+
+  // Outbound click tracking
+  // This is intentionally provider-agnostic: wire to Plausible/Fathom/GA later.
+  function trackOutbound(anchor) {
+    const href = anchor.getAttribute("href") || "";
+    const partner = anchor.getAttribute("data-partner") || "";
+    const payload = { href, partner };
+
+    // Example hooks (uncomment one if you use a provider)
+    // if (window.plausible) window.plausible("Outbound Click", { props: payload });
+    // if (window.fathom) window.fathom.trackGoal("OUTBOUND", 0);
+
+    // Always log in dev; harmless in prod
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+      console.log("[Authentica] outbound", payload);
+    }
+  }
+
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if (!a) return;
+
+    const isOutboundFlag = a.getAttribute("data-outbound") === "1";
+    const href = (a.getAttribute("href") || "").trim();
+
+    if (!href) return;
+
+    const isExternal =
+      href.startsWith("http://") || href.startsWith("https://");
+
+    if (isOutboundFlag || (isExternal && !href.includes(location.hostname))) {
+      trackOutbound(a);
+    }
+  });
+})();
