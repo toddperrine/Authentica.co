@@ -2,108 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Articles — Authentica</title>
-  <meta name="description" content="Evergreen explainers on trust, provenance, verification, and the economics of counterfeits." />
-  <link rel="canonical" href="https://authentica.co/articles.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta property="og:title" content="Articles — Authentica" />
-  <meta property="og:description" content="Evergreen explainers on trust, provenance, verification, and counterfeits." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://authentica.co/articles.html" />
-  <meta property="og:image" content="https://authentica.co/assets/img/og-cover.svg" />
+  <title>Guides — Authentica</title>
+  <meta name="description" content="Authentication guides: MFA rollout, passkeys, SSO for SMB, CIAM vs PAM vs IAM, vendor comparison rubric, and common failure modes." />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <script defer src="assets/js/main.js"></script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Blog",
-    "name":"Authentica Articles",
-    "url":"https://authentica.co/articles.html",
-    "isPartOf":{"@type":"WebSite","name":"Authentica","url":"https://authentica.co/"},
-    "inLanguage":"en"
-  }
-  </script>
 </head>
+
 <body>
   <a class="skip" href="#content">Skip to content</a>
 
   <header class="header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Authentica Home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-name">Authentica</span>
+      <a class="brand" href="index.html" aria-label="Authentica home">
+        <img src="Authentico-Logo.svg" alt="Authentica" class="brand-logo" width="200" height="34" loading="eager" />
       </a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a data-nav="home" href="index.html">Home</a>
-        <a data-nav="services" href="services.html">Trusted Services</a>
-        <a data-nav="articles" class="active" href="articles.html">Articles</a>
-        <a data-nav="about" href="about.html">About</a>
-        <a data-nav="disclosure" href="disclosure.html">Disclosure</a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="services.html">Vendors &amp; Tools</a>
+        <a class="active" href="articles.html">Guides</a>
+        <a href="about.html">About</a>
+        <a href="disclosure.html">Disclosure</a>
       </nav>
     </div>
   </header>
 
-  <main id="content" class="article">
-    <div class="container">
-      <div class="kicker">Evergreen</div>
-      <h1>Articles</h1>
-      <p class="lede">
-        These pieces are written to stay relevant: calm explanations, durable concepts, and practical next steps.
-      </p>
+  <main id="content" class="container">
+    <div class="kicker">Guides</div>
+    <h1>Guides</h1>
+    <p class="lede">
+      Short, implementation-first writing focused on what breaks in real environments.
+    </p>
 
-      <div class="grid two">
-        <div class="card">
-          <h2><a href="articles/what-proves-authenticity.html">What actually proves authenticity (and what doesn’t)</a></h2>
-          <p>Foundational: provenance, inspection, documentation, and the traps people fall into.</p>
-        </div>
-        <div class="card">
-          <h2><a href="articles/why-coa-fails.html">Why certificates of authenticity often fail</a></h2>
-          <p>Why paper, PDFs, and “COAs” can be persuasive and still worthless.</p>
-        </div>
-        <div class="card">
-          <h2><a href="articles/provenance-vs-authentication.html">Provenance vs authentication</a></h2>
-          <p>The distinction most people miss—and why provenance is the higher-order trust signal.</p>
-        </div>
-        <div class="card">
-          <h2><a href="articles/human-vs-machine.html">Human judgment vs machine verification</a></h2>
-          <p>Where tools help, where they mislead, and why hybrid models are emerging.</p>
-        </div>
-        <div class="card">
-          <h2><a href="articles/economics-of-counterfeits.html">The economics of counterfeits</a></h2>
-          <p>Incentives, markets, and why counterfeits persist even at the top end.</p>
-        </div>
-        <div class="card">
-          <h2><a href="articles/luxury-authentication-how-it-works.html">How authentication works in luxury goods</a></h2>
-          <p>A pragmatic walkthrough: what gets checked, what gets missed, and what to ask.</p>
-        </div>
-        <div class="card">
-          <h2><a href="articles/future-of-trust.html">The future of trust and verification</a></h2>
-          <p>Where trust systems are heading: provenance signals, integrity workflows, and new failure modes.</p>
-        </div>
-        <div class="card">
-          <h2><a href="services.html">Trusted authentication services</a></h2>
-          <p>Ready to act? Start with a small list of providers and tools.</p>
-        </div>
-      </div>
+    <div class="hr"></div>
 
-      <div class="hr"></div>
+    <div class="grid">
+      <section class="card">
+        <h3><a href="articles/mfa-rollout-checklist.html">MFA rollout checklist (pragmatic)</a></h3>
+        <p>Sequence, comms, enforcement gates, break-glass accounts, recovery, and exceptions.</p>
+      </section>
 
-      <p class="note">
-        If you’re evaluating a high-value purchase or sale, use the directory as a starting point, then do independent diligence.
-        Authentica is for discovery, not guarantees.
-      </p>
+      <section class="card">
+        <h3><a href="articles/passkeys-pragmatic-guide.html">Passkeys: a pragmatic guide</a></h3>
+        <p>Where passkeys help, where they don’t, rollout strategy, and UX pitfalls.</p>
+      </section>
+
+      <section class="card">
+        <h3><a href="articles/sso-for-smb.html">SSO for SMB: what to do first</a></h3>
+        <p>What “SSO” means in practice and how to avoid half-SSO sprawl.</p>
+      </section>
+
+      <section class="card">
+        <h3><a href="articles/iam-vs-ciam-vs-pam.html">IAM vs CIAM vs PAM (and why it matters)</a></h3>
+        <p>Clear distinctions, overlap, and how vendors blur categories.</p>
+      </section>
+
+      <section class="card">
+        <h3><a href="articles/vendor-comparison-rubric.html">Vendor comparison rubric</a></h3>
+        <p>Questions that expose lock-in, risk, and integration reality.</p>
+      </section>
+
+      <section class="card">
+        <h3><a href="articles/mfa-fatigue-sim-swap-session-theft.html">MFA fatigue, SIM swap, session theft</a></h3>
+        <p>What attackers do now, and what actually mitigates it.</p>
+      </section>
     </div>
   </main>
 
   <footer class="footer">
     <div class="container">
       <div class="small">
-        © <span data-year></span> Authentica • <a href="disclosure.html">Disclosure & ethics</a>
+        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="disclosure.html">Disclosure</a>.
       </div>
     </div>
   </footer>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
