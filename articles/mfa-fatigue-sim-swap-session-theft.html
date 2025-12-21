@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Modern attack patterns — Authentica</title>
+  <meta name="description" content="MFA fatigue, SIM swap, and session theft: how account takeovers succeed in modern stacks, and what controls help." />
+
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Authentica home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Authentica</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Vendors &amp; Tools</a>
+        <a class="active" href="../articles.html">Guides</a>
+        <a href="../about.html">About</a>
+        <a href="../disclosure.html">Disclosure</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <div class="kicker">Guide</div>
+    <h1>Modern attack patterns: MFA fatigue, SIM swap, session theft</h1>
+    <p class="lede">
+      Many “MFA-protected” accounts still get taken over because attackers avoid the password step or bypass the second factor.
+      Here are three common patterns and what controls materially help.
+    </p>
+
+    <h2>1) MFA fatigue (push bombing)</h2>
+    <div class="card">
+      <p style="margin:0; color:rgba(17,19,18,.72);">
+        Attackers repeatedly trigger push prompts until a user approves out of annoyance or confusion.
+      </p>
+      <ul class="clean">
+        <li>Prefer number-matching or phishing-resistant methods (passkeys/FIDO2).</li>
+        <li>Rate-limit prompts; alert on repeated prompts.</li>
+        <li>Train users: “Unexpected prompt = deny + report.”</li>
+      </ul>
+    </div>
+
+    <h2>2) SIM swap (SMS interception)</h2>
+    <div class="card">
+      <p style="margin:0; color:rgba(17,19,18,.72);">
+        Attackers socially engineer a mobile carrier to reassign a phone number, then receive SMS codes.
+      </p>
+      <ul class="clean">
+        <li>Avoid SMS as a high-assurance factor for sensitive accounts/actions.</li>
+        <li>Use authenticator apps, passkeys, or security keys for higher assurance.</li>
+        <li>Step-up policies for payout changes, password resets, or new device enrollment.</li>
+      </ul>
+    </div>
+
+    <h2>3) Session theft (token hijacking)</h2>
+    <div class="card">
+      <p style="margin:0; color:rgba(17,19,18,.72);">
+        After successful login, attackers steal session tokens (via malware, browser compromise, or phishing proxies) and act as the user.
+      </p>
+      <ul class="clean">
+        <li>Shorter session lifetimes for privileged actions; re-auth for risky actions.</li>
+        <li>Device posture checks and conditional access where available.</li>
+        <li>Detect impossible travel/new device + step-up MFA.</li>
+      </ul>
+    </div>
+
+    <div class="hr"></div>
+    <section class="card">
+      <h2 style="margin:0 0 8px;">Related</h2>
+      <ul class="clean">
+        <li><a href="mfa-rollout-checklist.html">MFA rollout checklist</a></li>
+        <li><a href="passkeys-pragmatic-guide.html">Passkeys: a pragmatic guide</a></li>
+      </ul>
+      <div style="margin-top:12px;">
+        <a class="button" href="../articles.html">Back to Guides →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="small">
+        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="../disclosure.html">Disclosure</a>.
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
