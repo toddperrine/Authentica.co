@@ -1,16 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://authentica.co/</loc></url>
-  <url><loc>https://authentica.co/index.html</loc></url>
-  <url><loc>https://authentica.co/services.html</loc></url>
-  <url><loc>https://authentica.co/articles.html</loc></url>
-  <url><loc>https://authentica.co/about.html</loc></url>
-  <url><loc>https://authentica.co/disclosure.html</loc></url>
+User-agent: *
+Allow: /
 
-  <url><loc>https://authentica.co/articles/mfa-rollout-checklist.html</loc></url>
-  <url><loc>https://authentica.co/articles/sso-for-smb.html</loc></url>
-  <url><loc>https://authentica.co/articles/passkeys-pragmatic-guide.html</loc></url>
-  <url><loc>https://authentica.co/articles/iam-vs-ciam-vs-pam.html</loc></url>
-  <url><loc>https://authentica.co/articles/mfa-fatigue-sim-swap-session-theft.html</loc></url>
-  <url><loc>https://authentica.co/articles/vendor-comparison-rubric.html</loc></url>
-</urlset>
+Sitemap: https://authentica.co/sitemap.xml
