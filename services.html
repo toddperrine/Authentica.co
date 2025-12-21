@@ -2,176 +2,208 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Trusted Authentication Services — Authentica</title>
-  <meta name="description" content="A curated directory of authentication and provenance services across luxury goods, art, collectibles, watches, wine, and emerging digital verification." />
-  <link rel="canonical" href="https://authentica.co/services.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta property="og:title" content="Trusted Authentication Services — Authentica" />
-  <meta property="og:description" content="A small, categorized list of providers and tools people use when authenticity matters." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://authentica.co/services.html" />
-  <meta property="og:image" content="https://authentica.co/assets/img/og-cover.svg" />
+  <title>Vendors & Tools — Authentica</title>
+  <meta name="description" content="A compact directory of MFA, SSO, IAM, CIAM, and passwordless tools, with practical fit notes and evaluation rubrics." />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <script defer src="assets/js/main.js"></script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"CollectionPage",
-    "name":"Trusted Authentication Services",
-    "url":"https://authentica.co/services.html",
-    "isPartOf":{"@type":"WebSite","name":"Authentica","url":"https://authentica.co/"},
-    "about":["authentication","provenance","verification","counterfeits"],
-    "inLanguage":"en"
-  }
-  </script>
 </head>
+
 <body>
   <a class="skip" href="#content">Skip to content</a>
 
   <header class="header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Authentica Home">
+      <a class="brand" href="index.html" aria-label="Authentica home">
         <span class="brand-mark" aria-hidden="true"></span>
         <span class="brand-name">Authentica</span>
       </a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a data-nav="home" href="index.html">Home</a>
-        <a data-nav="services" class="active" href="services.html">Trusted Services</a>
-        <a data-nav="articles" href="articles.html">Articles</a>
-        <a data-nav="about" href="about.html">About</a>
-        <a data-nav="disclosure" href="disclosure.html">Disclosure</a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a class="active" href="services.html">Vendors &amp; Tools</a>
+        <a href="articles.html">Guides</a>
+        <a href="about.html">About</a>
+        <a href="disclosure.html">Disclosure</a>
       </nav>
     </div>
   </header>
 
-  <main id="content" class="article">
-    <div class="container">
-      <div class="kicker">Directory</div>
-      <h1>Trusted Authentication Services</h1>
-      <p class="lede">
-        This is a compact directory of services and tools people use when authenticity has financial or reputational stakes.
-        It is designed for discovery. It is intentionally small.
-      </p>
+  <main id="content" class="container">
+    <div class="kicker">Directory</div>
+    <h1>Authentication &amp; Identity vendors</h1>
+    <p class="lede">
+      A compact, vendor-aware directory for <strong>MFA</strong>, <strong>SSO</strong>, <strong>IAM</strong>,
+      <strong>CIAM</strong>, <strong>passkeys</strong>, and adjacent controls (conditional access, device trust).
+      Entries are organized by category with “best fit” notes—no hype.
+    </p>
 
-      <div class="callout">
-        <strong>Disclosure:</strong> Some listings may include referral relationships. Inclusion does not imply endorsement.
-        Authentica does not authenticate items and does not provide inspection services.
-        See <a href="disclosure.html">Disclosure & ethics</a>.
+    <section class="card" style="margin: 14px 0 18px;">
+      <h2 style="margin:0 0 8px;">How to use this page</h2>
+      <ul class="clean">
+        <li><strong>Workforce IAM</strong> = employees/contractors (SSO + MFA + lifecycle).</li>
+        <li><strong>CIAM</strong> = customers/users (sign-up, login, risk, consent).</li>
+        <li><strong>Passwordless</strong> = passkeys/WebAuthn and reduced reliance on passwords.</li>
+      </ul>
+      <div class="small" style="margin-top:10px;">
+        Some outbound links may be referral links. See <a href="disclosure.html">Disclosure</a>.
       </div>
+    </section>
 
-      <h2>Luxury goods & resale</h2>
-      <p>Common use cases: handbags, apparel, accessories, sneakers, and resale verification.</p>
-      <div class="providers">
-        <div class="provider">
-          <div>
-            <h3>Luxury authentication provider (Example A)</h3>
-            <p>Independent authentication for high-value luxury goods via inspection and reference archives. Good for buyer/seller validation.</p>
-            <div class="meta"><span class="tag">Referral-ready</span><span class="tag">Inspection-based</span></div>
-          </div>
-          <div class="actions">
-            <a class="button" data-outbound="1" data-partner="luxury-example-a" href="https://example.com/?ref=authentica" target="_blank" rel="nofollow noopener">Learn more →</a>
-          </div>
+    <div class="hr"></div>
+
+    <h2>Workforce IAM (SSO + MFA)</h2>
+    <div class="grid two">
+      <article class="card">
+        <h3 style="margin:0;">Microsoft Entra ID (Azure AD)</h3>
+        <p>
+          Strong default for Microsoft-centric orgs; broad conditional access capabilities. Complexity scales with policy depth.
+        </p>
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="small">Best fit: Microsoft stack</span>
+          <span class="small">Conditional access</span>
         </div>
-
-        <div class="provider">
-          <div>
-            <h3>Resale marketplace verification (Example B)</h3>
-            <p>Marketplace-layer authentication bundled with transactions. Useful if you want a single system: listing → verification → sale.</p>
-            <div class="meta"><span class="tag">Marketplace</span><span class="tag">Transaction flow</span></div>
-          </div>
-          <div class="actions">
-            <a class="button" data-outbound="1" data-partner="resale-example-b" href="https://example.com/" target="_blank" rel="nofollow noopener">Learn more →</a>
-          </div>
+        <div style="margin-top:12px;">
+          <a class="button" href="https://www.microsoft.com/security/business/identity-access/microsoft-entra-id" data-outbound="1" data-partner="microsoft-entra">Learn more →</a>
         </div>
-      </div>
+      </article>
 
-      <h2>Watches & jewelry</h2>
-      <p>Common use cases: pre-owned watch authentication, service history validation, provenance documentation.</p>
-      <div class="providers">
-        <div class="provider">
-          <div>
-            <h3>Watch authentication & inspection (Example C)</h3>
-            <p>Third-party inspection and verification pathways for pre-owned watches and jewelry. Useful when listing or buying remotely.</p>
-            <div class="meta"><span class="tag">Third-party</span><span class="tag">High-value</span></div>
-          </div>
-          <div class="actions">
-            <a class="button" data-outbound="1" data-partner="watch-example-c" href="https://example.com/" target="_blank" rel="nofollow noopener">Learn more →</a>
-          </div>
+      <article class="card">
+        <h3 style="margin:0;">Okta Workforce Identity</h3>
+        <p>
+          Widely adopted workforce IAM platform; strong app integrations and lifecycle workflows. Consider cost at scale.
+        </p>
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="small">Best fit: multi-app SSO</span>
+          <span class="small">Lifecycle automation</span>
         </div>
-      </div>
-
-      <h2>Art & collectibles</h2>
-      <p>Common use cases: provenance support, appraisal pathways, expert opinion networks.</p>
-      <div class="providers">
-        <div class="provider">
-          <div>
-            <h3>Art appraisal & provenance support (Example D)</h3>
-            <p>Specialists who assess provenance documentation and provide appraisal guidance. Best used with strong chain-of-custody records.</p>
-            <div class="meta"><span class="tag">Expert network</span><span class="tag">Documentation</span></div>
-          </div>
-          <div class="actions">
-            <a class="button" data-outbound="1" data-partner="art-example-d" href="https://example.com/" target="_blank" rel="nofollow noopener">Learn more →</a>
-          </div>
+        <div style="margin-top:12px;">
+          <a class="button" href="https://www.okta.com/products/workforce-identity/" data-outbound="1" data-partner="okta-workforce">Learn more →</a>
         </div>
-      </div>
+      </article>
 
-      <h2>Wine & spirits</h2>
-      <p>Common use cases: high-value bottle verification, storage history, auction due diligence.</p>
-      <div class="providers">
-        <div class="provider">
-          <div>
-            <h3>Wine provenance & verification (Example E)</h3>
-            <p>Verification support for high-value bottles, including documentation review and risk triage for collectors.</p>
-            <div class="meta"><span class="tag">Collector-focused</span><span class="tag">Due diligence</span></div>
-          </div>
-          <div class="actions">
-            <a class="button" data-outbound="1" data-partner="wine-example-e" href="https://example.com/" target="_blank" rel="nofollow noopener">Learn more →</a>
-          </div>
+      <article class="card">
+        <h3 style="margin:0;">Google Cloud Identity</h3>
+        <p>
+          Practical option for Google Workspace orgs; supports SSO/MFA and device-aware controls depending on editions.
+        </p>
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="small">Best fit: Google Workspace</span>
+          <span class="small">Admin simplicity</span>
         </div>
-      </div>
-
-      <h2>Digital provenance (optional)</h2>
-      <p>Common use cases: verifying origin claims, tracking content lineage, reducing tampering and misattribution.</p>
-      <div class="providers">
-        <div class="provider">
-          <div>
-            <h3>Content provenance tooling (Example F)</h3>
-            <p>Tools for provenance signals and integrity workflows. Useful for media teams and creators with attribution needs.</p>
-            <div class="meta"><span class="tag">Integrity</span><span class="tag">Workflow</span></div>
-          </div>
-          <div class="actions">
-            <a class="button" data-outbound="1" data-partner="digital-example-f" href="https://example.com/" target="_blank" rel="nofollow noopener">Learn more →</a>
-          </div>
+        <div style="margin-top:12px;">
+          <a class="button" href="https://cloud.google.com/identity" data-outbound="1" data-partner="google-cloud-identity">Learn more →</a>
         </div>
+      </article>
+
+      <article class="card">
+        <h3 style="margin:0;">JumpCloud</h3>
+        <p>
+          Directory + device management angle can be compelling for SMB/mid-market. Evaluate depth vs enterprise suites.
+        </p>
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="small">Best fit: SMB IT</span>
+          <span class="small">Directory + devices</span>
+        </div>
+        <div style="margin-top:12px;">
+          <a class="button" href="https://jumpcloud.com/" data-outbound="1" data-partner="jumpcloud">Learn more →</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="hr"></div>
+
+    <h2>MFA &amp; phishing-resistant authentication</h2>
+    <div class="grid two">
+      <article class="card">
+        <h3 style="margin:0;">Cisco Duo</h3>
+        <p>
+          MFA with broad enterprise adoption; commonly paired with SSO. Clarify your threat model (MFA fatigue, session hijacking).
+        </p>
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="small">Best fit: MFA program</span>
+          <span class="small">Policy + reporting</span>
+        </div>
+        <div style="margin-top:12px;">
+          <a class="button" href="https://duo.com/" data-outbound="1" data-partner="duo">Learn more →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3 style="margin:0;">FIDO2 security keys (ecosystem)</h3>
+        <p>
+          Strong phishing resistance for workforce authentication. Operational success depends on enrollment + backup factors.
+        </p>
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="small">Best fit: high assurance</span>
+          <span class="small">Phishing resistance</span>
+        </div>
+        <div style="margin-top:12px;">
+          <a class="button" href="articles/passkeys-pragmatic-guide.html">Read: passkeys &amp; FIDO →</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="hr"></div>
+
+    <h2>CIAM (Customer Identity)</h2>
+    <div class="grid two">
+      <article class="card">
+        <h3 style="margin:0;">Auth0 (Okta)</h3>
+        <p>
+          Strong developer experience for customer login, social providers, rules/actions, and integrations; cost can scale with MAUs.
+        </p>
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="small">Best fit: SaaS login</span>
+          <span class="small">Developer-friendly</span>
+        </div>
+        <div style="margin-top:12px;">
+          <a class="button" href="https://auth0.com/" data-outbound="1" data-partner="auth0">Learn more →</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3 style="margin:0;">Amazon Cognito</h3>
+        <p>
+          AWS-native customer auth for many use cases. Evaluate feature requirements early (MFA options, customization, federation).
+        </p>
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+          <span class="small">Best fit: AWS-native</span>
+          <span class="small">Managed service</span>
+        </div>
+        <div style="margin-top:12px;">
+          <a class="button" href="https://aws.amazon.com/cognito/" data-outbound="1" data-partner="aws-cognito">Learn more →</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="hr"></div>
+
+    <h2>Evaluation rubric (use this on every vendor call)</h2>
+    <div class="card">
+      <ul class="clean">
+        <li><strong>Threat model:</strong> phishing, MFA fatigue, SIM swap, token/session theft, insider risk.</li>
+        <li><strong>Assurance:</strong> can you enforce phishing-resistant methods for high-risk actions?</li>
+        <li><strong>Lifecycle:</strong> joiner/mover/leaver automation; SCIM; HRIS integration.</li>
+        <li><strong>Policy depth:</strong> conditional access, device posture, geo/risk signals, step-up auth.</li>
+        <li><strong>UX:</strong> enrollment, recovery, helpdesk flows, admin experience.</li>
+        <li><strong>Cost drivers:</strong> MAUs, apps, integrations, feature tiers, support plans.</li>
+      </ul>
+      <div style="margin-top:12px;">
+        <a class="button" href="articles/vendor-comparison-rubric.html">Open the full rubric guide →</a>
       </div>
-
-      <div class="hr"></div>
-
-      <div class="callout">
-        <strong>Provider placement:</strong> Service providers may apply for inclusion or featured placement.
-        <br />
-        <span class="small">Email:</span> <a href="mailto:partners@authentica.co">partners@authentica.co</a>
-        <br />
-        <span class="small">Include:</span> category, geography served, typical price range, and verification method.
-      </div>
-
-      <p class="note">
-        Tip: If you’re not sure what you need, start with the article
-        <a href="articles/what-proves-authenticity.html">What actually proves authenticity</a>
-        and then return here.
-      </p>
     </div>
   </main>
 
   <footer class="footer">
     <div class="container">
       <div class="small">
-        © <span data-year></span> Authentica • <a href="disclosure.html">Disclosure & ethics</a>
+        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="disclosure.html">Disclosure</a>.
       </div>
     </div>
   </footer>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
