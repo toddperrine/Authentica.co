@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Vendor comparison rubric — Authentica</title>
+  <meta name="description" content="A practical rubric to evaluate IAM/SSO/MFA/CIAM vendors: threat model, assurance, lifecycle, policy depth, UX, cost drivers." />
+
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Authentica home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Authentica</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Vendors &amp; Tools</a>
+        <a class="active" href="../articles.html">Guides</a>
+        <a href="../about.html">About</a>
+        <a href="../disclosure.html">Disclosure</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <div class="kicker">Guide</div>
+    <h1>Vendor comparison rubric (use this on every call)</h1>
+    <p class="lede">
+      Most vendor evals go sideways because teams don’t define “success” up front. Use this rubric to force clarity:
+      threat model, assurance, lifecycle, policy depth, UX, and cost drivers.
+    </p>
+
+    <h2>Rubric</h2>
+    <div class="grid two">
+      <section class="card">
+        <h3 style="margin:0;">Threat model</h3>
+        <ul class="clean">
+          <li>What attacks are you prioritizing?</li>
+          <li>Do you need phishing-resistant auth for certain roles/actions?</li>
+          <li>Do you need anomaly/risk signals?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3 style="margin:0;">Assurance and step-up</h3>
+        <ul class="clean">
+          <li>Can you require stronger methods for privileged tasks?</li>
+          <li>Can you re-auth on sensitive actions?</li>
+          <li>Can you enforce device trust/conditional access?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3 style="margin:0;">Lifecycle automation</h3>
+        <ul class="clean">
+          <li>SCIM provisioning/deprovisioning?</li>
+          <li>HRIS integration? Group rules?</li>
+          <li>Joiner/mover/leaver flows?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3 style="margin:0;">Policy depth</h3>
+        <ul class="clean">
+          <li>Conditional access rules (device, geo, risk)?</li>
+          <li>Session controls and token policies?</li>
+          <li>Admin controls and audit logs?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3 style="margin:0;">UX and recovery</h3>
+        <ul class="clean">
+          <li>Enrollment and recovery workflows?</li>
+          <li>Helpdesk reset controls and audit?</li>
+          <li>Customer sign-up/login friction (CIAM)?</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3 style="margin:0;">Cost drivers</h3>
+        <ul class="clean">
+          <li>MAUs vs employees vs apps/integrations?</li>
+          <li>Feature tiers (conditional access, reporting)?</li>
+          <li>Support plans and contracts?</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="hr"></div>
+    <section class="card">
+      <h2 style="margin:0 0 8px;">Use it immediately</h2>
+      <p style="margin:0; color:rgba(17,19,18,.72);">
+        Copy these questions into your next vendor meeting notes and score each category as
+        <span class="code">Meets</span>, <span class="code">Partial</span>, or <span class="code">No</span>.
+      </p>
+      <div style="margin-top:12px;">
+        <a class="button" href="../services.html">Back to Vendors &amp; Tools →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="small">
+        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="../disclosure.html">Disclosure</a>.
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
