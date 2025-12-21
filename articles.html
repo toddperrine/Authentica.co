@@ -5,9 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Guides — Authentica</title>
-  <meta name="description" content="Authentication guides: MFA rollout, passkeys, SSO for SMB, CIAM vs PAM vs IAM, vendor comparison rubric, and common failure modes." />
+  <meta name="description" content="Practical guides for authentication and identity: MFA rollout, SIM swap, passkeys, IAM vs CIAM vs PAM, and vendor evaluation." />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <style>
+    :root{
+      --bg:#F8FAFC;
+      --card:#FFFFFF;
+      --text:#0F172A;
+      --text-muted:#475569;
+      --border:#E2E8F0;
+      --accent:#2563EB;
+      --accent-hover:#1D4ED8;
+      --shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+    }
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.65;
+    }
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ color:var(--accent-hover); text-decoration:underline; text-underline-offset: 3px; }
+
+    .skip{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip:focus{
+      left:16px; top:16px; width:auto; height:auto; padding:10px 12px;
+      background:#fff; border:1px solid var(--border); border-radius:8px; z-index:9999;
+    }
+
+    .container{ max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    .header{ background:#fff; border-bottom:1px solid var(--border); box-shadow: var(--shadow); }
+    .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; }
+    .brand{ display:flex; align-items:center; gap:12px; min-width: 210px; }
+    .brand img{ height: 26px; width:auto; display:block; }
+
+    .nav{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav a{ color: var(--text-muted); font-weight: 500; font-size: 14px; padding: 6px 2px; }
+    .nav a:hover{ color: var(--text); text-decoration:none; }
+    .nav a.active{ color: var(--text); border-bottom: 2px solid var(--accent); padding-bottom: 4px; }
+
+    .kicker{ color: var(--text-muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin: 28px 0 10px; }
+    h1{ font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 10px; }
+    .lede{ color: var(--text-muted); font-size: 16px; max-width: 75ch; margin: 0 0 18px; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin: 16px 0 34px;
+    }
+    @media(min-width: 880px){
+      .grid{ grid-template-columns: 1fr 1fr; gap: 16px; }
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .card h2{
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing:-0.01em;
+    }
+    .card p{
+      margin: 0 0 10px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .meta{
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .footer{
+      border-top: 1px solid var(--border);
+      background: #fff;
+      padding: 16px 0;
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 32px;
+    }
+    .footer a{ color: var(--accent); }
+  </style>
 </head>
 
 <body>
@@ -16,7 +99,7 @@
   <header class="header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Authentica home">
-        <img src="Authentico-Logo.svg" alt="Authentica" class="brand-logo" width="200" height="34" loading="eager" />
+        <img src="Authentico-Logo.svg" alt="Authentica" />
       </a>
 
       <nav class="nav" aria-label="Primary">
@@ -31,49 +114,54 @@
 
   <main id="content" class="container">
     <div class="kicker">Guides</div>
-    <h1>Guides</h1>
+    <h1>Practical guides</h1>
     <p class="lede">
-      Short, implementation-first writing focused on what breaks in real environments.
+      Short, direct guides focused on real-world failure modes and implementation sequence—written for operators.
     </p>
 
-    <div class="hr"></div>
-
     <div class="grid">
-      <section class="card">
-        <h3><a href="articles/mfa-rollout-checklist.html">MFA rollout checklist (pragmatic)</a></h3>
-        <p>Sequence, comms, enforcement gates, break-glass accounts, recovery, and exceptions.</p>
-      </section>
+      <!-- Update this list to match exactly the files in /articles/ -->
+      <article class="card">
+        <h2><a href="articles/iam-vs-ciam-vs-pam.html">IAM vs CIAM vs PAM: what’s the difference?</a></h2>
+        <p>Quick definitions, decision boundaries, and common mis-buys.</p>
+        <div class="meta">Identity fundamentals</div>
+      </article>
 
-      <section class="card">
-        <h3><a href="articles/passkeys-pragmatic-guide.html">Passkeys: a pragmatic guide</a></h3>
-        <p>Where passkeys help, where they don’t, rollout strategy, and UX pitfalls.</p>
-      </section>
+      <article class="card">
+        <h2><a href="articles/mfa-rollout-checklist.html">MFA rollout checklist</a></h2>
+        <p>A deployment sequence that avoids helpdesk overload and reduces bypass risk.</p>
+        <div class="meta">MFA</div>
+      </article>
 
-      <section class="card">
-        <h3><a href="articles/sso-for-smb.html">SSO for SMB: what to do first</a></h3>
-        <p>What “SSO” means in practice and how to avoid half-SSO sprawl.</p>
-      </section>
+      <article class="card">
+        <h2><a href="articles/mfa-fatigue-sim-swap-session-theft.html">MFA fatigue, SIM swap, and session theft</a></h2>
+        <p>How attackers really get in—and what controls stop each path.</p>
+        <div class="meta">Threats</div>
+      </article>
 
-      <section class="card">
-        <h3><a href="articles/iam-vs-ciam-vs-pam.html">IAM vs CIAM vs PAM (and why it matters)</a></h3>
-        <p>Clear distinctions, overlap, and how vendors blur categories.</p>
-      </section>
+      <article class="card">
+        <h2><a href="articles/passkeys-pragmatic-guide.html">Passkeys: a pragmatic guide</a></h2>
+        <p>Where passkeys shine, where they don’t, and how to rollout without breaking recovery.</p>
+        <div class="meta">Passkeys</div>
+      </article>
 
-      <section class="card">
-        <h3><a href="articles/vendor-comparison-rubric.html">Vendor comparison rubric</a></h3>
-        <p>Questions that expose lock-in, risk, and integration reality.</p>
-      </section>
+      <article class="card">
+        <h2><a href="articles/sso-for-smb.html">SSO for SMB: when it pays off</a></h2>
+        <p>A simple framework to decide whether SSO is worth it (and what to do first if not).</p>
+        <div class="meta">SSO</div>
+      </article>
 
-      <section class="card">
-        <h3><a href="articles/mfa-fatigue-sim-swap-session-theft.html">MFA fatigue, SIM swap, session theft</a></h3>
-        <p>What attackers do now, and what actually mitigates it.</p>
-      </section>
+      <article class="card">
+        <h2><a href="articles/vendor-comparison-rubric.html">Vendor comparison rubric</a></h2>
+        <p>A vendor-neutral scorecard to evaluate MFA/SSO/CIAM/PAM tools against real requirements.</p>
+        <div class="meta">Buying</div>
+      </article>
     </div>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <div class="small">
+      <div>
         © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="disclosure.html">Disclosure</a>.
       </div>
     </div>
