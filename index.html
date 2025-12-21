@@ -4,14 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Authentica — Authentication (MFA, SSO, IAM)</title>
-  <meta name="description" content="Practical, vendor-aware guidance on MFA, SSO, IAM, passkeys, and passwordless authentication." />
-
-  <meta property="og:title" content="Authentica — Authentication (MFA, SSO, IAM)" />
-  <meta property="og:description" content="A compact guide to modern authentication: MFA, SSO, IAM, passkeys, and rollout checklists." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://authentica.co/" />
-  <meta name="twitter:card" content="summary" />
+  <title>Authentica — Authentication (MFA, SSO, IAM) guides and vendor map</title>
+  <meta name="description" content="Authentica is a compact, practical guide to authentication: MFA, SSO, IAM, passkeys, CIAM, and vendor categories. Clear tradeoffs. Neutral guidance." />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
@@ -22,8 +16,7 @@
   <header class="header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Authentica home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-name">Authentica</span>
+        <img src="Authentico-Logo.svg" alt="Authentica" class="brand-logo" width="200" height="34" loading="eager" />
       </a>
 
       <nav class="nav" aria-label="Primary">
@@ -37,87 +30,41 @@
   </header>
 
   <main id="content" class="container">
-    <div class="kicker">Identity • Authentication • Access</div>
-    <h1>Modern authentication. Fewer breaches. Less friction.</h1>
-    <p class="lede">
-      Authentica is a compact, practical guide to <strong>MFA</strong>, <strong>SSO</strong>, <strong>IAM</strong>,
-      <strong>passkeys</strong>, and <strong>passwordless</strong>. It focuses on what breaks in real deployments and
-      how to roll changes out without disrupting teams or customers.
-    </p>
+    <section class="hero">
+      <div class="kicker">Authentication, explained</div>
+      <h1>Make identity decisions faster: MFA, SSO, IAM, passkeys.</h1>
+      <p class="lede">
+        A small reference site that clarifies terms, tradeoffs, and vendor categories—so teams can choose what to deploy and in what order.
+      </p>
 
-    <div style="display:flex; gap:12px; flex-wrap:wrap; margin:18px 0 10px;">
-      <a class="button primary" href="services.html">Browse vendors &amp; tools</a>
-      <a class="button" href="articles.html">Read implementation guides</a>
-    </div>
+      <div class="grid" style="margin-top:20px;">
+        <section class="card">
+          <h3 style="margin:0;">Vendors &amp; tools</h3>
+          <p>Provider categories, when to use them, and what to ask before buying.</p>
+          <div style="margin-top:12px;">
+            <a class="button" href="services.html">Go to directory →</a>
+          </div>
+        </section>
 
-    <div class="small">
-      Neutral, reference-grade guidance. Some outbound links may be referral links. See <a href="disclosure.html">Disclosure</a>.
-    </div>
+        <section class="card">
+          <h3 style="margin:0;">Guides</h3>
+          <p>Short, direct guides prioritizing real-world failure modes and implementation sequence.</p>
+          <div style="margin-top:12px;">
+            <a class="button" href="articles.html">Go to guides →</a>
+          </div>
+        </section>
+      </div>
 
-    <div class="hr"></div>
+      <div class="hr"></div>
 
-    <h2>Start here</h2>
-    <div class="grid two">
-      <section class="card">
-        <h3 style="margin:0;">MFA rollout checklist</h3>
-        <p>A practical sequence that avoids lockouts, minimizes support load, and reduces resistance.</p>
-        <div style="margin-top:12px;">
-          <a class="button" href="articles/mfa-rollout-checklist.html">Read →</a>
-        </div>
+      <section class="card" style="background:rgba(255,255,255,.65);">
+        <h2 style="margin:0 0 8px;">If you only do three things</h2>
+        <ul>
+          <li>Enforce MFA with phishing-resistant methods for privileged actions.</li>
+          <li>Adopt SSO where it reduces password sprawl and centralizes policy.</li>
+          <li>Use conditional access/device posture to reduce session hijacking risk.</li>
+        </ul>
       </section>
-
-      <section class="card">
-        <h3 style="margin:0;">Passkeys: what they solve</h3>
-        <p>When passkeys reduce risk dramatically—and when they don’t (sessions, device risk, recovery).</p>
-        <div style="margin-top:12px;">
-          <a class="button" href="articles/passkeys-pragmatic-guide.html">Read →</a>
-        </div>
-      </section>
-    </div>
-
-    <h2>A simple model</h2>
-    <div class="grid three">
-      <section class="card">
-        <h3 style="margin:0;">Identity</h3>
-        <p>Who is attempting access, and how sure are you?</p>
-      </section>
-      <section class="card">
-        <h3 style="margin:0;">Access</h3>
-        <p>What can they do, from where, under what conditions?</p>
-      </section>
-      <section class="card">
-        <h3 style="margin:0;">Assurance</h3>
-        <p>What additional proof is required for higher-risk actions?</p>
-      </section>
-    </div>
-
-    <h2>What you’ll find here</h2>
-    <div class="grid two">
-      <section class="card">
-        <h3 style="margin:0;">Vendors &amp; tools (directory)</h3>
-        <p>Workforce IAM, MFA providers, CIAM, device trust, PAM, and risk signals—organized by use case.</p>
-        <div style="margin-top:12px;">
-          <a class="button" href="services.html">Go to directory →</a>
-        </div>
-      </section>
-      <section class="card">
-        <h3 style="margin:0;">Guides (evergreen)</h3>
-        <p>Short, direct guides that prioritize real-world failure modes and implementation sequences.</p>
-        <div style="margin-top:12px;">
-          <a class="button" href="articles.html">Go to guides →</a>
-        </div>
-      </section>
-    </div>
-
-    <div class="hr"></div>
-
-    <section class="card" style="background:rgba(255,255,255,.65);">
-      <h2 style="margin:0 0 8px;">If you only do three things</h2>
-      <ul>
-        <li>Enforce MFA with phishing-resistant methods for privileged actions.</li>
-        <li>Adopt SSO where it reduces password sprawl and centralizes policy.</li>
-        <li>Use conditional access/device posture to reduce session hijacking risk.</li>
-      </ul>
     </section>
   </main>
 
