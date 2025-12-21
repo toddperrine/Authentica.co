@@ -4,10 +4,226 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Authentica — Authentication (MFA, SSO, IAM) guides and vendor map</title>
-  <meta name="description" content="Authentica is a compact, practical guide to authentication: MFA, SSO, IAM, passkeys, CIAM, and vendor categories. Clear tradeoffs. Neutral guidance." />
+  <title>Authentica — Authentication (MFA, SSO, IAM, passkeys)</title>
+  <meta name="description" content="Authentica is a compact, vendor-neutral reference for authentication: MFA, SSO, IAM, passkeys, rollout sequencing, and real-world tradeoffs." />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Page-scoped overrides (authoritative/tech palette) -->
+  <style>
+    :root{
+      --bg:#F8FAFC;
+      --card:#FFFFFF;
+      --text:#0F172A;
+      --text-muted:#475569;
+      --border:#E2E8F0;
+      --accent:#2563EB;
+      --accent-hover:#1D4ED8;
+      --shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.65;
+    }
+
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ color:var(--accent-hover); text-decoration:underline; text-underline-offset: 3px; }
+
+    .skip{
+      position:absolute;
+      left:-9999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+    }
+    .skip:focus{
+      left:16px;
+      top:16px;
+      width:auto;
+      height:auto;
+      padding:10px 12px;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:8px;
+      z-index:9999;
+    }
+
+    .container{
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .header{
+      background:#fff;
+      border-bottom:1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 210px;
+    }
+    .brand img{
+      height: 26px;
+      width:auto;
+      display:block;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav a{
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 14px;
+      padding: 6px 2px;
+    }
+    .nav a:hover{
+      color: var(--text);
+      text-decoration:none;
+    }
+    .nav a.active{
+      color: var(--text);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 4px;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 34px 0 10px;
+    }
+    .kicker{
+      color: var(--text-muted);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin: 0 0 10px 0;
+    }
+    h1{
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px 0;
+    }
+    .lede{
+      color: var(--text-muted);
+      font-size: 18px;
+      max-width: 68ch;
+      margin: 0 0 20px 0;
+    }
+
+    /* Cards */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin: 18px 0 0;
+    }
+    @media(min-width: 880px){
+      .grid{
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .card h3{
+      margin: 0 0 6px 0;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+    .card p{
+      margin: 0 0 12px 0;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      background: var(--accent);
+      color:#fff;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration:none;
+      width: fit-content;
+    }
+    .button:hover{
+      background: var(--accent-hover);
+      color:#fff;
+      text-decoration:none;
+    }
+    .button.secondary{
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .button.secondary:hover{
+      border-color: #CBD5E1;
+      background: #F1F5F9;
+      color: var(--text);
+    }
+
+    /* “Do three things” */
+    .panel{
+      margin: 18px 0 40px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .panel h2{
+      margin: 0 0 10px 0;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+    .panel ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text-muted);
+    }
+    .panel li{
+      margin: 6px 0;
+    }
+
+    /* Footer */
+    .footer{
+      border-top: 1px solid var(--border);
+      background: #fff;
+      padding: 16px 0;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    .footer a{
+      color: var(--accent);
+    }
+  </style>
 </head>
 
 <body>
@@ -16,7 +232,7 @@
   <header class="header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Authentica home">
-        <img src="Authentico-Logo.svg" alt="Authentica" class="brand-logo" width="200" height="34" loading="eager" />
+        <img src="Authentico-Logo.svg" alt="Authentica" />
       </a>
 
       <nav class="nav" aria-label="Primary">
@@ -34,43 +250,37 @@
       <div class="kicker">Authentication, explained</div>
       <h1>Make identity decisions faster: MFA, SSO, IAM, passkeys.</h1>
       <p class="lede">
-        A small reference site that clarifies terms, tradeoffs, and vendor categories—so teams can choose what to deploy and in what order.
+        A compact, vendor-neutral reference that clarifies terms, tradeoffs, and vendor categories—so teams can choose what to deploy and in what order.
       </p>
 
-      <div class="grid" style="margin-top:20px;">
+      <div class="grid">
         <section class="card">
-          <h3 style="margin:0;">Vendors &amp; tools</h3>
+          <h3>Vendors &amp; tools</h3>
           <p>Provider categories, when to use them, and what to ask before buying.</p>
-          <div style="margin-top:12px;">
-            <a class="button" href="services.html">Go to directory →</a>
-          </div>
+          <a class="button" href="services.html">Go to directory →</a>
         </section>
 
         <section class="card">
-          <h3 style="margin:0;">Guides</h3>
+          <h3>Guides</h3>
           <p>Short, direct guides prioritizing real-world failure modes and implementation sequence.</p>
-          <div style="margin-top:12px;">
-            <a class="button" href="articles.html">Go to guides →</a>
-          </div>
+          <a class="button" href="articles.html">Go to guides →</a>
         </section>
       </div>
+    </section>
 
-      <div class="hr"></div>
-
-      <section class="card" style="background:rgba(255,255,255,.65);">
-        <h2 style="margin:0 0 8px;">If you only do three things</h2>
-        <ul>
-          <li>Enforce MFA with phishing-resistant methods for privileged actions.</li>
-          <li>Adopt SSO where it reduces password sprawl and centralizes policy.</li>
-          <li>Use conditional access/device posture to reduce session hijacking risk.</li>
-        </ul>
-      </section>
+    <section class="panel" aria-label="Three recommended actions">
+      <h2>If you only do three things</h2>
+      <ul>
+        <li>Enforce MFA with phishing-resistant methods for privileged actions (prefer passkeys or FIDO2 where possible).</li>
+        <li>Adopt SSO where it reduces password sprawl and centralizes policy (start with your highest-risk apps).</li>
+        <li>Use conditional access and device posture to reduce session hijacking and limit blast radius.</li>
+      </ul>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <div class="small">
+      <div>
         © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="disclosure.html">Disclosure</a>.
       </div>
     </div>
