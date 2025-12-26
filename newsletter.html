@@ -1,117 +1,103 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Newsletter — Authentica</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Newsletter — Authentica</title>
 
-  <meta name="description" content="Low-frequency, practical notes on authentication and identity decisions. No hype. No vendor spam." />
+    <meta
+      name="description"
+      content="Low-frequency, practical notes on authentication and identity decisions. No hype. No vendor spam."
+    />
 
-  <meta property="og:title" content="Newsletter — Authentica" />
-  <meta property="og:description" content="Low-frequency, practical notes on authentication and identity decisions. No hype. No vendor spam." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://authentica.co/newsletter.html" />
+    <meta property="og:title" content="Newsletter — Authentica" />
+    <meta
+      property="og:description"
+      content="Low-frequency, practical notes on authentication and identity decisions. No hype. No vendor spam."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://authentica.co/newsletter.html" />
 
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#0b0c0f" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0b0c0f" />
 
-  <link rel="stylesheet" href="/assets/site.css" />
-</head>
+    <link rel="stylesheet" href="/assets/site.css" />
 
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+    <style>
+      /* Page-local tweaks; safe even if site.css changes later */
+      .stack > * + * { margin-top: 14px; }
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/index.html" aria-label="Authentica home">
-        <img src="/assets/brandmark.svg" alt="" class="brand-mark-img" aria-hidden="true" />
-        <span class="brand-name">Authentica</span>
-      </a>
+      .form-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .input {
+        width: min(520px, 100%);
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--border, rgba(255,255,255,0.12));
+        background: rgba(255,255,255,0.04);
+        color: inherit;
+        outline: none;
+      }
+      .input:focus {
+        border-color: rgba(255,255,255,0.22);
+        box-shadow: 0 0 0 4px rgba(255,255,255,0.06);
+      }
 
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="nav-link" href="/index.html">Home</a>
-        <a class="nav-link" href="/start-here.html">Start here</a>
-        <a class="nav-link" href="/services.html">Vendors &amp; Tools</a>
-        <a class="nav-link" href="/articles.html">Guides</a>
-        <a class="nav-link" href="/about.html">About</a>
-        <a class="nav-link" href="/disclosure.html">Disclosure</a>
-      </nav>
-    </div>
-  </header>
+      /* If your provider injects a plain form, make it look native */
+      .newsletter-embed form { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+      .newsletter-embed input[type="email"] {
+        width: min(520px, 100%);
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--border, rgba(255,255,255,0.12));
+        background: rgba(255,255,255,0.04);
+        color: inherit;
+      }
+      .newsletter-embed input[type="submit"],
+      .newsletter-embed button {
+        appearance: none;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.06);
+        color: inherit;
+        padding: 10px 14px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .newsletter-embed input[type="submit"]:hover,
+      .newsletter-embed button:hover {
+        background: rgba(255,255,255,0.10);
+      }
 
-  <main id="main" class="page">
-    <div class="container">
-      <div class="page-hero">
-        <div class="eyebrow">NEWSLETTER</div>
-        <h1>Authentica Notes</h1>
-        <p class="lede">
-          Short, practical notes on authentication and identity decisions.
-          No hype. No vendor spam. Low frequency.
-        </p>
-      </div>
+      .fineprint {
+        opacity: 0.78;
+        font-size: 0.95rem;
+      }
+      .divider {
+        height: 1px;
+        background: rgba(255,255,255,0.10);
+        margin: 18px 0;
+      }
+    </style>
+  </head>
 
-      <section class="section">
-        <div class="card">
-          <h2>What you’ll get</h2>
-          <ul>
-            <li>Real rollout failure modes (recovery, reset, break-glass, outages).</li>
-            <li>Decision sequencing (admins → high-risk flows → broader rollout).</li>
-            <li>Category-level vendor evaluation guidance (not rankings).</li>
-          </ul>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-          <h2>Frequency</h2>
-          <p>1–2 emails per month max. Unsubscribe any time.</p>
-        </div>
-      </section>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/index.html" aria-label="Authentica home">
+          <img src="/assets/brandmark.svg" alt="" class="brand-mark-img" aria-hidden="true" />
+          <span class="brand-name">Authentica</span>
+        </a>
 
-      <section class="section">
-        <div class="card">
-          <h2>Join</h2>
-
-          <!-- OPTION 1: Paste your provider embed here (Buttondown/ConvertKit/Substack) -->
-          <div class="notice">
-            <p><strong>Signup form goes here.</strong></p>
-            <p>
-              If you’re using Buttondown or ConvertKit, paste the embed HTML in this box and remove this placeholder.
-            </p>
-          </div>
-
-          <!-- OPTION 2: Immediate fallback (works now) -->
-          <p>
-            If you haven’t set up a provider yet, you can email:
-            <a class="link" href="mailto:hello@authentica.co?subject=Newsletter%20signup&body=Please%20add%20me%20to%20Authentica%20Notes.%0A%0AEmail%3A%20">
-              hello@authentica.co
-            </a>
-            with “Newsletter signup”.
-          </p>
-
-          <p><a class="button button-secondary" href="/start-here.html">Start with the reading path</a></p>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-left">
-        <div class="footer-brand">Authentica</div>
-        <div class="footer-tagline">Vendor-neutral guidance on authentication and identity decisions.</div>
-      </div>
-
-      <div class="footer-links">
-        <a class="footer-link" href="/start-here.html">Start here</a>
-        <a class="footer-link" href="/articles.html">Guides</a>
-        <a class="footer-link" href="/services.html">Vendors &amp; Tools</a>
-        <a class="footer-link" href="/disclosure.html">Disclosure</a>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <small>© Authentica. Some outbound links may be referral links. See <a href="/disclosure.html">Disclosure</a>.</small>
-    </div>
-  </footer>
-</body>
-</html>
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="nav-link" href="/index.html">Home</a>
+          <a class="nav-link" href="/start-here.html">
