@@ -119,7 +119,7 @@
 
           <h1 class="h1">Passkeys: a pragmatic guide</h1>
           <p class="lede">
-            Passkeys can meaningfully reduce phishing and credential replay, but only if you treat recovery,
+            Passkeys can materially reduce phishing and credential replay, but only if you treat recovery,
             device loss, and admin flows as first-class design constraints.
           </p>
           <p class="article-meta">Updated: 2025-12-26</p>
@@ -127,7 +127,7 @@
           <div class="hero-card summary">
             <h2 class="h2">Summary</h2>
             <ul class="checklist">
-              <li><strong>Passkeys reduce phishing</strong> by eliminating shared secrets (passwords) in normal login flows.</li>
+              <li><strong>Passkeys reduce phishing</strong> by eliminating shared secrets (passwords) from normal login flows.</li>
               <li><strong>Recovery is the real attack surface</strong>: if fallback is “email reset + SMS,” your security story collapses.</li>
               <li><strong>Roll out in sequence</strong>: admins and high-risk actions first; broad end-user adoption later.</li>
               <li><strong>Plan for device churn</strong>: multiple devices, lost phones, and BYOD are the default, not edge cases.</li>
@@ -135,11 +135,11 @@
           </div>
 
           <div class="prose">
-            <h2>What passkeys are (in operational terms)</h2>
+            <h2>What passkeys are (operationally)</h2>
             <p>
               A passkey is a phishing-resistant credential based on public-key cryptography (FIDO2/WebAuthn).
-              The “secret” never leaves the device or platform authenticator. The relying party (your app/service)
-              stores a public key and verifies signed challenges.
+              The private key never leaves the device or platform authenticator. Your service stores a public key
+              and verifies signed challenges.
             </p>
             <p>
               In practice: users authenticate with a platform prompt (biometric/PIN), not by typing a password.
@@ -149,7 +149,7 @@
             <h2>When passkeys help the most</h2>
             <ul>
               <li><strong>Phishing-heavy environments</strong> (contractors, distributed teams, high email volume).</li>
-              <li><strong>High-value admin consoles</strong> and privileged actions (billing, user mgmt, API keys).</li>
+              <li><strong>High-value admin consoles</strong> and privileged actions (billing, user management, API keys).</li>
               <li><strong>Consumer apps</strong> where password reuse is rampant and account takeover is expensive.</li>
               <li><strong>Organizations migrating off SMS-based MFA</strong> without crushing user experience.</li>
             </ul>
@@ -164,13 +164,13 @@
             <h3>2) Single-device assumptions</h3>
             <p>
               Users switch phones, wipe laptops, lose devices, and enroll new devices constantly.
-              If your model assumes “one phone forever,” you will end up adding insecure fallbacks later under pressure.
+              If your model assumes “one phone forever,” you’ll add weak fallbacks later under pressure.
             </p>
 
             <h3>3) Mixed policy environments</h3>
             <p>
-              Some users will have passkeys; others won’t. If your policy and UX don’t handle mixed states cleanly,
-              you’ll create support debt and inconsistent security outcomes.
+              Some users will have passkeys; others won’t. If policy and UX don’t handle mixed states cleanly,
+              you’ll create support debt and inconsistent outcomes.
             </p>
 
             <h3>4) Admin bypass and break-glass gaps</h3>
@@ -196,18 +196,18 @@
                 <strong>Measure adoption and support burden.</strong> Track: enrollments, fallback usage, reset requests, and lockouts.
               </li>
               <li>
-                <strong>Move to policy.</strong> Once you trust your recovery model and adoption is healthy, require passkeys
+                <strong>Move to policy.</strong> Once you trust recovery and adoption is healthy, require passkeys
                 (or require them for high-risk cohorts and flows).
               </li>
             </ol>
 
-            <h2>Decision questions (use these with vendors or internal teams)</h2>
+            <h2>Decision questions (use with vendors/internal teams)</h2>
             <ul>
-              <li>What are the supported recovery paths, and how are they secured against social engineering?</li>
+              <li>What recovery paths exist, and how are they secured against social engineering?</li>
               <li>How does enrollment work across multiple devices and platforms (iOS/Android/Windows/macOS)?</li>
               <li>Can we require passkeys for specific actions (step-up) without requiring them for all logins?</li>
               <li>What happens during outages? Is there a safe “degraded mode”?</li>
-              <li>How do logs show fallback usage vs passkey usage (so we can detect policy bypass)?</li>
+              <li>How do logs distinguish fallback usage vs passkey usage (to detect bypass)?</li>
             </ul>
 
             <div class="callout back-row">
