@@ -1,120 +1,238 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Passkeys: a pragmatic guide — Authentica</title>
-  <meta name="description" content="A pragmatic guide to passkeys, WebAuthn, passwordless, recovery, and realistic rollout patterns." />
+    <title>Passkeys: a pragmatic guide — Authentica</title>
+    <meta
+      name="description"
+      content="A pragmatic passkeys guide: what they solve, where they fail, and a rollout sequence that protects recovery, admins, and high-risk flows."
+    />
 
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-</head>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Passkeys: a pragmatic guide — Authentica" />
+    <meta
+      property="og:description"
+      content="What passkeys solve, where they don’t, and how to roll them out without breaking recovery."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://authentica.co/articles/passkeys-pragmatic-guide.html" />
 
-<body>
-  <a class="skip" href="#content">Skip to content</a>
+    <!-- Favicons / App -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0b0c0f" />
 
-  <header class="header">
-    <div class="container header-inner">
-      <a class="brand" href="../index.html" aria-label="Authentica home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-name">Authentica</span>
-      </a>
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/site.css" />
 
-      <nav class="nav" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="../services.html">Vendors &amp; Tools</a>
-        <a class="active" href="../articles.html">Guides</a>
-        <a href="../about.html">About</a>
-        <a href="../disclosure.html">Disclosure</a>
-      </nav>
-    </div>
-  </header>
+    <style>
+      .crumbs {
+        margin: 0 0 10px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .crumbs a {
+        color: var(--muted);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .article-shell {
+        max-width: 820px;
+      }
+      .article-meta {
+        margin: 10px 0 0;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .prose {
+        margin-top: 18px;
+      }
+      .prose h2 {
+        margin: 22px 0 10px;
+        font-size: 18px;
+        letter-spacing: -0.2px;
+      }
+      .prose h3 {
+        margin: 18px 0 8px;
+        font-size: 16px;
+        letter-spacing: -0.2px;
+      }
+      .prose p {
+        margin: 0 0 12px;
+        color: var(--text);
+      }
+      .prose ul,
+      .prose ol {
+        margin: 0 0 14px;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+      .prose li {
+        margin: 0 0 8px;
+      }
+      .summary {
+        margin-top: 16px;
+      }
+      .summary ul {
+        margin: 10px 0 0;
+      }
+      .back-row {
+        margin-top: 18px;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+          monospace;
+        font-size: 0.95em;
+      }
+    </style>
+  </head>
 
-  <main id="content" class="container">
-    <div class="kicker">Guide</div>
-    <h1>Passkeys: a pragmatic guide</h1>
-    <p class="lede">
-      Passkeys reduce phishing risk and password reuse. They also introduce operational questions: enrollment, device changes,
-      shared devices, and account recovery. This guide focuses on what works in real deployments.
-    </p>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <h2>What a passkey is (plain language)</h2>
-    <div class="card">
-      <p style="margin:0; color:rgba(17,19,18,.72);">
-        A passkey is a phishing-resistant credential based on public-key cryptography (WebAuthn/FIDO2).
-        The private key stays on the user’s device (or secure enclave); the server stores a public key.
-        Logging in proves possession without sending a reusable password.
-      </p>
-    </div>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/index.html" aria-label="Authentica home">
+          <img src="/assets/brandmark.svg" alt="" class="brand-mark-img" aria-hidden="true" />
+          <span class="brand-name">Authentica</span>
+        </a>
 
-    <h2>What passkeys solve</h2>
-    <div class="card">
-      <ul class="clean">
-        <li>Phishing of passwords (the credential isn’t typed or reusable).</li>
-        <li>Credential stuffing (there’s no shared password to reuse).</li>
-        <li>Weak password policies (passkeys bypass the problem entirely).</li>
-      </ul>
-    </div>
-
-    <h2>What passkeys do not solve</h2>
-    <div class="card">
-      <ul class="clean">
-        <li>Session theft/token hijacking after login (you still need session controls).</li>
-        <li>Compromised endpoints (malware can abuse sessions and approved actions).</li>
-        <li>Bad authorization (passkeys authenticate identity, not least-privilege access).</li>
-      </ul>
-    </div>
-
-    <h2>Deployment patterns that work</h2>
-    <div class="grid two">
-      <section class="card">
-        <h3 style="margin:0;">Workforce high assurance</h3>
-        <p>Admins and finance roles: require passkeys/security keys for privileged actions; keep backup factors for recovery.</p>
-      </section>
-      <section class="card">
-        <h3 style="margin:0;">Customer “step-up”</h3>
-        <p>Allow password login, but require passkey for sensitive actions (payout changes, exports, account takeover signals).</p>
-      </section>
-      <section class="card">
-        <h3 style="margin:0;">Passwordless-first (careful)</h3>
-        <p>Works best when you have strong account recovery, multi-device enrollment, and clear “lost device” flows.</p>
-      </section>
-      <section class="card">
-        <h3 style="margin:0;">Hybrid onboarding</h3>
-        <p>Offer passkeys during first login, but don’t hard-enforce until you’ve achieved high enrollment coverage.</p>
-      </section>
-    </div>
-
-    <h2>Recovery is the real design problem</h2>
-    <div class="card">
-      <ul class="clean">
-        <li>Require multi-device enrollment (phone + laptop where possible).</li>
-        <li>Provide backup methods (codes, alternative verified device, helpdesk verification).</li>
-        <li>Define identity proof for resets. “Email the admin” is not a strategy.</li>
-      </ul>
-    </div>
-
-    <div class="hr"></div>
-    <section class="card">
-      <h2 style="margin:0 0 8px;">Related</h2>
-      <ul class="clean">
-        <li><a href="mfa-rollout-checklist.html">MFA rollout checklist</a></li>
-        <li><a href="mfa-fatigue-sim-swap-session-theft.html">Modern attack patterns</a></li>
-      </ul>
-      <div style="margin-top:12px;">
-        <a class="button" href="../articles.html">Back to Guides →</a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="nav-link" href="/index.html">Home</a>
+          <a class="nav-link" href="/services.html">Vendors &amp; Tools</a>
+          <a class="nav-link is-active" href="/articles.html">Guides</a>
+          <a class="nav-link" href="/about.html">About</a>
+          <a class="nav-link" href="/disclosure.html">Disclosure</a>
+        </nav>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="small">
-        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="../disclosure.html">Disclosure</a>.
+    <main id="main">
+      <section class="hero">
+        <div class="container article-shell">
+          <p class="crumbs"><a href="/articles.html">Guides</a> / Article</p>
+
+          <h1 class="h1">Passkeys: a pragmatic guide</h1>
+          <p class="lede">
+            Passkeys can meaningfully reduce phishing and credential replay, but only if you treat recovery,
+            device loss, and admin flows as first-class design constraints.
+          </p>
+          <p class="article-meta">Updated: 2025-12-26</p>
+
+          <div class="hero-card summary">
+            <h2 class="h2">Summary</h2>
+            <ul class="checklist">
+              <li><strong>Passkeys reduce phishing</strong> by eliminating shared secrets (passwords) in normal login flows.</li>
+              <li><strong>Recovery is the real attack surface</strong>: if fallback is “email reset + SMS,” your security story collapses.</li>
+              <li><strong>Roll out in sequence</strong>: admins and high-risk actions first; broad end-user adoption later.</li>
+              <li><strong>Plan for device churn</strong>: multiple devices, lost phones, and BYOD are the default, not edge cases.</li>
+            </ul>
+          </div>
+
+          <div class="prose">
+            <h2>What passkeys are (in operational terms)</h2>
+            <p>
+              A passkey is a phishing-resistant credential based on public-key cryptography (FIDO2/WebAuthn).
+              The “secret” never leaves the device or platform authenticator. The relying party (your app/service)
+              stores a public key and verifies signed challenges.
+            </p>
+            <p>
+              In practice: users authenticate with a platform prompt (biometric/PIN), not by typing a password.
+              That materially changes attacker economics for credential stuffing and social engineering.
+            </p>
+
+            <h2>When passkeys help the most</h2>
+            <ul>
+              <li><strong>Phishing-heavy environments</strong> (contractors, distributed teams, high email volume).</li>
+              <li><strong>High-value admin consoles</strong> and privileged actions (billing, user mgmt, API keys).</li>
+              <li><strong>Consumer apps</strong> where password reuse is rampant and account takeover is expensive.</li>
+              <li><strong>Organizations migrating off SMS-based MFA</strong> without crushing user experience.</li>
+            </ul>
+
+            <h2>Failure modes to watch</h2>
+            <h3>1) “Secure login, insecure recovery”</h3>
+            <p>
+              The most common failure is implementing passkeys but leaving recovery as a weak link:
+              email reset, SMS OTP, or helpdesk “verify a few facts.” Attackers will route around your strong auth.
+            </p>
+
+            <h3>2) Single-device assumptions</h3>
+            <p>
+              Users switch phones, wipe laptops, lose devices, and enroll new devices constantly.
+              If your model assumes “one phone forever,” you will end up adding insecure fallbacks later under pressure.
+            </p>
+
+            <h3>3) Mixed policy environments</h3>
+            <p>
+              Some users will have passkeys; others won’t. If your policy and UX don’t handle mixed states cleanly,
+              you’ll create support debt and inconsistent security outcomes.
+            </p>
+
+            <h3>4) Admin bypass and break-glass gaps</h3>
+            <p>
+              Admins are high-risk. If admins can bypass passkeys via a legacy path, attackers will target that path.
+              You also need an explicit break-glass approach that doesn’t silently become “permanent bypass.”
+            </p>
+
+            <h2>Implementation sequence (recommended)</h2>
+            <ol>
+              <li>
+                <strong>Define recovery first.</strong> Decide what “lost device” means and what the user must present
+                to re-establish trust. Prefer strong step-up options over “email link + SMS.”
+              </li>
+              <li>
+                <strong>Secure privileged actions.</strong> Require phishing-resistant auth for admin login and any action that changes
+                identity, billing, or security posture.
+              </li>
+              <li>
+                <strong>Introduce passkeys as an option</strong> for end-users, with clear enrollment UX and support docs.
+              </li>
+              <li>
+                <strong>Measure adoption and support burden.</strong> Track: enrollments, fallback usage, reset requests, and lockouts.
+              </li>
+              <li>
+                <strong>Move to policy.</strong> Once you trust your recovery model and adoption is healthy, require passkeys
+                (or require them for high-risk cohorts and flows).
+              </li>
+            </ol>
+
+            <h2>Decision questions (use these with vendors or internal teams)</h2>
+            <ul>
+              <li>What are the supported recovery paths, and how are they secured against social engineering?</li>
+              <li>How does enrollment work across multiple devices and platforms (iOS/Android/Windows/macOS)?</li>
+              <li>Can we require passkeys for specific actions (step-up) without requiring them for all logins?</li>
+              <li>What happens during outages? Is there a safe “degraded mode”?</li>
+              <li>How do logs show fallback usage vs passkey usage (so we can detect policy bypass)?</li>
+            </ul>
+
+            <div class="callout back-row">
+              <p class="callout-title">Back to Guides</p>
+              <p class="callout-text">
+                <a href="/articles.html">Return to the Guides index →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="footer-left">© <span id="year"></span> Authentica.</p>
+        <p class="footer-right">
+          Some outbound links may be referral links. See <a href="/disclosure.html">Disclosure</a>.
+        </p>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="../assets/js/main.js" defer></script>
-</body>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
