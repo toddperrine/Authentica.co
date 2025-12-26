@@ -1,234 +1,176 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vendors &amp; Tools — Authentica</title>
 
-    <title>Vendors &amp; Tools — Authentica</title>
-    <meta
-      name="description"
-      content="Vendor-neutral directory of authentication and identity categories: what each is for, when it helps, where it fails, and what to ask before buying."
-    />
+  <meta name="description" content="A vendor-neutral directory of identity categories: what each category is for, when it helps, where it fails, and what to ask before buying." />
 
-    <meta property="og:title" content="Vendors &amp; Tools — Authentica" />
-    <meta
-      property="og:description"
-      content="Provider categories, when to use them, where they fail, and what to ask before buying."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://authentica.co/services.html" />
+  <meta property="og:title" content="Vendors &amp; Tools — Authentica" />
+  <meta property="og:description" content="Vendor-neutral directory of identity categories: what they’re for, when they help, where they fail, and what to ask before buying." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://authentica.co/services.html" />
 
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#0b0c0f" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#0b0c0f" />
 
-    <link rel="stylesheet" href="/assets/site.css" />
-  </head>
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
 
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="/index.html" aria-label="Authentica home">
-          <img src="/assets/brandmark.svg" alt="" class="brand-mark-img" aria-hidden="true" />
-          <span class="brand-name">Authentica</span>
-        </a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/index.html" aria-label="Authentica home">
+        <img src="/assets/brandmark.svg" alt="" class="brand-mark-img" aria-hidden="true" />
+        <span class="brand-name">Authentica</span>
+      </a>
 
-        <nav class="nav" aria-label="Primary navigation">
-          <a class="nav-link" href="/index.html">Home</a>
-          <a class="nav-link is-active" href="/services.html">Vendors &amp; Tools</a>
-          <a class="nav-link" href="/articles.html">Guides</a>
-          <a class="nav-link" href="/about.html">About</a>
-          <a class="nav-link" href="/disclosure.html">Disclosure</a>
-        </nav>
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav-link" href="/index.html">Home</a>
+        <a class="nav-link" href="/start-here.html">Start here</a>
+        <a class="nav-link is-active" href="/services.html">Vendors &amp; Tools</a>
+        <a class="nav-link" href="/articles.html">Guides</a>
+        <a class="nav-link" href="/about.html">About</a>
+        <a class="nav-link" href="/disclosure.html">Disclosure</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page">
+    <div class="container">
+      <div class="page-hero">
+        <div class="eyebrow">DIRECTORY</div>
+        <h1>Vendors &amp; Tools</h1>
+        <p class="lede">
+          Use this page to orient quickly: what each category is for, when it helps, where it fails, and what to ask before buying.
+          Categories are broader than any single product.
+        </p>
+
+        <div class="cta-row">
+          <a class="button" href="/articles/vendor-comparison-rubric.html">Use the comparison rubric</a>
+          <a class="button button-secondary" href="/disclosure.html">How outbound links work</a>
+        </div>
       </div>
-    </header>
 
-    <main id="main">
-      <section class="hero hero-compact">
-        <div class="container">
-          <p class="kicker">Directory</p>
-          <h1 class="h1">Vendors &amp; Tools</h1>
-          <p class="lede">
-            Use this page to orient quickly: what each category is for, when it helps, where it fails, and what to ask
-            vendors before you buy. Authentica is vendor-neutral; categories are broader than any single product.
-          </p>
+      <section class="section">
+        <h2>Core categories</h2>
 
-          <div class="chips" aria-label="Jump to category">
-            <a class="chip" href="#mfa">MFA</a>
-            <a class="chip" href="#sso">SSO</a>
-            <a class="chip" href="#iam">IAM</a>
-            <a class="chip" href="#ciam">CIAM</a>
-            <a class="chip" href="#pam">PAM</a>
-            <a class="chip" href="#passkeys">Passkeys</a>
-            <a class="chip" href="#conditional-access">Conditional Access</a>
-            <a class="chip" href="#device-posture">Device / Posture</a>
+        <div class="grid two">
+          <div class="card">
+            <h3>MFA platforms (workforce)</h3>
+            <p>Strong auth for employees/admins. The goal is phishing resistance for privileged actions and high-risk apps.</p>
+            <ul>
+              <li>Prefer passkeys/FIDO2 or hardware-backed methods for admins.</li>
+              <li>Evaluate recovery + helpdesk reset controls (often the real weakness).</li>
+              <li>Rollout sequence: admins → high-risk apps → broader workforce.</li>
+            </ul>
+            <p><a class="link" href="/articles/mfa-rollout-checklist.html">Related: MFA rollout checklist →</a></p>
+          </div>
+
+          <div class="card">
+            <h3>SSO / workforce identity providers</h3>
+            <p>Centralize login, policies, lifecycle, and visibility for internal apps. Reduce password sprawl.</p>
+            <ul>
+              <li>Value is policy + lifecycle + visibility, not “single password.”</li>
+              <li>Confirm SAML/OIDC coverage and app ecosystem fit.</li>
+              <li>Plan break-glass access and outage modes.</li>
+            </ul>
+            <p><a class="link" href="/articles/sso-for-smb.html">Related: SSO for SMB →</a></p>
+          </div>
+
+          <div class="card">
+            <h3>IAM (cloud permissions)</h3>
+            <p>Authorization for cloud resources. Misconfiguration creates catastrophic blast radius.</p>
+            <ul>
+              <li>Least privilege + short-lived credentials where possible.</li>
+              <li>Audit privilege escalation paths and admin-equivalent roles.</li>
+              <li>Separate human, service, and automation identities.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>CIAM (customer identity)</h3>
+            <p>Login and identity for customers/end-users. Priorities differ: UX, conversion, fraud, privacy, recovery.</p>
+            <ul>
+              <li>Decide: social login, passkeys, email magic links, MFA step-up.</li>
+              <li>Account recovery + fraud prevention are core requirements.</li>
+              <li>Threat model: takeover, bots, credential stuffing.</li>
+            </ul>
+            <p><a class="link" href="/articles/iam-vs-ciam-vs-pam.html">Related: IAM vs CIAM vs PAM →</a></p>
+          </div>
+
+          <div class="card">
+            <h3>PAM (privileged access)</h3>
+            <p>High-risk access: admin sessions, production access, approvals, recording, just-in-time privilege.</p>
+            <ul>
+              <li>Separate controls for production/admin operations.</li>
+              <li>Session recording/auditability for critical changes.</li>
+              <li>Approvals/step-up for privileged actions.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Device / posture &amp; conditional access</h3>
+            <p>Gate access based on device trust, posture, location, risk signals, and session context.</p>
+            <ul>
+              <li>Prioritize privileged access + sensitive apps first.</li>
+              <li>Plan exceptions and break-glass flows.</li>
+              <li>Know what telemetry you actually have and can enforce.</li>
+            </ul>
           </div>
         </div>
       </section>
 
       <section class="section">
-        <div class="container">
-          <div class="grid grid-2">
-            <!-- MFA -->
-            <article class="card" id="mfa">
-              <h2 class="h3">MFA platforms (workforce)</h2>
-              <p class="muted">
-                Strong authentication for employees and admins. The goal is phishing resistance for privileged actions
-                and high-risk apps.
-              </p>
-              <ul class="list">
-                <li>Prefer FIDO2/passkeys or hardware-backed methods for admin access.</li>
-                <li>Evaluate recovery flows and helpdesk reset controls (often the real weakness).</li>
-                <li>Plan rollout: admins → high-risk apps → broader workforce.</li>
-              </ul>
-              <p class="card-meta">
-                Related: <a href="/articles/mfa-rollout-checklist.html">MFA rollout checklist</a>,
-                <a href="/articles/mfa-fatigue-sim-swap-session-theft.html">Modern attack patterns</a>
-              </p>
-            </article>
-
-            <!-- SSO -->
-            <article class="card" id="sso">
-              <h2 class="h3">SSO / Workforce identity providers</h2>
-              <p class="muted">
-                Centralizes login, policies, and lifecycle for internal apps. Helps reduce password sprawl and enforce
-                consistent controls.
-              </p>
-              <ul class="list">
-                <li>Value is policy + lifecycle + visibility, not “single password.”</li>
-                <li>Confirm standards support (SAML/OIDC) and app coverage.</li>
-                <li>Think through break-glass access and outage modes.</li>
-              </ul>
-              <p class="card-meta">
-                Related: <a href="/articles/sso-for-smb.html">SSO for SMB: when it’s worth it</a>
-              </p>
-            </article>
-
-            <!-- IAM -->
-            <article class="card" id="iam">
-              <h2 class="h3">IAM (cloud permissions)</h2>
-              <p class="muted">
-                Authorization and access control for cloud resources. Where misconfiguration creates catastrophic blast
-                radius.
-              </p>
-              <ul class="list">
-                <li>Use least privilege and short-lived credentials where possible.</li>
-                <li>Audit privilege escalation paths and admin-equivalent roles.</li>
-                <li>Separate human access, service access, and automation identities.</li>
-              </ul>
-            </article>
-
-            <!-- CIAM -->
-            <article class="card" id="ciam">
-              <h2 class="h3">CIAM (customer identity)</h2>
-              <p class="muted">
-                Login and identity for customers/end-users. Priorities differ: UX, conversion, fraud, privacy, and
-                account recovery.
-              </p>
-              <ul class="list">
-                <li>Decide: social login, passkeys, email magic links, MFA step-up.</li>
-                <li>Account recovery and fraud prevention are core requirements.</li>
-                <li>Know your threat model: takeover, bots, credential stuffing.</li>
-              </ul>
-              <p class="card-meta">
-                Related: <a href="/articles/iam-vs-ciam-vs-pam.html">IAM vs CIAM vs PAM</a>
-              </p>
-            </article>
-
-            <!-- PAM -->
-            <article class="card" id="pam">
-              <h2 class="h3">PAM (privileged access)</h2>
-              <p class="muted">
-                Controls for high-risk access: production admins, sensitive data exports, infrastructure operations, and
-                powerful SaaS roles.
-              </p>
-              <ul class="list">
-                <li>Separate standing access from just-in-time privilege.</li>
-                <li>Require approvals/step-up for privileged actions.</li>
-                <li>Log and review: sessions, commands, and escalation events.</li>
-              </ul>
-              <p class="card-meta">
-                Related: <a href="/articles/iam-vs-ciam-vs-pam.html">IAM vs CIAM vs PAM</a>
-              </p>
-            </article>
-
-            <!-- Passkeys -->
-            <article class="card" id="passkeys">
-              <h2 class="h3">Passkeys (WebAuthn)</h2>
-              <p class="muted">
-                Phishing-resistant authentication using public key cryptography. Often the best “default” for reducing
-                account takeover risk.
-              </p>
-              <ul class="list">
-                <li>Best for: admin access, high-value accounts, and step-up flows.</li>
-                <li>Plan for onboarding and device changes (new phone / lost device).</li>
-                <li>Decide: passkey-only vs passkey-preferred with fallback.</li>
-              </ul>
-              <p class="card-meta">
-                Related: <a href="/articles/passkeys-pragmatic-guide.html">Passkeys: pragmatic guide</a>
-              </p>
-            </article>
-
-            <!-- Conditional Access -->
-            <article class="card" id="conditional-access">
-              <h2 class="h3">Conditional access</h2>
-              <p class="muted">
-                Dynamic policies based on risk, device, location, and behavior. Helps reduce session hijacking and limit
-                blast radius.
-              </p>
-              <ul class="list">
-                <li>Use for step-up on sensitive actions, not just “login gatekeeping.”</li>
-                <li>Prefer signals you can explain: device trust, MFA strength, geo anomalies.</li>
-                <li>Design exceptions and break-glass paths from day one.</li>
-              </ul>
-            </article>
-
-            <!-- Device posture -->
-            <article class="card" id="device-posture">
-              <h2 class="h3">Device trust / posture</h2>
-              <p class="muted">
-                Verifies a device is managed and healthy (OS version, encryption, EDR status) before granting access to
-                sensitive apps.
-              </p>
-              <ul class="list">
-                <li>Most valuable for admin consoles and customer-data systems.</li>
-                <li>Align identity + endpoint: MDM/EDR signals should feed access policy.</li>
-                <li>Plan for BYOD and contractors (segmentation + least privilege).</li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="section-divider"></div>
-
-          <div class="callout">
-            <p class="callout-title">What to ask on every vendor call</p>
-            <p class="callout-text">
-              Evaluate tools against real failure modes: recovery, helpdesk reset, break-glass, outages, and how you
-              enforce stronger methods for privileged actions.
-            </p>
-            <p class="callout-text" style="margin-top: 10px;">
-              Use this: <a href="/articles/vendor-comparison-rubric.html">Vendor comparison rubric</a>
-            </p>
-          </div>
+        <h2>Where referral links belong (and where they don’t)</h2>
+        <div class="card">
+          <ul>
+            <li>Use referral links only inside vendor/category deep dives and “If you’re evaluating X…” sections.</li>
+            <li>Do not place referral CTAs on the homepage or Start here.</li>
+            <li>Always keep <a class="link" href="/disclosure.html">Disclosure</a> current.</li>
+          </ul>
         </div>
       </section>
-    </main>
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <p class="footer-left">© <span id="year"></span> Authentica.</p>
-        <p class="footer-right">
-          Some outbound links may be referral links. See <a href="/disclosure.html">Disclosure</a>.
-        </p>
+      <section class="section">
+        <div class="card">
+          <h2>Get occasional notes</h2>
+          <p>Short, practical identity notes. Low frequency.</p>
+          <p><a class="button button-secondary" href="/newsletter.html">Join the newsletter</a></p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">Authentica</div>
+        <div class="footer-tagline">Vendor-neutral guidance on authentication and identity decisions.</div>
       </div>
-    </footer>
 
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-  </body>
+      <div class="footer-links">
+        <a class="footer-link" href="/start-here.html">Start here</a>
+        <a class="footer-link" href="/articles.html">Guides</a>
+        <a class="footer-link" href="/services.html">Vendors &amp; Tools</a>
+        <a class="footer-link" href="/disclosure.html">Disclosure</a>
+      </div>
+
+      <div class="footer-cta">
+        <a class="button button-secondary" href="/newsletter.html">Join the newsletter</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <small>© Authentica. Some outbound links may be referral links. See <a href="/disclosure.html">Disclosure</a>.</small>
+    </div>
+  </footer>
+</body>
 </html>
+
