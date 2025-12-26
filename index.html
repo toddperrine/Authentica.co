@@ -4,20 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Authentica — Authentication (MFA, SSO, IAM, Passkeys)</title>
+    <title>Guides — Authentica</title>
     <meta
       name="description"
-      content="A compact, vendor-neutral reference for authentication and identity: MFA, SSO, IAM, CIAM, PAM, passkeys, and real-world tradeoffs."
+      content="Practical guides on identity and authentication: MFA, SSO, IAM vs CIAM, passkeys, and operational failure modes."
     />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Authentica — Authentication, explained" />
+    <meta property="og:title" content="Guides — Authentica" />
     <meta
       property="og:description"
-      content="Make identity decisions faster with clear definitions, tradeoffs, and vendor categories."
+      content="Short, direct guidance prioritizing operational reality and implementation order."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://authentica.co/" />
+    <meta property="og:url" content="https://authentica.co/articles.html" />
 
     <!-- Favicons / App -->
     <link rel="icon" href="/favicon.ico" />
@@ -47,9 +47,9 @@
         </a>
 
         <nav class="nav" aria-label="Primary navigation">
-          <a class="nav-link is-active" href="/index.html">Home</a>
+          <a class="nav-link" href="/index.html">Home</a>
           <a class="nav-link" href="/services.html">Vendors &amp; Tools</a>
-          <a class="nav-link" href="/articles.html">Guides</a>
+          <a class="nav-link is-active" href="/articles.html">Guides</a>
           <a class="nav-link" href="/about.html">About</a>
           <a class="nav-link" href="/disclosure.html">Disclosure</a>
         </nav>
@@ -58,128 +58,138 @@
 
     <!-- MAIN -->
     <main id="main">
-      <!-- HERO -->
       <section class="hero">
-        <div class="container hero-grid">
-          <div>
-            <p class="kicker">Authentication, explained</p>
+        <div class="container">
+          <p class="kicker">Guides</p>
+          <h1 class="h1">Practical identity guidance</h1>
+          <p class="lede">
+            Short, direct guidance prioritizing operational reality: recovery, reset, break-glass,
+            session risk, and implementation order.
+          </p>
 
-            <h1 class="h1">
-              Make identity decisions faster:
-              <span class="nowrap">MFA, SSO, IAM, passkeys.</span>
-            </h1>
-
-            <p class="lede">
-              A compact, vendor-neutral reference that clarifies terminology,
-              tradeoffs, and provider categories—so teams can choose what to
-              deploy and in what order.
-            </p>
-
-            <div class="cta-row" role="group" aria-label="Primary actions">
-              <a class="btn btn-primary" href="/services.html">
-                Browse vendor categories
-              </a>
-              <a class="btn btn-secondary" href="/articles.html">
-                Read practical guides
-              </a>
-            </div>
-
-            <p class="micro">
-              Built for security-conscious teams who want clarity without a
-              60-page whitepaper.
-            </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/services.html">Browse vendor categories</a>
+            <a class="btn btn-secondary" href="/index.html#if-you-only-do-three-things">Start with the basics</a>
           </div>
 
-          <aside class="hero-card" aria-label="What Authentica helps you do">
-            <h2 class="h2">What Authentica helps you do</h2>
-            <ul class="checklist">
-              <li>
-                Align on definitions (so teams stop talking past each other).
-              </li>
-              <li>
-                See real failure modes (recovery, reset, break-glass, outages).
-              </li>
-              <li>
-                Pick controls in sequence (admins → high-risk flows → broader
-                rollout).
-              </li>
-              <li>
-                Evaluate vendor categories without vendor bias.
-              </li>
-            </ul>
-          </aside>
+          <p class="micro">
+            Looking for vendor-neutral definitions and categories? See <a href="/services.html">Vendors &amp; Tools</a>.
+          </p>
         </div>
       </section>
 
-      <!-- START HERE -->
       <section class="section">
         <div class="container">
           <div class="section-head">
-            <h2 class="h2">Start here</h2>
+            <h2 class="h2">Foundations</h2>
             <p class="subtle">
-              Two fast entry points—use whichever matches what you’re doing right
-              now.
+              Start here if you’re aligning a team, preparing a rollout, or setting policy.
             </p>
           </div>
 
           <div class="cards">
             <article class="card">
-              <h3 class="h3">Vendors &amp; tools</h3>
+              <h3 class="h3">Passkeys: a pragmatic guide</h3>
               <p class="card-text">
-                Provider categories, when to use them, where they fail, and what
-                to ask before buying.
+                What passkeys solve, where they don’t, and how to roll them out without breaking recovery.
               </p>
-              <a class="card-link" href="/services.html">
-                Go to directory →
-              </a>
+              <a class="card-link" href="/articles/passkeys-pragmatic-guide.html">Read →</a>
             </article>
 
             <article class="card">
-              <h3 class="h3">Guides</h3>
+              <h3 class="h3">MFA rollout checklist</h3>
               <p class="card-text">
-                Short, direct guidance prioritizing operational reality and
-                implementation order.
+                A rollout sequence that accounts for admins, helpdesk reset, exceptions, and device loss.
               </p>
-              <a class="card-link" href="/articles.html">
-                Go to guides →
-              </a>
+              <a class="card-link" href="/articles/mfa-rollout-checklist.html">Read →</a>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- THREE THINGS -->
       <section class="section section-alt">
         <div class="container">
-          <h2 class="h2">If you only do three things</h2>
+          <div class="section-head">
+            <h2 class="h2">Failure modes &amp; threats</h2>
+            <p class="subtle">
+              If you’ve already deployed controls, this is where the real problems show up.
+            </p>
+          </div>
 
-          <ol class="numbered">
-            <li>
-              <strong>Enforce MFA</strong> with phishing-resistant methods for
-              privileged actions (prefer passkeys or FIDO2 where possible).
-            </li>
-            <li>
-              <strong>Adopt SSO</strong> where it reduces password sprawl and
-              centralizes policy (start with your highest-risk apps).
-            </li>
-            <li>
-              <strong>Use conditional access</strong> and device posture to
-              reduce session hijacking and limit blast radius.
-            </li>
-          </ol>
+          <div class="cards">
+            <article class="card">
+              <h3 class="h3">MFA fatigue, SIM swap, session theft</h3>
+              <p class="card-text">
+                Common takeover paths and the controls that actually change outcomes.
+              </p>
+              <a
+                class="card-link"
+                href="/articles/mfa-fatigue-sim-swap-session-theft.html"
+                >Read →</a
+              >
+            </article>
+
+            <article class="card">
+              <h3 class="h3">SSO for SMB: when it helps</h3>
+              <p class="card-text">
+                How to decide if SSO is worth it, where it reduces risk, and the operational prerequisites.
+              </p>
+              <a class="card-link" href="/articles/sso-for-smb.html">Read →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">Comparisons &amp; decision support</h2>
+            <p class="subtle">
+              Use these when you’re choosing approaches or vendor categories.
+            </p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <h3 class="h3">IAM vs CIAM vs PAM</h3>
+              <p class="card-text">
+                What each is responsible for, where they overlap, and how teams get it wrong in practice.
+              </p>
+              <a class="card-link" href="/articles/iam-vs-ciam-vs-pam.html">Read →</a>
+            </article>
+
+            <article class="card">
+              <h3 class="h3">Vendor comparison rubric</h3>
+              <p class="card-text">
+                A non-marketing rubric: recovery, admin controls, policy expressiveness, logging, and outage behavior.
+              </p>
+              <a class="card-link" href="/articles/vendor-comparison-rubric.html">Read →</a>
+            </article>
+          </div>
 
           <div class="callout">
-            <p class="callout-title">Practical framing</p>
+            <p class="callout-title">Editorial note</p>
             <p class="callout-text">
-              Buy platforms only after you can name the failure mode you’re
-              preventing: takeover, reset abuse, session hijack, privilege
-              escalation, or outage risk.
+              We focus on failure modes and operational reality first. Product selection comes second.
+              See <a href="/disclosure.html">Disclosure</a>.
             </p>
           </div>
         </div>
       </section>
+    </main>
 
-      <!-- WHO IT'S FOR -->
-      <section class="section">
-        <div class="container">
-          <div class="section-head">
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="footer-left">© <span id="year"></span> Authentica.</p>
+        <p class="footer-right">
+          Some outbound links may be referral links. See <a href="/disclosure.html">Disclosure</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
