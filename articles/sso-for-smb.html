@@ -1,114 +1,148 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>SSO for SMB: when it’s worth it — Authentica</title>
-  <meta name="description" content="A practical guide to whether SMBs should implement SSO, common pitfalls, and what good looks like." />
+    <title>SSO for SMB: when it’s worth it — Authentica</title>
+    <meta
+      name="description"
+      content="When SSO is worth it for SMB, when it’s not (yet), and common failure modes you should plan for."
+    />
 
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-</head>
+    <meta property="og:title" content="SSO for SMB: when it’s worth it — Authentica" />
+    <meta
+      property="og:description"
+      content="SSO is an operational control: centralized access, fewer passwords, faster offboarding, and consistent policy enforcement."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://authentica.co/articles/sso-for-smb.html" />
 
-<body>
-  <a class="skip" href="#content">Skip to content</a>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0b0c0f" />
 
-  <header class="header">
-    <div class="container header-inner">
-      <a class="brand" href="../index.html" aria-label="Authentica home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-name">Authentica</span>
-      </a>
+    <link rel="stylesheet" href="/assets/site.css" />
+  </head>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="../services.html">Vendors &amp; Tools</a>
-        <a class="active" href="../articles.html">Guides</a>
-        <a href="../about.html">About</a>
-        <a href="../disclosure.html">Disclosure</a>
-      </nav>
-    </div>
-  </header>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-  <main id="content" class="container">
-    <div class="kicker">Guide</div>
-    <h1>SSO for SMB: when it’s worth it</h1>
-    <p class="lede">
-      SSO is not “security by default.” It’s an operational control: centralized access, fewer passwords, faster offboarding,
-      and consistent MFA/policy enforcement.
-    </p>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/index.html" aria-label="Authentica home">
+          <img src="/assets/brandmark.svg" alt="" class="brand-mark-img" aria-hidden="true" />
+          <span class="brand-name">Authentica</span>
+        </a>
 
-    <h2>SSO is worth it when</h2>
-    <div class="card">
-      <ul class="clean">
-        <li>You have >10–15 critical apps and onboarding/offboarding is messy.</li>
-        <li>People reuse passwords across apps (credential stuffing risk is real).</li>
-        <li>You need consistent MFA enforcement across services.</li>
-        <li>You have compliance pressure (SOC2-ish expectations, customer security reviews).</li>
-        <li>You want lifecycle automation (SCIM) so access follows job changes.</li>
-      </ul>
-    </div>
-
-    <h2>SSO is not worth it (yet) when</h2>
-    <div class="card">
-      <ul class="clean">
-        <li>You have a small number of apps and a single admin can manage access cleanly.</li>
-        <li>Your org can’t commit to basic identity hygiene (joiner/mover/leaver discipline).</li>
-        <li>Recovery and helpdesk processes don’t exist (you’ll amplify lockouts).</li>
-      </ul>
-    </div>
-
-    <h2>Common failure modes</h2>
-    <div class="grid two">
-      <section class="card">
-        <h3 style="margin:0;">“SSO for some apps” drift</h3>
-        <p>SSO adoption becomes partial, leaving password islands. Attackers use the weakest app as the entry point.</p>
-      </section>
-      <section class="card">
-        <h3 style="margin:0;">Offboarding gaps</h3>
-        <p>If HRIS isn’t driving deprovisioning, SSO won’t save you. Termination must disable access everywhere.</p>
-      </section>
-      <section class="card">
-        <h3 style="margin:0;">Poor recovery design</h3>
-        <p>Centralized login means centralized failure. If recovery is weak, you create support churn and unsafe bypasses.</p>
-      </section>
-      <section class="card">
-        <h3 style="margin:0;">Overpaying for features you won’t use</h3>
-        <p>Know your must-haves: SAML/OIDC breadth, SCIM, conditional access, admin workflows, reporting.</p>
-      </section>
-    </div>
-
-    <h2>What “good” looks like</h2>
-    <div class="card">
-      <ul class="clean">
-        <li>All critical apps federated (SAML/OIDC) with MFA enforced.</li>
-        <li>SCIM enabled for key apps (automatic provisioning/deprovisioning).</li>
-        <li>Admins use higher assurance (passkeys/security keys) with break-glass audited.</li>
-        <li>Conditional access policies exist (device posture, geo/risk, step-up on sensitive actions).</li>
-      </ul>
-    </div>
-
-    <div class="hr"></div>
-    <section class="card">
-      <h2 style="margin:0 0 8px;">Related</h2>
-      <ul class="clean">
-        <li><a href="vendor-comparison-rubric.html">Vendor comparison rubric</a></li>
-        <li><a href="iam-vs-ciam-vs-pam.html">IAM vs CIAM vs PAM</a></li>
-      </ul>
-      <div style="margin-top:12px;">
-        <a class="button" href="../articles.html">Back to Guides →</a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="nav-link" href="/index.html">Home</a>
+          <a class="nav-link" href="/services.html">Vendors &amp; Tools</a>
+          <a class="nav-link is-active" href="/articles.html">Guides</a>
+          <a class="nav-link" href="/about.html">About</a>
+          <a class="nav-link" href="/disclosure.html">Disclosure</a>
+        </nav>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="small">
-        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="../disclosure.html">Disclosure</a>.
+    <main id="main">
+      <section class="hero hero-compact">
+        <div class="container">
+          <p class="kicker">Guide</p>
+          <h1 class="h1">SSO for SMB: when it’s worth it</h1>
+          <p class="lede">
+            SSO is not “security by default.” It’s an operational control: centralized access, fewer passwords,
+            faster offboarding, and consistent MFA/policy enforcement.
+          </p>
+
+          <div class="meta-row">
+            <a class="btn btn-secondary" href="/articles.html">Back to Guides</a>
+            <a class="btn btn-primary" href="/services.html">Browse vendor categories</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="callout">
+            <p class="callout-title">SSO is worth it when</p>
+            <ul class="list">
+              <li>You have &gt; 10–15 critical apps and onboarding/offboarding is messy.</li>
+              <li>People reuse passwords across apps (credential stuffing risk is real).</li>
+              <li>You need consistent MFA enforcement across services.</li>
+              <li>You have compliance pressure (SOC2-ish expectations, customer security reviews).</li>
+              <li>You want lifecycle automation (SCIM) so access follows job changes.</li>
+            </ul>
+          </div>
+
+          <div class="callout">
+            <p class="callout-title">SSO is not worth it (yet) when</p>
+            <ul class="list">
+              <li>You have a small number of apps and a single admin can manage access cleanly.</li>
+              <li>Your org can’t commit to basic identity hygiene (joiner/mover/leaver discipline).</li>
+              <li>Recovery and helpdesk processes don’t exist (you’ll amplify lockouts).</li>
+            </ul>
+          </div>
+
+          <div class="section-head">
+            <h2 class="h2">Common failure modes</h2>
+            <p class="subtle">These are the issues that show up after “successful” SSO adoption.</p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <h3 class="h3">“SSO for some apps” drift</h3>
+              <p class="card-text">
+                SSO adoption becomes partial, leaving password islands. Attackers use the weakest app as the entry point.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3 class="h3">Offboarding gaps</h3>
+              <p class="card-text">
+                If HRIS isn’t driving deprovisioning, SSO won’t save you. Termination must disable access everywhere.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3 class="h3">Poor recovery design</h3>
+              <p class="card-text">
+                Helpdesk resets become the weakest link. Without identity proof + audit trails, lockouts and takeovers rise.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3 class="h3">Overpaying for features you won’t use</h3>
+              <p class="card-text">
+                Buying tiers for conditional access/reporting before you have the operational muscle to use them.
+              </p>
+            </article>
+          </div>
+
+          <div class="callout">
+            <p class="callout-title">Related</p>
+            <p class="callout-text">
+              <a href="/articles/iam-vs-ciam-vs-pam.html">IAM vs CIAM vs PAM</a> ·
+              <a href="/articles/vendor-comparison-rubric.html">Vendor comparison rubric</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="footer-left">© <span id="year"></span> Authentica.</p>
+        <p class="footer-right">
+          Some outbound links may be referral links. See <a href="/disclosure.html">Disclosure</a>.
+        </p>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="../assets/js/main.js" defer></script>
-</body>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
