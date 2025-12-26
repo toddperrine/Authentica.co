@@ -1,100 +1,148 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Modern attack patterns — Authentica</title>
-  <meta name="description" content="MFA fatigue, SIM swap, and session theft: how account takeovers succeed in modern stacks, and what controls help." />
+    <title>SSO for SMB: when it’s worth it — Authentica</title>
+    <meta
+      name="description"
+      content="When SSO is worth it for SMB, when it’s not (yet), and common failure modes you should plan for."
+    />
 
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-</head>
+    <meta property="og:title" content="SSO for SMB: when it’s worth it — Authentica" />
+    <meta
+      property="og:description"
+      content="SSO is an operational control: centralized access, fewer passwords, faster offboarding, and consistent policy enforcement."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://authentica.co/articles/sso-for-smb.html" />
 
-<body>
-  <a class="skip" href="#content">Skip to content</a>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0b0c0f" />
 
-  <header class="header">
-    <div class="container header-inner">
-      <a class="brand" href="../index.html" aria-label="Authentica home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-name">Authentica</span>
-      </a>
+    <link rel="stylesheet" href="/assets/site.css" />
+  </head>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="../services.html">Vendors &amp; Tools</a>
-        <a class="active" href="../articles.html">Guides</a>
-        <a href="../about.html">About</a>
-        <a href="../disclosure.html">Disclosure</a>
-      </nav>
-    </div>
-  </header>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-  <main id="content" class="container">
-    <div class="kicker">Guide</div>
-    <h1>Modern attack patterns: MFA fatigue, SIM swap, session theft</h1>
-    <p class="lede">
-      Many “MFA-protected” accounts still get taken over because attackers avoid the password step or bypass the second factor.
-      Here are three common patterns and what controls materially help.
-    </p>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/index.html" aria-label="Authentica home">
+          <img src="/assets/brandmark.svg" alt="" class="brand-mark-img" aria-hidden="true" />
+          <span class="brand-name">Authentica</span>
+        </a>
 
-    <h2>1) MFA fatigue (push bombing)</h2>
-    <div class="card">
-      <p style="margin:0; color:rgba(17,19,18,.72);">
-        Attackers repeatedly trigger push prompts until a user approves out of annoyance or confusion.
-      </p>
-      <ul class="clean">
-        <li>Prefer number-matching or phishing-resistant methods (passkeys/FIDO2).</li>
-        <li>Rate-limit prompts; alert on repeated prompts.</li>
-        <li>Train users: “Unexpected prompt = deny + report.”</li>
-      </ul>
-    </div>
-
-    <h2>2) SIM swap (SMS interception)</h2>
-    <div class="card">
-      <p style="margin:0; color:rgba(17,19,18,.72);">
-        Attackers socially engineer a mobile carrier to reassign a phone number, then receive SMS codes.
-      </p>
-      <ul class="clean">
-        <li>Avoid SMS as a high-assurance factor for sensitive accounts/actions.</li>
-        <li>Use authenticator apps, passkeys, or security keys for higher assurance.</li>
-        <li>Step-up policies for payout changes, password resets, or new device enrollment.</li>
-      </ul>
-    </div>
-
-    <h2>3) Session theft (token hijacking)</h2>
-    <div class="card">
-      <p style="margin:0; color:rgba(17,19,18,.72);">
-        After successful login, attackers steal session tokens (via malware, browser compromise, or phishing proxies) and act as the user.
-      </p>
-      <ul class="clean">
-        <li>Shorter session lifetimes for privileged actions; re-auth for risky actions.</li>
-        <li>Device posture checks and conditional access where available.</li>
-        <li>Detect impossible travel/new device + step-up MFA.</li>
-      </ul>
-    </div>
-
-    <div class="hr"></div>
-    <section class="card">
-      <h2 style="margin:0 0 8px;">Related</h2>
-      <ul class="clean">
-        <li><a href="mfa-rollout-checklist.html">MFA rollout checklist</a></li>
-        <li><a href="passkeys-pragmatic-guide.html">Passkeys: a pragmatic guide</a></li>
-      </ul>
-      <div style="margin-top:12px;">
-        <a class="button" href="../articles.html">Back to Guides →</a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="nav-link" href="/index.html">Home</a>
+          <a class="nav-link" href="/services.html">Vendors &amp; Tools</a>
+          <a class="nav-link is-active" href="/articles.html">Guides</a>
+          <a class="nav-link" href="/about.html">About</a>
+          <a class="nav-link" href="/disclosure.html">Disclosure</a>
+        </nav>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="small">
-        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="../disclosure.html">Disclosure</a>.
+    <main id="main">
+      <section class="hero hero-compact">
+        <div class="container">
+          <p class="kicker">Guide</p>
+          <h1 class="h1">SSO for SMB: when it’s worth it</h1>
+          <p class="lede">
+            SSO is not “security by default.” It’s an operational control: centralized access, fewer passwords,
+            faster offboarding, and consistent MFA/policy enforcement.
+          </p>
+
+          <div class="meta-row">
+            <a class="btn btn-secondary" href="/articles.html">Back to Guides</a>
+            <a class="btn btn-primary" href="/services.html">Browse vendor categories</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="callout">
+            <p class="callout-title">SSO is worth it when</p>
+            <ul class="list">
+              <li>You have &gt; 10–15 critical apps and onboarding/offboarding is messy.</li>
+              <li>People reuse passwords across apps (credential stuffing risk is real).</li>
+              <li>You need consistent MFA enforcement across services.</li>
+              <li>You have compliance pressure (SOC2-ish expectations, customer security reviews).</li>
+              <li>You want lifecycle automation (SCIM) so access follows job changes.</li>
+            </ul>
+          </div>
+
+          <div class="callout">
+            <p class="callout-title">SSO is not worth it (yet) when</p>
+            <ul class="list">
+              <li>You have a small number of apps and a single admin can manage access cleanly.</li>
+              <li>Your org can’t commit to basic identity hygiene (joiner/mover/leaver discipline).</li>
+              <li>Recovery and helpdesk processes don’t exist (you’ll amplify lockouts).</li>
+            </ul>
+          </div>
+
+          <div class="section-head">
+            <h2 class="h2">Common failure modes</h2>
+            <p class="subtle">These are the issues that show up after “successful” SSO adoption.</p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <h3 class="h3">“SSO for some apps” drift</h3>
+              <p class="card-text">
+                SSO adoption becomes partial, leaving password islands. Attackers use the weakest app as the entry point.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3 class="h3">Offboarding gaps</h3>
+              <p class="card-text">
+                If HRIS isn’t driving deprovisioning, SSO won’t save you. Termination must disable access everywhere.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3 class="h3">Poor recovery design</h3>
+              <p class="card-text">
+                Helpdesk resets become the weakest link. Without identity proof + audit trails, lockouts and takeovers rise.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3 class="h3">Overpaying for features you won’t use</h3>
+              <p class="card-text">
+                Buying tiers for conditional access/reporting before you have the operational muscle to use them.
+              </p>
+            </article>
+          </div>
+
+          <div class="callout">
+            <p class="callout-title">Related</p>
+            <p class="callout-text">
+              <a href="/articles/iam-vs-ciam-vs-pam.html">IAM vs CIAM vs PAM</a> ·
+              <a href="/articles/vendor-comparison-rubric.html">Vendor comparison rubric</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="footer-left">© <span id="year"></span> Authentica.</p>
+        <p class="footer-right">
+          Some outbound links may be referral links. See <a href="/disclosure.html">Disclosure</a>.
+        </p>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="../assets/js/main.js" defer></script>
-</body>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
