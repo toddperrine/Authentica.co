@@ -1,155 +1,176 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>REPLACE TITLE — Authentica</title>
-  <meta name="description" content="REPLACE DESCRIPTION" />
+    <title>Guides — Authentica</title>
+    <meta
+      name="description"
+      content="Practical guides on identity and authentication: MFA, SSO, IAM vs CIAM, passkeys, and operational failure modes."
+    />
 
-  <link rel="stylesheet" href="../assets/css/styles.css" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Guides — Authentica" />
+    <meta
+      property="og:description"
+      content="Short, direct guidance prioritizing operational reality and implementation order."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://authentica.co/articles.html" />
 
-  <style>
-    :root{
-      --bg:#F8FAFC;
-      --card:#FFFFFF;
-      --text:#0F172A;
-      --text-muted:#475569;
-      --border:#E2E8F0;
-      --accent:#2563EB;
-      --accent-hover:#1D4ED8;
-      --shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
-    }
-    body{
-      background:var(--bg);
-      color:var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      line-height:1.65;
-    }
-    a{ color:var(--accent); text-decoration:none; }
-    a:hover{ color:var(--accent-hover); text-decoration:underline; text-underline-offset: 3px; }
+    <!-- Favicons / App -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0b0c0f" />
 
-    .skip{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
-    .skip:focus{
-      left:16px; top:16px; width:auto; height:auto; padding:10px 12px;
-      background:#fff; border:1px solid var(--border); border-radius:8px; z-index:9999;
-    }
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/site.css" />
+  </head>
 
-    .container{ max-width: 860px; margin: 0 auto; padding: 0 20px; }
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    .header{ background:#fff; border-bottom:1px solid var(--border); box-shadow: var(--shadow); }
-    .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; }
-    .brand{ display:flex; align-items:center; gap:12px; min-width: 210px; }
-    .brand img{ height: 26px; width:auto; display:block; }
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/index.html" aria-label="Authentica home">
+          <img
+            src="/assets/brandmark.svg"
+            alt=""
+            class="brand-mark-img"
+            aria-hidden="true"
+          />
+          <span class="brand-name">Authentica</span>
+        </a>
 
-    .nav{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; justify-content:flex-end; }
-    .nav a{ color: var(--text-muted); font-weight: 500; font-size: 14px; padding: 6px 2px; }
-    .nav a:hover{ color: var(--text); text-decoration:none; }
-
-    .crumbs{
-      margin: 26px 0 10px;
-      color: var(--text-muted);
-      font-size: 13px;
-    }
-
-    h1{
-      font-size: clamp(28px, 3.2vw, 40px);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin: 0 0 10px;
-    }
-    .lede{
-      color: var(--text-muted);
-      font-size: 16px;
-      margin: 0 0 16px;
-    }
-
-    .card{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 18px;
-      margin: 14px 0 34px;
-    }
-
-    .card h2{ margin: 18px 0 8px; font-size: 16px; letter-spacing:-0.01em; }
-    .card p{ margin: 10px 0; color: var(--text-muted); }
-    .card ul{ margin: 10px 0; padding-left: 18px; color: var(--text-muted); }
-    .card li{ margin: 7px 0; }
-
-    .footer{
-      border-top: 1px solid var(--border);
-      background: #fff;
-      padding: 16px 0;
-      color: var(--text-muted);
-      font-size: 13px;
-      margin-top: 32px;
-    }
-    .footer a{ color: var(--accent); }
-  </style>
-</head>
-
-<body>
-  <a class="skip" href="#content">Skip to content</a>
-
-  <header class="header">
-    <div class="container header-inner">
-      <a class="brand" href="../index.html" aria-label="Authentica home">
-        <img src="../Authentico-Logo.svg" alt="Authentica" />
-      </a>
-
-      <nav class="nav" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="../services.html">Vendors &amp; Tools</a>
-        <a href="../articles.html">Guides</a>
-        <a href="../about.html">About</a>
-        <a href="../disclosure.html">Disclosure</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="content" class="container">
-    <div class="crumbs"><a href="../articles.html">Guides</a> / Article</div>
-
-    <h1>REPLACE H1 TITLE</h1>
-    <p class="lede">REPLACE one-sentence lede. Keep it practical.</p>
-
-    <article class="card">
-      <p><strong>Summary:</strong> Replace this summary with 3–5 bullets or a short paragraph.</p>
-
-      <h2>What it is</h2>
-      <p>Replace this section.</p>
-
-      <h2>When it helps</h2>
-      <ul>
-        <li>Replace</li>
-        <li>Replace</li>
-        <li>Replace</li>
-      </ul>
-
-      <h2>Failure modes to watch</h2>
-      <ul>
-        <li>Replace</li>
-        <li>Replace</li>
-      </ul>
-
-      <h2>Implementation sequence (recommended)</h2>
-      <ol>
-        <li style="color: var(--text-muted); margin: 7px 0;">Replace</li>
-        <li style="color: var(--text-muted); margin: 7px 0;">Replace</li>
-        <li style="color: var(--text-muted); margin: 7px 0;">Replace</li>
-      </ol>
-    </article>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div>
-        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="../disclosure.html">Disclosure</a>.
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="nav-link" href="/index.html">Home</a>
+          <a class="nav-link" href="/services.html">Vendors &amp; Tools</a>
+          <a class="nav-link is-active" href="/articles.html">Guides</a>
+          <a class="nav-link" href="/about.html">About</a>
+          <a class="nav-link" href="/disclosure.html">Disclosure</a>
+        </nav>
       </div>
-    </div>
-  </footer>
+    </header>
 
-  <script src="../assets/js/main.js" defer></script>
-</body>
+    <!-- MAIN -->
+    <main id="main">
+      <section class="hero">
+        <div class="container">
+          <p class="kicker">Guides</p>
+          <h1 class="h1">Practical identity guidance</h1>
+          <p class="lede">
+            Short, direct guidance prioritizing operational reality: recovery, reset, break-glass,
+            session risk, and implementation order.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">Foundations</h2>
+            <p class="subtle">Start here if you’re aligning a team, preparing a rollout, or setting policy.</p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <h3 class="h3">Passkeys: a pragmatic guide</h3>
+              <p class="card-text">
+                What passkeys solve, where they don’t, and how to roll them out without breaking recovery.
+              </p>
+              <a class="card-link" href="/articles/passkeys-pragmatic-guide.html">Read →</a>
+            </article>
+
+            <article class="card">
+              <h3 class="h3">MFA rollout checklist</h3>
+              <p class="card-text">
+                A rollout sequence that accounts for admins, helpdesk reset, exceptions, and device loss.
+              </p>
+              <a class="card-link" href="/articles/mfa-rollout-checklist.html">Read →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">Failure modes &amp; threats</h2>
+            <p class="subtle">If you’ve already deployed controls, this is where the real problems show up.</p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <h3 class="h3">MFA fatigue, SIM swap, session hijack</h3>
+              <p class="card-text">
+                A practical map of common takeover paths and the controls that actually change outcomes.
+              </p>
+              <a class="card-link" href="/articles/mfa-fatigue-sim-swap-session-theft.html">Read →</a>
+            </article>
+
+            <article class="card">
+              <h3 class="h3">SSO for SMB: when it helps</h3>
+              <p class="card-text">
+                How to decide if SSO is worth it, where it reduces risk, and the operational prerequisites.
+              </p>
+              <a class="card-link" href="/articles/sso-for-smb.html">Read →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="h2">Comparisons &amp; decision support</h2>
+            <p class="subtle">Use these when you’re choosing approaches or vendor categories.</p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <h3 class="h3">IAM vs CIAM vs PAM</h3>
+              <p class="card-text">
+                What each is responsible for, where they overlap, and how teams get it wrong in practice.
+              </p>
+              <a class="card-link" href="/articles/iam-vs-ciam-vs-pam.html">Read →</a>
+            </article>
+
+            <article class="card">
+              <h3 class="h3">Vendor comparison rubric</h3>
+              <p class="card-text">
+                A non-marketing rubric: recovery, admin controls, policy expressiveness, logging, and outage behavior.
+              </p>
+              <a class="card-link" href="/articles/vendor-comparison-rubric.html">Read →</a>
+            </article>
+          </div>
+
+          <div class="callout">
+            <p class="callout-title">Editorial note</p>
+            <p class="callout-text">
+              We focus on failure modes and operational reality first. Product selection comes second.
+              See <a href="/disclosure.html">Disclosure</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="footer-left">© <span id="year"></span> Authentica.</p>
+        <p class="footer-right">
+          Some outbound links may be referral links. See <a href="/disclosure.html">Disclosure</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
