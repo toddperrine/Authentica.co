@@ -1,145 +1,116 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Disclosure — Authentica</title>
-  <meta name="description" content="Disclosure and editorial ethics for Authentica, including referral links and vendor neutrality principles." />
+    <title>Disclosure — Authentica</title>
+    <meta
+      name="description"
+      content="Authentica’s disclosure and editorial independence policy, including how referral links work and what vendor-neutral means in practice."
+    />
 
-  <link rel="stylesheet" href="assets/css/styles.css" />
+    <meta property="og:title" content="Disclosure — Authentica" />
+    <meta
+      property="og:description"
+      content="Disclosure and editorial independence: referral links, vendor-neutral approach, and contact guidance."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://authentica.co/disclosure.html" />
 
-  <style>
-    :root{
-      --bg:#F8FAFC;
-      --card:#FFFFFF;
-      --text:#0F172A;
-      --text-muted:#475569;
-      --border:#E2E8F0;
-      --accent:#2563EB;
-      --accent-hover:#1D4ED8;
-      --shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
-    }
-    body{
-      background:var(--bg);
-      color:var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      line-height:1.65;
-    }
-    a{ color:var(--accent); text-decoration:none; }
-    a:hover{ color:var(--accent-hover); text-decoration:underline; text-underline-offset: 3px; }
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0b0c0f" />
 
-    .skip{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
-    .skip:focus{
-      left:16px; top:16px; width:auto; height:auto; padding:10px 12px;
-      background:#fff; border:1px solid var(--border); border-radius:8px; z-index:9999;
-    }
+    <link rel="stylesheet" href="/assets/site.css" />
+  </head>
 
-    .container{ max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    .header{ background:#fff; border-bottom:1px solid var(--border); box-shadow: var(--shadow); }
-    .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; }
-    .brand{ display:flex; align-items:center; gap:12px; min-width: 210px; }
-    .brand img{ height: 26px; width:auto; display:block; }
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/index.html" aria-label="Authentica home">
+          <img src="/assets/brandmark.svg" alt="" class="brand-mark-img" aria-hidden="true" />
+          <span class="brand-name">Authentica</span>
+        </a>
 
-    .nav{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; justify-content:flex-end; }
-    .nav a{ color: var(--text-muted); font-weight: 500; font-size: 14px; padding: 6px 2px; }
-    .nav a:hover{ color: var(--text); text-decoration:none; }
-    .nav a.active{ color: var(--text); border-bottom: 2px solid var(--accent); padding-bottom: 4px; }
-
-    .kicker{ color: var(--text-muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; margin: 28px 0 10px; }
-    h1{ font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 10px; }
-    .lede{ color: var(--text-muted); font-size: 16px; max-width: 75ch; margin: 0 0 18px; }
-
-    .card{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 18px;
-      margin: 14px 0;
-    }
-    .card h2{ margin: 0 0 10px; font-size: 16px; letter-spacing:-0.01em; }
-    .card p{ margin: 10px 0; color: var(--text-muted); }
-    .card ul{ margin: 10px 0; padding-left: 18px; color: var(--text-muted); }
-    .card li{ margin: 7px 0; }
-
-    .footer{
-      border-top: 1px solid var(--border);
-      background: #fff;
-      padding: 16px 0;
-      color: var(--text-muted);
-      font-size: 13px;
-      margin-top: 32px;
-    }
-    .footer a{ color: var(--accent); }
-  </style>
-</head>
-
-<body>
-  <a class="skip" href="#content">Skip to content</a>
-
-  <header class="header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Authentica home">
-        <img src="Authentico-Logo.svg" alt="Authentica" />
-      </a>
-
-      <nav class="nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="services.html">Vendors &amp; Tools</a>
-        <a href="articles.html">Guides</a>
-        <a href="about.html">About</a>
-        <a class="active" href="disclosure.html">Disclosure</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="content" class="container">
-    <div class="kicker">Disclosure</div>
-    <h1>Disclosure &amp; editorial independence</h1>
-    <p class="lede">
-      Authentica aims to be vendor-neutral. This page explains how outbound links work and what “neutral” means in practice.
-    </p>
-
-    <section class="card">
-      <h2>Referral links</h2>
-      <p>
-        Some outbound links on Authentica may be referral or affiliate links. If you click a referral link and later purchase,
-        Authentica may receive compensation from the vendor at no additional cost to you.
-      </p>
-      <ul>
-        <li>Referral links are optional and do not affect which vendor categories are recommended.</li>
-        <li>We do not accept payment in exchange for a specific ranking or recommendation.</li>
-        <li>When we mention vendors, we aim to list alternatives and explain tradeoffs.</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>What “vendor-neutral” means here</h2>
-      <ul>
-        <li>We start with failure modes (how accounts actually get compromised), then map controls to those risks.</li>
-        <li>We separate vendor category guidance (e.g., MFA vs PAM) from product selection.</li>
-        <li>We prioritize operational reality: recovery, helpdesk reset, break-glass, outages, and exceptions.</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Contact</h2>
-      <p>
-        If you believe a page is inaccurate or misleading, send a note with the specific claim and a source.
-        (Add a contact method when ready—email, form, or GitHub issues.)
-      </p>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div>
-        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="disclosure.html">Disclosure</a>.
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="nav-link" href="/index.html">Home</a>
+          <a class="nav-link" href="/services.html">Vendors &amp; Tools</a>
+          <a class="nav-link" href="/articles.html">Guides</a>
+          <a class="nav-link" href="/about.html">About</a>
+          <a class="nav-link is-active" href="/disclosure.html">Disclosure</a>
+        </nav>
       </div>
-    </div>
-  </footer>
+    </header>
 
-  <script src="assets/js/main.js" defer></script>
-</body>
+    <main id="main">
+      <section class="hero hero-compact">
+        <div class="container">
+          <p class="kicker">Disclosure</p>
+          <h1 class="h1">Disclosure &amp; editorial independence</h1>
+          <p class="lede">
+            Authentica aims to be vendor-neutral. This page explains how outbound links work and what “neutral”
+            means in practice.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="grid grid-1">
+            <div class="callout">
+              <p class="callout-title">Referral links</p>
+              <p class="callout-text">
+                Some outbound links on Authentica may be referral or affiliate links. If you click a referral link and
+                later purchase, Authentica may receive compensation from the vendor at no additional cost to you.
+              </p>
+              <ul class="list" style="margin-top: 12px;">
+                <li>Referral links are optional and do not affect which vendor categories are recommended.</li>
+                <li>We do not accept payment in exchange for a specific ranking or recommendation.</li>
+                <li>When we mention vendors, we aim to list alternatives and explain tradeoffs.</li>
+              </ul>
+            </div>
+
+            <div class="callout">
+              <p class="callout-title">What “vendor-neutral” means here</p>
+              <ul class="list">
+                <li>
+                  We start with failure modes (how accounts actually get compromised), then map controls to those risks.
+                </li>
+                <li>We separate vendor category guidance (e.g., MFA vs PAM) from product selection.</li>
+                <li>
+                  We prioritize operational reality: recovery, helpdesk reset, break-glass, outages, and exceptions.
+                </li>
+              </ul>
+            </div>
+
+            <div class="callout">
+              <p class="callout-title">Contact</p>
+              <p class="callout-text">
+                If you believe a page is inaccurate or misleading, send a note with the specific claim and a source.
+                <span class="muted">(Add a contact method when ready—email, form, or GitHub issues.)</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="footer-left">© <span id="year"></span> Authentica.</p>
+        <p class="footer-right">
+          Some outbound links may be referral links. See <a href="/disclosure.html">Disclosure</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
