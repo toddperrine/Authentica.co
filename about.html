@@ -1,69 +1,100 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>About — Authentica</title>
-  <meta name="description" content="About Authentica: a compact, practical guide to authentication (MFA/SSO/IAM/passkeys) with neutral, vendor-aware guidance." />
+    <title>About — Authentica</title>
+    <meta
+      name="description"
+      content="Authentica is a small reference site focused on authentication and identity: MFA, SSO, IAM, CIAM, passkeys, and the tradeoffs that matter in real deployments."
+    />
 
-  <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
+    <meta property="og:title" content="About — Authentica" />
+    <meta
+      property="og:description"
+      content="A small reference site focused on authentication and identity: MFA, SSO, IAM, CIAM, passkeys, and real-world tradeoffs."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://authentica.co/about.html" />
 
-<body>
-  <a class="skip" href="#content">Skip to content</a>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0b0c0f" />
 
-  <header class="header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Authentica home">
-        <img src="Authentico-Logo.svg" alt="Authentica" class="brand-logo" width="200" height="34" loading="eager" />
-      </a>
+    <link rel="stylesheet" href="/assets/site.css" />
+  </head>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="services.html">Vendors &amp; Tools</a>
-        <a href="articles.html">Guides</a>
-        <a class="active" href="about.html">About</a>
-        <a href="disclosure.html">Disclosure</a>
-      </nav>
-    </div>
-  </header>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-  <main id="content" class="container">
-    <div class="kicker">About</div>
-    <h1>What Authentica is</h1>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/index.html" aria-label="Authentica home">
+          <img src="/assets/brandmark.svg" alt="" class="brand-mark-img" aria-hidden="true" />
+          <span class="brand-name">Authentica</span>
+        </a>
 
-    <p class="lede">
-      Authentica is a small reference site focused on <strong>authentication</strong> and <strong>identity</strong>:
-      MFA, SSO, IAM, CIAM, passkeys, and the tradeoffs that matter in real deployments.
-    </p>
-
-    <h2>What this site is for</h2>
-    <ul>
-      <li>Clarify terminology (so teams stop talking past each other).</li>
-      <li>Highlight failure modes (what breaks after rollout).</li>
-      <li>Map vendor categories and decision criteria.</li>
-    </ul>
-
-    <h2>What this site is not</h2>
-    <p>
-      Authentica does not sell authentication software, perform audits, or provide security consulting.
-      It exists to clarify terms, tradeoffs, and vendor categories so teams can make better decisions.
-    </p>
-
-    <p class="small">
-      For referral disclosures and editorial policy, see <a href="disclosure.html">Disclosure</a>.
-    </p>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="small">
-        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="disclosure.html">Disclosure</a>.
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="nav-link" href="/index.html">Home</a>
+          <a class="nav-link" href="/services.html">Vendors &amp; Tools</a>
+          <a class="nav-link" href="/articles.html">Guides</a>
+          <a class="nav-link is-active" href="/about.html">About</a>
+          <a class="nav-link" href="/disclosure.html">Disclosure</a>
+        </nav>
       </div>
-    </div>
-  </footer>
+    </header>
 
-  <script src="assets/js/main.js" defer></script>
-</body>
+    <main id="main">
+      <section class="hero hero-compact">
+        <div class="container">
+          <p class="kicker">About</p>
+          <h1 class="h1">What Authentica is</h1>
+          <p class="lede">
+            Authentica is a small reference site focused on <strong>authentication</strong> and <strong>identity</strong>:
+            MFA, SSO, IAM, CIAM, passkeys, and the tradeoffs that matter in real deployments.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="callout">
+            <p class="callout-title">What this site is for</p>
+            <ul class="list">
+              <li>Clarify terminology (so teams stop talking past each other).</li>
+              <li>Highlight failure modes (what breaks after rollout).</li>
+              <li>Map vendor categories and decision criteria.</li>
+            </ul>
+          </div>
+
+          <div class="callout">
+            <p class="callout-title">What this site is not</p>
+            <p class="callout-text">
+              Authentica does not sell authentication software, perform audits, or provide security consulting.
+              It exists to clarify terms, tradeoffs, and vendor categories so teams can make better decisions.
+            </p>
+            <p class="subtle" style="margin-top: 10px;">
+              For referral disclosures and editorial policy, see <a href="/disclosure.html">Disclosure</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="footer-left">© <span id="year"></span> Authentica.</p>
+        <p class="footer-right">
+          Some outbound links may be referral links. See <a href="/disclosure.html">Disclosure</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
