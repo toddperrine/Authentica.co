@@ -1,135 +1,141 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>MFA rollout checklist — Authentica</title>
-  <meta name="description" content="A practical checklist to roll out MFA without breaking access, including enrollment, recovery, exceptions, and enforcement." />
+    <title>MFA rollout checklist — Authentica</title>
+    <meta
+      name="description"
+      content="A practical MFA rollout checklist that accounts for enrollment, recovery, enforcement, and operational readiness."
+    />
 
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-</head>
+    <meta property="og:title" content="MFA rollout checklist — Authentica" />
+    <meta
+      property="og:description"
+      content="MFA is a control, not a magic spell. Rollout fails when enrollment, recovery, and enforcement are afterthoughts."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://authentica.co/articles/mfa-rollout-checklist.html" />
 
-<body>
-  <a class="skip" href="#content">Skip to content</a>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0b0c0f" />
 
-  <header class="header">
-    <div class="container header-inner">
-      <a class="brand" href="../index.html" aria-label="Authentica home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-name">Authentica</span>
-      </a>
+    <link rel="stylesheet" href="/assets/site.css" />
+  </head>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="../services.html">Vendors &amp; Tools</a>
-        <a class="active" href="../articles.html">Guides</a>
-        <a href="../about.html">About</a>
-        <a href="../disclosure.html">Disclosure</a>
-      </nav>
-    </div>
-  </header>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-  <main id="content" class="container">
-    <div class="kicker">Guide</div>
-    <h1>MFA rollout checklist</h1>
-    <p class="lede">
-      MFA is a control, not a magic spell. The rollout fails when enrollment, recovery, and enforcement are treated as afterthoughts.
-      Use this checklist to deploy MFA with minimal disruption.
-    </p>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/index.html" aria-label="Authentica home">
+          <img src="/assets/brandmark.svg" alt="" class="brand-mark-img" aria-hidden="true" />
+          <span class="brand-name">Authentica</span>
+        </a>
 
-    <section class="card">
-      <h2 style="margin:0 0 8px;">1) Define your threat model</h2>
-      <ul class="clean">
-        <li>What are you defending against: phishing, SIM swap, credential stuffing, session theft, insider risk?</li>
-        <li>Which users/actions need higher assurance: finance, admins, production access, payroll, customer data exports?</li>
-        <li>What “phishing resistant” means for you: passkeys/WebAuthn or FIDO2 keys for critical roles.</li>
-      </ul>
-    </section>
-
-    <h2>2) Decide your MFA policy (simple, enforceable)</h2>
-    <div class="card">
-      <ul class="clean">
-        <li><strong>Baseline:</strong> MFA required for all users.</li>
-        <li><strong>Step-up:</strong> higher assurance for high-risk actions (admin, financial transfers, policy changes).</li>
-        <li><strong>Recovery:</strong> documented and testable (not “email the admin”).</li>
-        <li><strong>Exceptions:</strong> time-bound, tracked, and reviewed monthly.</li>
-      </ul>
-      <p class="small" style="margin-top:10px;">
-        If you can’t enforce it automatically, it isn’t policy—it’s advice.
-      </p>
-    </div>
-
-    <h2>3) Enrollment plan</h2>
-    <div class="grid two">
-      <section class="card">
-        <h3 style="margin:0;">Enrollment UX</h3>
-        <ul class="clean">
-          <li>Make enrollment the first login experience during a “soft launch” period.</li>
-          <li>Offer 2–3 methods (e.g., authenticator app + passkey/security key + backup codes).</li>
-          <li>Explain why in one paragraph: risk reduction + what changes for the user.</li>
-        </ul>
-      </section>
-      <section class="card">
-        <h3 style="margin:0;">Support readiness</h3>
-        <ul class="clean">
-          <li>Prepare helpdesk scripts for device loss and new phone setup.</li>
-          <li>Define identity proof for resets (manager approval? HRIS match? video?).</li>
-          <li>Set a “break-glass” admin process with audit trails.</li>
-        </ul>
-      </section>
-    </div>
-
-    <h2>4) Recovery and account rescue (the hidden failure mode)</h2>
-    <div class="card">
-      <ul class="clean">
-        <li>Require users to set backup methods at enrollment.</li>
-        <li>Backups must not be the same channel as the primary factor (avoid SMS-only programs).</li>
-        <li>Test recovery: simulate lost device, expired phone, locked authenticator, travel/no signal.</li>
-      </ul>
-    </div>
-
-    <h2>5) Enforcement rollout (phased)</h2>
-    <div class="card">
-      <ul class="clean">
-        <li><strong>Phase 0:</strong> visibility only (measure who would fail).</li>
-        <li><strong>Phase 1:</strong> enforce for admins + high-risk roles.</li>
-        <li><strong>Phase 2:</strong> enforce for all users with grace periods.</li>
-        <li><strong>Phase 3:</strong> tighten: block legacy auth, require phishing-resistant for critical actions.</li>
-      </ul>
-    </div>
-
-    <h2>6) Instrumentation</h2>
-    <div class="card">
-      <ul class="clean">
-        <li>Track enrollment completion rate, recovery volume, lockouts, and bypass exceptions.</li>
-        <li>Monitor attack signals (impossible travel, unfamiliar device, repeated push prompts).</li>
-        <li>Review “break-glass” usage monthly.</li>
-      </ul>
-    </div>
-
-    <div class="hr"></div>
-
-    <section class="card">
-      <h2 style="margin:0 0 8px;">Related</h2>
-      <ul class="clean">
-        <li><a href="mfa-fatigue-sim-swap-session-theft.html">Modern attack patterns: MFA fatigue, SIM swap, session theft</a></li>
-        <li><a href="passkeys-pragmatic-guide.html">Passkeys: a pragmatic guide</a></li>
-      </ul>
-      <div style="margin-top:12px;">
-        <a class="button" href="../articles.html">Back to Guides →</a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="nav-link" href="/index.html">Home</a>
+          <a class="nav-link" href="/services.html">Vendors &amp; Tools</a>
+          <a class="nav-link is-active" href="/articles.html">Guides</a>
+          <a class="nav-link" href="/about.html">About</a>
+          <a class="nav-link" href="/disclosure.html">Disclosure</a>
+        </nav>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="small">
-        © <span data-year></span> Authentica. Some outbound links may be referral links. See <a href="../disclosure.html">Disclosure</a>.
+    <main id="main">
+      <section class="hero hero-compact">
+        <div class="container">
+          <p class="kicker">Guide</p>
+          <h1 class="h1">MFA rollout checklist</h1>
+          <p class="lede">
+            MFA is a control, not a magic spell. The rollout fails when enrollment, recovery, and enforcement are treated as afterthoughts.
+            Use this checklist to deploy MFA with minimal disruption.
+          </p>
+
+          <div class="meta-row">
+            <a class="btn btn-secondary" href="/articles.html">Back to Guides</a>
+            <a class="btn btn-primary" href="/articles/passkeys-pragmatic-guide.html">Passkeys guide</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="callout">
+            <p class="callout-title">1) Define your threat model</p>
+            <ul class="list">
+              <li>What are you defending against: phishing, SIM swap, credential stuffing, session theft, insider risk?</li>
+              <li>Which users/actions need higher assurance: finance, admins, production access, payroll, customer data exports?</li>
+              <li>What “phishing resistant” means for you: passkeys/WebAuthn or FIDO2 keys for critical roles.</li>
+            </ul>
+          </div>
+
+          <div class="callout">
+            <p class="callout-title">2) Decide your MFA policy (simple, enforceable)</p>
+            <ul class="list">
+              <li><strong>Baseline:</strong> MFA required for all users.</li>
+              <li><strong>Step-up:</strong> higher assurance for high-risk actions (admin, financial transfers, policy changes).</li>
+              <li><strong>Recovery:</strong> documented and testable (not “email the admin”).</li>
+              <li><strong>Exceptions:</strong> time-bound, tracked, and reviewed monthly.</li>
+            </ul>
+            <p class="subtle" style="margin-top: 10px;">
+              If you can’t enforce it automatically, it isn’t policy—it’s advice.
+            </p>
+          </div>
+
+          <div class="section-head">
+            <h2 class="h2">3) Enrollment plan</h2>
+            <p class="subtle">Make enrollment low-friction while avoiding weak fallback paths.</p>
+          </div>
+
+          <div class="cards">
+            <article class="card">
+              <h3 class="h3">Enrollment UX</h3>
+              <ul class="list">
+                <li>Make enrollment the first login experience during a “soft launch” period.</li>
+                <li>Offer 2–3 methods (e.g., authenticator app + passkey/security key + backup codes).</li>
+                <li>Explain why in one paragraph: risk reduction + what changes day-to-day.</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3 class="h3">Support readiness</h3>
+              <ul class="list">
+                <li>Prepare helpdesk scripts for device loss and new phone setup.</li>
+                <li>Define identity proof for resets (manager approval? HRIS match? video?).</li>
+                <li>Set a “break-glass” admin process with audit trails.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="callout">
+            <p class="callout-title">Related</p>
+            <p class="callout-text">
+              <a href="/articles/mfa-fatigue-sim-swap-session-theft.html">Modern attack patterns</a> ·
+              <a href="/articles/vendor-comparison-rubric.html">Vendor comparison rubric</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="footer-left">© <span id="year"></span> Authentica.</p>
+        <p class="footer-right">
+          Some outbound links may be referral links. See <a href="/disclosure.html">Disclosure</a>.
+        </p>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="../assets/js/main.js" defer></script>
-</body>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
+
